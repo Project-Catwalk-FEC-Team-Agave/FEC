@@ -33,7 +33,8 @@ npm start
 
 ## Team Members
 
-#Erin Grisham
+## Erin Grisham
+
 GitHub Handle: @eringrisham
 
 LinkedIn: linkedin.com/in/erin-grisham/
