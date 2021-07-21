@@ -32,7 +32,10 @@ npm start
 ## Usage
 
 ## Team Members
+
 Erin Grisham
+GitHub Handle: @eringrisham
+LinkedIn: linkedin.com/in/erin-grisham/
 
 
 ### Thomas Wu:
