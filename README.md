@@ -35,8 +35,9 @@ npm start
 Erin Grisham
 
 
-Thomas Wu:
+### Thomas Wu:
 Github Handle: @twu95
+
 [LinkedIn] (https://www.linkedin.com/in/thomaswuberkeley/)
 
 
