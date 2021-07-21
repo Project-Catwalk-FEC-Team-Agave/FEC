@@ -1,0 +1,44 @@
+{
+  "name": "project-catwalk-fec",
+  "version": "1.0.0",
+  "description": "Team Agave's Front-End Capstone",
+  "main": "index.js",
+  "scripts": {
+    "test": "test",
+    "start": "nodemon server.js -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Project-Catwalk-FEC-Team-Agave/FEC.git"
+  },
+  "author": "Erin Grisham, Polina Chebanenko, Tommy Wu, Cam Boucher",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Project-Catwalk-FEC-Team-Agave/FEC/issues"
+  },
+  "homepage": "https://github.com/Project-Catwalk-FEC-Team-Agave/FEC#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.14.8",
+    "@babel/core": "^7.14.8",
+    "@babel/preset-env": "^7.14.8",
+    "@babel/preset-react": "^7.14.5",
+    "babel-loader": "^8.2.2",
+    "css-loader": "^6.2.0",
+    "eslint": "^7.31.0",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "nodemon": "^2.0.12",
+    "webpack": "^5.45.1",
+    "webpack-cli": "^4.7.2"
+  },
+  "dependencies": {
+    "@material-ui/core": "^4.12.2",
+    "axios": "^0.21.1",
+    "bootstrap": "^5.0.2",
+    "d3": "^7.0.0",
+    "express": "^4.17.1",
+    "jquery": "^3.6.0",
+    "react": "^17.0.2",
+    "react-bootstrap": "^2.0.0-beta.4",
+    "react-dom": "^17.0.2"
+  }
+}
