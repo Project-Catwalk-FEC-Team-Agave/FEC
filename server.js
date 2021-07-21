@@ -1,6 +1,5 @@
 const express = require('express');
 const path = require('path');
-const parse = require('body-parser');
 
 
 const app = express();
@@ -11,7 +10,7 @@ const port = 6969;
 
 // Middleware
 let loggerRequest = (req, res, next) => {
-  console.log(`Requset for ${req.method}`);
+  console.log(`Request for ${req.method}`);
   next();
 }
 
