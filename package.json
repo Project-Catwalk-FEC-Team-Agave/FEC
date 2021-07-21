@@ -4,8 +4,8 @@
   "description": "Team Agave's Front-End Capstone",
   "main": "index.js",
   "scripts": {
-    "test": "test",
-    "start": "nodemon server.js -w"
+    "start": "nodemon server.js -w",
+    "build:dev": "webpack -w"
   },
   "repository": {
     "type": "git",
@@ -32,6 +32,7 @@
   },
   "dependencies": {
     "@material-ui/core": "^4.12.2",
+    "@material-ui/lab": "^4.0.0-alpha.60",
     "axios": "^0.21.1",
     "bootstrap": "^5.0.2",
     "c3": "^0.7.20",
