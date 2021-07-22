@@ -9,6 +9,12 @@ class YourOutfitCarousel extends React.Component {
     }
   }
 
+	conponentDidMount() {
+    this.setState({
+
+    })
+  }
+
   render() {
     return (
       <>
