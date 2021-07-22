@@ -7,6 +7,26 @@ import Related from './components/Related Items/related.jsx';
 import Reviews from './components/Reviews/reviews.jsx'
 
 ReactDOM.render(
-  <App />,
+  <Reviews />,
   document.getElementById('app')
 )
+
+// ReactDOM.render(
+//   <Overview />,
+//   document.getElementById('app')
+// )
+
+// ReactDOM.render(
+//   <Related />,
+//   document.getElementById('app')
+// )
+
+// ReactDOM.render(
+//   <Reviews />,
+//   document.getElementById('app')
+// )
+
+// ReactDOM.render(
+//   <QA />,
+//   document.getElementById('app')
+// )
