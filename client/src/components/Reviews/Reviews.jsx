@@ -1,6 +1,5 @@
 import React from 'react';
-import ReviewTile from './ReviewsList/ReviewTile/ReviewTile.jsx';
-import SortReviews from './ReviewsList/SortReviewsButton.jsx';
+import ReviewsList from './ReviewsList/ReviewsList.jsx';
 import RatingsBreakdown from './RatingsBreakdown/RatingsBreakdown.jsx';
 
 class Reviews extends React.Component {
