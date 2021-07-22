@@ -4,8 +4,8 @@
   "description": "Team Agave's Front-End Capstone",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon server.js -w",
-    "build:dev": "webpack -w"
+    "start": "npx nodemon server.js -w",
+    "build:dev": "webpack --mode=development -w"
   },
   "repository": {
     "type": "git",
