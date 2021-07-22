@@ -8,7 +8,7 @@ class Reviews extends React.Component {
   render() {
     return (
       <div>
-        Reviews and Ratings
+        <h3>Reviews and Ratings</h3>
         <div>
           <RatingsBreakdown/> <ReviewsList/>
         </div>

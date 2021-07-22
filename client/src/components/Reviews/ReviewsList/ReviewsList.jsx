@@ -13,11 +13,13 @@ class ReviewsList extends React.Component {
     return (
       <div>
         <SortReviews/>
+        <br></br>
+        <br></br>
         <ReviewsTile/>
+        <br></br>
         <ReviewsTile/>
-        <div>
-          <AddReviews/> <MoreReviews/>
-        </div>
+        <br></br>
+        <AddReviews/> <MoreReviews/>
       </div>
       )
   }

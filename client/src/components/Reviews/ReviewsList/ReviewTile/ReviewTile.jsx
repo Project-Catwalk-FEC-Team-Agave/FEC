@@ -6,8 +6,12 @@ class ReviewTile extends React.Component {
   render() {
     return (
       <div>
-        This is a review
+        <div>Stars Component ...... <em>Date</em></div>
+        <strong>Review Summary</strong>
+        <div>Review Body</div>
+        <picture>Will hold images here</picture>
       </div>
+
     )
   }
 
