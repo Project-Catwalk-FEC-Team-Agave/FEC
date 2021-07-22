@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function quarterRating(value) {
+export default function Stars(value) {
   const classes = useStyles();
 
   return (

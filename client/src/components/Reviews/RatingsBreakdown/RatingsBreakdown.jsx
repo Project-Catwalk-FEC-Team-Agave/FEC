@@ -1,14 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Stars from '../../Shared/stars.jsx';
 
-class RatingsBreakdown extends React.Component {
 
-  render() {
-    return (
-      <div>
-      </div>
-    )
-  }
-
+function RatingsBreakdown(props) {
+  return (
+    <div>
+      <Stars/>
+    </div>
+  )
 }
 
 export default RatingsBreakdown;

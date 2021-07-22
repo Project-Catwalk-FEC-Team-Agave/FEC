@@ -1,20 +1,15 @@
 import React from 'react';
 
-class ReviewTile extends React.Component {
+function ReviewTile(props) {
 
-
-  render() {
-    return (
-      <div>
-        <div>Stars Component ...... <em>Date</em></div>
-        <strong>Review Summary</strong>
-        <div>Review Body</div>
-        <picture>Will hold images here</picture>
-      </div>
-
-    )
-  }
-
+  return (
+    <div>
+      <div>Stars Component ...... <em>Date</em></div>
+      <strong>Review Summary</strong>
+      <div>Review Body</div>
+      <picture>Will hold images here</picture>
+    </div>
+  )
 }
 
 export default ReviewTile;
