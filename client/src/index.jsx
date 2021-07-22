@@ -7,7 +7,7 @@ import Related from './components/Related Items/related.jsx';
 import Reviews from './components/Reviews/reviews.jsx'
 
 ReactDOM.render(
-  <Reviews />,
+  <App />,
   document.getElementById('app')
 )
 
