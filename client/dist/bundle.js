@@ -874,7 +874,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var _Shared_stars_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Shared/stars.jsx */ \"./client/src/components/Shared/stars.jsx\");\n\n\n\nfunction RatingsBreakdown(props) {\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Shared_stars_jsx__WEBPACK_IMPORTED_MODULE_1__.default, null));\n}\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (RatingsBreakdown);\n\n//# sourceURL=webpack://project-catwalk-fec/./client/src/components/Reviews/RatingsBreakdown/RatingsBreakdown.jsx?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var _Shared_stars_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Shared/stars.jsx */ \"./client/src/components/Shared/stars.jsx\");\n\n\n\nfunction RatingsBreakdown(props) {\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null, \"X.X      \", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Shared_stars_jsx__WEBPACK_IMPORTED_MODULE_1__.default, null), \"XX% of Buyers Recommend\");\n}\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (RatingsBreakdown);\n\n//# sourceURL=webpack://project-catwalk-fec/./client/src/components/Reviews/RatingsBreakdown/RatingsBreakdown.jsx?");
 
 /***/ }),
 
@@ -911,6 +911,28 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
+/***/ "./client/src/components/Reviews/ReviewsList/ReviewTile/ReviewImages.jsx":
+/*!*******************************************************************************!*\
+  !*** ./client/src/components/Reviews/ReviewsList/ReviewTile/ReviewImages.jsx ***!
+  \*******************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\n\nfunction Images(props) {\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"a\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"img\", {\n    width: \"50px\",\n    src: \"https://images.unsplash.com/photo-1501088430049-71c79fa3283e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80\"\n  }));\n}\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Images);\n\n//# sourceURL=webpack://project-catwalk-fec/./client/src/components/Reviews/ReviewsList/ReviewTile/ReviewImages.jsx?");
+
+/***/ }),
+
+/***/ "./client/src/components/Reviews/ReviewsList/ReviewTile/ReviewText.jsx":
+/*!*****************************************************************************!*\
+  !*** ./client/src/components/Reviews/ReviewsList/ReviewTile/ReviewText.jsx ***!
+  \*****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\n\nfunction Text(props) {\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"strong\", null, \"Review Summary\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null, \"Review Body Text\"));\n}\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Text);\n\n//# sourceURL=webpack://project-catwalk-fec/./client/src/components/Reviews/ReviewsList/ReviewTile/ReviewText.jsx?");
+
+/***/ }),
+
 /***/ "./client/src/components/Reviews/ReviewsList/ReviewTile/ReviewTile.jsx":
 /*!*****************************************************************************!*\
   !*** ./client/src/components/Reviews/ReviewsList/ReviewTile/ReviewTile.jsx ***!
@@ -918,7 +940,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\n\nfunction ReviewTile(props) {\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null, \"Stars Component ...... \", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"em\", null, \"Date\")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"strong\", null, \"Review Summary\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null, \"Review Body\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"picture\", null, \"Will hold images here\"));\n}\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ReviewTile);\n\n//# sourceURL=webpack://project-catwalk-fec/./client/src/components/Reviews/ReviewsList/ReviewTile/ReviewTile.jsx?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var _Shared_stars_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../Shared/stars.jsx */ \"./client/src/components/Shared/stars.jsx\");\n/* harmony import */ var _ReviewImages_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ReviewImages.jsx */ \"./client/src/components/Reviews/ReviewsList/ReviewTile/ReviewImages.jsx\");\n/* harmony import */ var _ReviewText_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ReviewText.jsx */ \"./client/src/components/Reviews/ReviewsList/ReviewTile/ReviewText.jsx\");\n\n\n\n\n\nfunction ReviewTile(props) {\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Shared_stars_jsx__WEBPACK_IMPORTED_MODULE_1__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"em\", null, \"Date\")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_ReviewText_jsx__WEBPACK_IMPORTED_MODULE_3__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"picture\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_ReviewImages_jsx__WEBPACK_IMPORTED_MODULE_2__.default, null)));\n}\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ReviewTile);\n\n//# sourceURL=webpack://project-catwalk-fec/./client/src/components/Reviews/ReviewsList/ReviewTile/ReviewTile.jsx?");
 
 /***/ }),
 
