@@ -4,12 +4,12 @@ import App from './components/App.jsx';
 import Overview from './components/Overview/overview.jsx';
 import QA from './components/questions/qa.jsx';
 import Related from './components/Related Items/related.jsx';
-import Reviews from './components/Reviews/reviews.jsx'
+import Reviews from './components/Reviews/Reviews.jsx'
 
-ReactDOM.render(
-  <App />,
-  document.getElementById('app')
-)
+// ReactDOM.render(
+//   <App />,
+//   document.getElementById('app')
+// )
 
 // ReactDOM.render(
 //   <Overview />,
@@ -21,10 +21,10 @@ ReactDOM.render(
 //   document.getElementById('app')
 // )
 
-// ReactDOM.render(
-//   <Reviews />,
-//   document.getElementById('app')
-// )
+ReactDOM.render(
+  <Reviews />,
+  document.getElementById('app')
+)
 
 // ReactDOM.render(
 //   <QA />,
