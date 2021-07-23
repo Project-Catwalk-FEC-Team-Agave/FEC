@@ -13,7 +13,7 @@ class RelatedProductsContainer extends React.Component {
     this.getRelatedProducts = this.getRelatedProducts.bind(this);
   }
 
-  conponentDidMount() {
+  componentDidMount() {
     this.setState({
 
     })
