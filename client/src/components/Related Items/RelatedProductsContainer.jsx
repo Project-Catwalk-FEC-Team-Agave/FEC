@@ -1,5 +1,7 @@
 import React from 'react';
 import axios from 'axios';
+import relatedProductsCarousel from './Related Products Carousel/relatedProductsCarousel.jsx';
+import YourOutfitCarousel from './Your OutFit Carousel/YourOutfitCarousel.jsx';
 
 class RelatedProductsContainer extends React.Component {
   constructor(props) {
@@ -9,6 +11,12 @@ class RelatedProductsContainer extends React.Component {
     }
 
     this.getRelatedProducts = this.getRelatedProducts.bind(this);
+  }
+
+  componentDidMount() {
+    this.setState({
+
+    })
   }
 
   getRelatedProducts(currentProductId) {
@@ -25,6 +33,7 @@ class RelatedProductsContainer extends React.Component {
 
 
   render() {
+    const { changeProduct, addOutfit, getProductInfo } = this.props;
     return (
       <>
       </>
