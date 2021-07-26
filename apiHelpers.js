@@ -1,25 +1,49 @@
 const axios = require('axios');
-const config = require('../config.js');
+const { TOKEN } = require('./config.js');
 
-const getRelatedProducts = (primaryProductID) => {
+const getAllProducts = () => {
 
+  var config = {
+		method: 'get',
+		url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/products',
+		headers: {
+			'Authorization': TOKEN
+		}
+	};
 
-
-  let options = {
-    url: `https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/products/${primaryProductID}/related`,
-    headers: {
-      'User-Agent': 'request',
-      'Authorization': `token ${config.TOKEN}`
-    }
-  };
-
-  //axios always returns a response object with a "data" property
-  return axios.get(options.url, options.headers)
-    .then(({ data }) => {
-
-		})
-    .catch(err => console.log('Error retrieving Related Products: ', err));
+	axios(config)
+	.then(({ data }) => {
+		console.log(JSON.stringify(data));
+		return data;
+	})
+	.catch(err => console.log('Error retrieving all products: ', err));
 
 }
 
-module.exports.getRelatedProducts = getRelatedProducts;
+const getRelatedProducts = (primaryProductID) => {
+
+  var config = {
+		method: 'get',
+		url: `https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/products/${primaryProductID}/related`,
+		headers: {
+			'Authorization': TOKEN
+		}
+	};
+
+	axios(config)
+	.then(({ data }) => {
+		console.log(JSON.stringify(data));
+		return data;
+	})
+	.catch(err => console.log('Error retrieving related products: ', err));
+
+}
+
+//TEST
+getAllProducts();
+getRelatedProducts(11001);
+
+module.exports = {
+	getAllProducts,
+	getRelatedProducts
+}

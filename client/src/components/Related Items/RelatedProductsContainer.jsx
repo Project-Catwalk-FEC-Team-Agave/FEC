@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import relatedProductsCarousel from './Related Products Carousel/relatedProductsCarousel.jsx';
 import YourOutfitCarousel from './Your OutFit Carousel/YourOutfitCarousel.jsx';
+import { getRelatedProducts } from '../../../../apiHelpers.js';
 
 class RelatedProductsContainer extends React.Component {
   constructor(props) {
@@ -34,8 +35,12 @@ class RelatedProductsContainer extends React.Component {
 
   render() {
     const { changeProduct, addOutfit, getProductInfo } = this.props;
+    console.log(changeProduct);
+    console.log(addOutfit);
+    console.log(getProductInfo);
     return (
       <>
+      <div>hellooooooo</div>
       </>
     );
   }
