@@ -33,6 +33,7 @@ class RelatedProductsContainer extends React.Component {
 
 
   render() {
+    const { changeProduct, addOutfit, getProductInfo } = this.props;
     return (
       <>
       </>
