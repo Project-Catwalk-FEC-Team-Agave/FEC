@@ -2,7 +2,7 @@ import React from 'react';
 import { Modal } from '@material-ui/core';
 //https://material-ui.com/components/modal/
 
-const comparisonModal = () => {
+const ComparisonModal = () => {
   return (
     <>
 
@@ -10,4 +10,4 @@ const comparisonModal = () => {
   );
 }
 
-export default comparisonModal;
+export default ComparisonModal;

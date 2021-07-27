@@ -1,11 +1,10 @@
 import React from 'react';
 import axios from 'axios';
-import RelatedProductsCarousel from './Related Products Carousel/relatedProductsCarousel.jsx';
+import RelatedProductsCarousel from './Related Products Carousel/RelatedProductsCarousel.jsx';
 import YourOutfitCarousel from './Your OutFit Carousel/YourOutfitCarousel.jsx';
 import { TOKEN } from '../../../../config.js';
-//import { getRelatedProducts } from '../../../../apiHelpers.js';
-
-//console.log(getRelatedProducts(11001));
+import stars from '.././Shared/stars.js';
+import sampleAllProducts from '../../../../sample_data/sampleAllProducts.js';
 
 class RelatedProductsContainer extends React.Component {
   constructor(props) {
@@ -52,8 +51,13 @@ class RelatedProductsContainer extends React.Component {
     return (
 
       <div className="related-products-container">
-        <RelatedProductsCarousel/>
-        <YourOutfitCarousel/>
+        <div>
+          <RelatedProductsCarousel stars={stars} sampleAllProducts={sampleAllProducts}/>
+        </div>
+        <div>
+          <YourOutfitCarousel/>
+        </div>
+
       </div>
     )
   }
