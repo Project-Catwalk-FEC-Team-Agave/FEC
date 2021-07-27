@@ -3,11 +3,14 @@ import c3 from 'c3';
 
 function ReviewsChart(props) {
 
+  var labels = Object.keys(ratings);
+  var data = Object.values(ratings);
+
   var chart = c3.generate({
     bindto: "#chart",
     data: {
         columns: [
-            ['ratings', 30, 200, 100, 400, 150, 250],
+            ['ratings', ...data],
         ],
         type: 'bar'
     },

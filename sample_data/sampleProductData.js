@@ -56,31 +56,36 @@ Sample Review Data (HTTP get request '/reviews?product_id=2')
 
 Sample Review Metadata (HTTP get request '/reviews/meta?product_id=2)
 {
-  "product_id": "2",
+  "product_id": "11001",
   "ratings": {
-    2: 1,
-    3: 1,
-    4: 2,
-    // ...
+    "0": "3",
+    "1": "4",
+    "2": "5",
+    "3": "39",
+    "4": "18",
+    "5": "28"
   },
   "recommended": {
-    0: 5
-    // ...
+    "false": "12",
+    "true": "85"
   },
   "characteristics": {
-    "Size": {
-      "id": 14,
-      "value": "4.0000"
+    "Fit": {
+      "id": 36825,
+      "value": "3.2340425531914894"
     },
-    "Width": {
-      "id": 15,
-      "value": "3.5000"
+    "Length": {
+      "id": 36826,
+      "value": "3.0425531914893617"
     },
     "Comfort": {
-      "id": 16,
-      "value": "4.0000"
+      "id": 36827,
+      "value": "3.4468085106382979"
     },
-    // ...
+    "Quality": {
+      "id": 36828,
+      "value": "3.6000000000000000"
+    }
+  }
 }
-
 */

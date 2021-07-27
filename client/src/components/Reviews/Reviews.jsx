@@ -2,14 +2,15 @@ import React, { useState, useEffect } from 'react';
 import ReviewsList from './ReviewsList/ReviewsList.jsx';
 import SummaryBreakdown from './RatingsBreakdown/SummaryBreakdown.jsx';
 
-function Reviews({id}) {
+function Reviews(props) {
 
+  const id = 11001; //placeholder - change when everything tied together
 
   return (
     <div>
       <h3>Reviews and Ratings</h3>
       <div>
-        <SummaryBreakdown/> <ReviewsList/>
+        <SummaryBreakdown id={id}/> <ReviewsList id={id}/>
       </div>
     </div>
   )

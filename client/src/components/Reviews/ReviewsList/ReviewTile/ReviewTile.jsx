@@ -12,7 +12,7 @@ function ReviewTile(props) {
       <div><Stars/><em>Date</em></div>
       <Text/>
       <picture><Images/></picture><br></br>
-      <HelpfulButton/><ReportButton/>
+      <HelpfulButton/>
     </div>
   )
 }
