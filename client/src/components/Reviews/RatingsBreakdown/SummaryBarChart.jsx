@@ -27,3 +27,5 @@ function ReviewsChart(props) {
 
 export default ReviewsChart;
 
+// Data passed in will be # of reviews with each rating 0-6 - can destructure
+

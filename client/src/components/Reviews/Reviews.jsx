@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ReviewsList from './ReviewsList/ReviewsList.jsx';
 import SummaryBreakdown from './RatingsBreakdown/SummaryBreakdown.jsx';
 
-function Reviews(props) {
+function Reviews({id}) {
+
 
   return (
     <div>
@@ -15,3 +16,5 @@ function Reviews(props) {
 }
 
 export default Reviews;
+
+//After merge need to move API calls into the correct file
