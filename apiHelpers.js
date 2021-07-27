@@ -11,7 +11,7 @@ const getAllProducts = () => {
 		}
 	};
 
-	axios(config)
+	return axios(config)
 	.then(({ data }) => {
 		console.log(JSON.stringify(data));
 		return data;
@@ -30,7 +30,7 @@ const getRelatedProducts = (primaryProductID) => {
 		}
 	};
 
-	axios(config)
+	return axios(config)
 	.then(({ data }) => {
 		console.log(JSON.stringify(data));
 		return data;
@@ -40,8 +40,8 @@ const getRelatedProducts = (primaryProductID) => {
 }
 
 //TEST
-getAllProducts();
-getRelatedProducts(11001);
+//getAllProducts();
+//getRelatedProducts(11001);
 
 module.exports = {
 	getAllProducts,

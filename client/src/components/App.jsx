@@ -73,7 +73,7 @@ class App extends React.Component {
 
 
     <div>
-      <Related changeProduct={this.changeProduct}  addOutfit={this.addOutfit} getProductInfo={this.getProductInfo}/>
+      <Related changeProduct={this.changeProduct}  addOutfit={this.addOutfit} getProductInfo={this.getProductInfo} primaryProductID={this.state.productId}/>
 
       <QA />
     </div>
