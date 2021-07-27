@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import ReviewsList from './ReviewsList/ReviewsList.jsx';
-import RatingsBreakdown from './RatingsBreakdown/RatingsBreakdown.jsx';
+import SummaryBreakdown from './RatingsBreakdown/SummaryBreakdown.jsx';
 
 function Reviews(props) {
 
@@ -8,7 +8,7 @@ function Reviews(props) {
     <div>
       <h3>Reviews and Ratings</h3>
       <div>
-        <RatingsBreakdown/> <ReviewsList/>
+        <SummaryBreakdown/> <ReviewsList/>
       </div>
     </div>
   )
