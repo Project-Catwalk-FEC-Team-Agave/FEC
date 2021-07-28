@@ -1,7 +1,7 @@
 import React from 'react';
 //https://material-ui.com/components/cards/
 
-const yourOutfitCard = () => {
+const YourOutfitCard = () => {
   return (
     <>
 
@@ -9,4 +9,4 @@ const yourOutfitCard = () => {
   );
 }
 
-export default yourOutfitCard;
+export default YourOutfitCard;
