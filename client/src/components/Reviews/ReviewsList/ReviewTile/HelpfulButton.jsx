@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import TOKEN from '../../../../../../config.js'
 
 function HelpfulButton({id}) {
 
@@ -7,7 +8,8 @@ function HelpfulButton({id}) {
 
   return(
     <div>Was this review helpful?
-      <button>Yes</button>COUNT<button>No</button>COUNT
+      <button onClick={markHelpful}>Yes</button>COUNT
+      <button onClick={markUnhelpful}>No</button>COUNT
     </div>
 
   )
@@ -20,15 +22,12 @@ export default HelpfulButton;
 
 const markHelpful = () => {
 
-  let headersList = {
-   "Accept": "*/*",
-   "Authorization": "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"
-  }
-
   let reqOptions = {
     url: `https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/reviews/${id}/helpful`,
     method: "PUT",
-    headers: headersList,
+    headers: {
+      "Authorization": TOKEN
+     },
   }
 
   axios.request(reqOptions)
@@ -39,6 +38,7 @@ const markHelpful = () => {
 }
 
 
-const markUnhelpful = () => {
+const markUnhelpful = (e) => {
+  e.preventDefault();
   changeSubmitted = true;
 }

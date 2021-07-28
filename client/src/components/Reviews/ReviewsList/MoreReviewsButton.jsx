@@ -12,8 +12,3 @@ const MoreReviews = (props) => {
 }
 
 export default MoreReviews;
-
-id
-sort
-currentPage
-getReviews

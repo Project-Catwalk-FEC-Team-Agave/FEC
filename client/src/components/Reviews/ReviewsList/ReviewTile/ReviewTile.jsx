@@ -1,17 +1,20 @@
 import React from 'react';
 import Stars from '../../../Shared/stars.jsx';
-import Images from './ReviewImages.jsx';
-import Text from './ReviewText.jsx';
+import Image from './ReviewImages.jsx';
 import HelpfulButton from './HelpfulButton.jsx';
-import ReportButton from './ReportButton.jsx';
 
 function ReviewTile(props) {
 
+  const {summary, body, date, rating, photos} = props.review
+
   return (
     <div>
-      <div><Stars/><em>Date</em></div>
-      <Text/>
-      <picture><Images/></picture><br></br>
+      <div><Stars value={rating}/><em>{date}</em></div>
+      <strong>{summary}</strong>
+      <div>{body}</div>
+      {photos.map((photo, i) => {
+        <picture><Image url={photo.url}/></picture>
+      })}
       <HelpfulButton/>
     </div>
   )

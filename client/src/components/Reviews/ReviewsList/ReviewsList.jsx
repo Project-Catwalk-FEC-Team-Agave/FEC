@@ -11,7 +11,7 @@ function ReviewsList ({id}) {
   const [sort, setSort] = useState('Relevant');
   const [totalReviews, setTotalReviews] = useState(0);
   const [currentPage, setCurrentPage] = useState(0);
-  const [reviews, setReviews] = useState({});
+  const [reviews, setReviews] = useState([1, 2, 4]);
 
   useEffect(() => {
     getReviews(id, sort, currentPage);
@@ -21,7 +21,7 @@ function ReviewsList ({id}) {
     <div>
       <SortReviews sort={setSort}/>
       {reviews.map((review, i) => {
-        <ReviewsTile review={review} key={i}/>
+        return <ReviewsTile review={review} key={i}/>
       })}
       <AddReview/>
       <MoreReviews id={id} sort={sort}
