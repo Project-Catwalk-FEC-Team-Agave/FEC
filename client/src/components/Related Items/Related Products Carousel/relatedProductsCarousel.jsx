@@ -1,18 +1,16 @@
 import React from 'react';
-import RelatedProductsCard from './Related Products Card/RelatedProductsCard.jsx';
+import RelatedProductsCard from './Related Products Card/relatedProductsCard.jsx';
 
-const RelatedProductsCarousel = ({ stars, sampleAllProducts }) => {
+const RelatedProductsCarousel = ({ Stars, sampleAllProducts }) => {
 
   return (
-    <>
 		<ul>
 			{sampleAllProducts.map((product, i) => (
 				<li key={i}>
-					<RelatedProductsCard stars={stars} product={product}/>
+					<RelatedProductsCard stars={Stars} product={product}/>
 				</li>
 			))}
 		</ul>
-    </>
   );
 }
 

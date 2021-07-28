@@ -1,9 +1,9 @@
 import React from 'react';
 import axios from 'axios';
-import RelatedProductsCarousel from './Related Products Carousel/RelatedProductsCarousel.jsx';
-import YourOutfitCarousel from './Your OutFit Carousel/YourOutfitCarousel.jsx';
-import { TOKEN } from '../../../../config.js';
-import stars from '.././Shared/stars.js';
+import RelatedProductsCarousel from './Related Products Carousel/relatedProductsCarousel.jsx';
+import YourOutfitCarousel from './Your Outfit Carousel/YourOutfitCarousel.jsx';
+import TOKEN from '../../../../config.js';
+import Stars from '.././Shared/stars.jsx';
 import sampleAllProducts from '../../../../sample_data/sampleAllProducts.js';
 
 class RelatedProductsContainer extends React.Component {

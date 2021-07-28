@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Stars from '../../Shared/stars.jsx';
 import ReviewsChart from './SummaryBarChart.jsx';
 import ProductDetails from './ProductDetails.jsx';
-
+const getReviewsMeta = require('../../../../../apiHelpers.js')
 
 function SummaryBreakdown({id}) {
 
@@ -17,15 +17,8 @@ function SummaryBreakdown({id}) {
       return Number(accumulator) + Number(rating)
     })
 
-  const getMetaData = (id) => {
-    let reqOptions = {
-      url: `https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/reviews/meta?product_id=${id}`,
-      method: "GET",
-      headers: {
-        "Authorization": "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"
-      }
-    }
-    axios.request(reqOptions)
+  const getMetaData = () => {
+    getReviewsMeta(id)
     .then((response) => {
       setRatings(response.ratings);
       var characteristics = [];
