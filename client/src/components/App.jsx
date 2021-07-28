@@ -1,8 +1,13 @@
 import React from 'react';
 import Overview from './Overview/overview.jsx';
 import QA from './questions/qa.jsx';
+<<<<<<< HEAD
 import Related from './Related Items/related.jsx';
 import stars from './Shared/stars.jsx';
+=======
+import Related from './Related Items/RelatedProductsContainer.jsx';
+import stars from './Shared/stars.js';
+>>>>>>> cbdbc8c2619adc493e9393cddd8b22f6c93452ac
 import sampleProductData from '../../../sample_data/sampleProductData.js';
 
 
@@ -73,7 +78,7 @@ class App extends React.Component {
 
 
     <div>
-      <Related changeProduct = {this.changeProduct}  addOutfit = {this.addOutfit} />
+      <Related changeProduct={this.changeProduct}  addOutfit={this.addOutfit} getProductInfo={this.getProductInfo} primaryProductID={this.state.productId}/>
 
       <QA />
     </div>
