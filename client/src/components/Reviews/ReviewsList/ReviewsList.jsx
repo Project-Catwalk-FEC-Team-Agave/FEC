@@ -9,13 +9,48 @@ import TOKEN from '../../../../../config.js'
 function ReviewsList ({id}) {
 
   const [sort, setSort] = useState('Relevant');
-  const [totalReviews, setTotalReviews] = useState(0);
-  const [currentPage, setCurrentPage] = useState(0);
-  const [reviews, setReviews] = useState([1, 2, 4]);
+  const [totalReviews, setTotalReviews] = useState(10);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [reviews, setReviews] = useState([[
+    {
+      review_id: 5,
+      rating: 3,
+      summary: "I'm enjoying wearing these shades",
+      recommend: false,
+      response: null,
+      body: "Comfortable and practical.",
+      date: "2019-04-14T00:00:00.000Z",
+      reviewer_name: "shortandsweeet",
+      helpfulness: 5,
+      photos: [{
+          id: 1,
+          url: "urlplaceholder/review_5_photo_number_1.jpg"
+        }
+      ]
+    }
+  ]]);
 
-  useEffect(() => {
-    getReviews(id, sort, currentPage);
-  })
+  const getReviews = (id, sort, page) => {
+    let reqOptions = {
+      url: `https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/reviews?product_id=${id}&page=${page}&sort=${sort}`,
+      method: "GET",
+      headers: {
+       "Authorization": TOKEN
+      }
+    }
+
+    axios.request(reqOptions)
+    .then((response) => {
+      setReviews(...reviews, response.results);
+      setTotalReviews(response.count);
+      setCurrentPage(currentPage + 1);
+    })
+    .catch(err => console.log(err))
+  }
+
+  // useEffect(() => {
+  //   getReviews(id, sort, currentPage);
+  // })
 
   return (
     <div>
@@ -33,21 +68,6 @@ function ReviewsList ({id}) {
 export default ReviewsList;
 
 //API for get reviews
-const getReviews = (id, sort, page) => {
-  let reqOptions = {
-    url: `https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/reviews?product_id=${id}&page=${page}&sort=${sort}`,
-    method: "GET",
-    headers: {
-     "Authorization": TOKEN
-    }
-  }
 
-  axios.request(reqOptions)
-  .then((response) => {
-    setReviews(...reviews, response.results);
-    setTotalReviews(response.count);
-    setCurrentPage(setReviewsDisplayed += 1);
-  })
-}
 
 

@@ -3,7 +3,7 @@ import React from 'react';
 function SortReviews({sort}) {
 
   return (
-    <select onSelect={(e) => {
+    <select onChange={(e) => {
       e.preventDefault();
       sort(e.target.value)
     }}>
