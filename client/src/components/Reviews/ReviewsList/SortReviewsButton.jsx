@@ -1,16 +1,17 @@
 import React from 'react';
 
-class SortReviews extends React.Component {
+function SortReviews({sort}) {
 
-  render() {
-    return (
-      <select>
-        <option>Helpful</option>
-        <option>Newest</option>
-        <option>Relevant</option>
-      </select>
-    )
-  }
+  return (
+    <select onSelect={(e) => {
+      e.preventDefault();
+      sort(e.target.value)
+    }}>
+      <option>Helpful</option>
+      <option>Newest</option>
+      <option>Relevant</option>
+    </select>
+  )
 }
 
 export default SortReviews;

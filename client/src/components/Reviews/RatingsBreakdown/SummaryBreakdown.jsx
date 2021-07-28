@@ -18,7 +18,15 @@ function SummaryBreakdown({id}) {
     })
 
   const getMetaData = () => {
-    getReviewsMeta(id)
+    reqOptions = {
+      url: `https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/reviews/meta?product_id=${productId}`,
+      method: "GET",
+      headers: {
+        "Authorization": TOKEN
+        }
+    }
+
+    axios.request(reqOptions)
     .then((response) => {
       setRatings(response.ratings);
       var characteristics = [];

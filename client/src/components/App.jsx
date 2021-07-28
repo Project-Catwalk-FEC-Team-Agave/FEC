@@ -14,7 +14,6 @@ class App extends React.Component {
       productId: 11001,
       favorites: [],
       productInfo: {}
-
     }
 
     this.getReviews = this.getReviews.bind(this);
