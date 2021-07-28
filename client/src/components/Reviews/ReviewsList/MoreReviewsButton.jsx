@@ -6,7 +6,7 @@ const MoreReviews = (props) => {
   return(
     <button onClick={(e) => {
       e.preventDefault();
-      getReviews(id, sort, currentPage + 1);
+      getReviews(id, sort, currentPage);
     }}> See More Reviews</button>
   )
 }

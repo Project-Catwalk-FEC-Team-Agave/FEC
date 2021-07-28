@@ -31,7 +31,6 @@ function SummaryBreakdown({id}) {
 
     axios.request(reqOptions)
     .then((response) => {
-      console.log(response.data)
       const {data} = response
       setRatings(data.ratings);
       var characteristics = [];

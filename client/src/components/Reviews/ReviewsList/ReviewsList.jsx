@@ -9,26 +9,9 @@ import TOKEN from '../../../../../config.js'
 function ReviewsList ({id}) {
 
   const [sort, setSort] = useState('Relevant');
-  const [totalReviews, setTotalReviews] = useState(10);
+  const [totalReviews, setTotalReviews] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
-  const [reviews, setReviews] = useState([[
-    {
-      review_id: 5,
-      rating: 3,
-      summary: "I'm enjoying wearing these shades",
-      recommend: false,
-      response: null,
-      body: "Comfortable and practical.",
-      date: "2019-04-14T00:00:00.000Z",
-      reviewer_name: "shortandsweeet",
-      helpfulness: 5,
-      photos: [{
-          id: 1,
-          url: "urlplaceholder/review_5_photo_number_1.jpg"
-        }
-      ]
-    }
-  ]]);
+  const [reviews, setReviews] = useState([]);
 
   const getReviews = (id, sort, page) => {
     let reqOptions = {
@@ -41,16 +24,21 @@ function ReviewsList ({id}) {
 
     axios.request(reqOptions)
     .then((response) => {
-      setReviews(...reviews, response.results);
-      setTotalReviews(response.count);
+      const {data} = response
+      console.log(data)
+
+      if (data.results.length) {
+        setReviews(...reviews, data.results);
+      }
+      setTotalReviews(data.count);
       setCurrentPage(currentPage + 1);
     })
     .catch(err => console.log(err))
   }
 
-  // useEffect(() => {
-  //   getReviews(id, sort, currentPage);
-  // })
+  useEffect(() => {
+    getReviews(id, sort, currentPage);
+  }, []);
 
   return (
     <div>
