@@ -2,7 +2,7 @@ import React from 'react';
 import Overview from './Overview/overview.jsx';
 import QA from './questions/qa.jsx';
 import Related from './Related Items/related.jsx';
-import stars from './Shared/stars.js';
+import stars from './Shared/stars.jsx';
 import sampleProductData from '../../../sample_data/sampleProductData.js';
 
 
