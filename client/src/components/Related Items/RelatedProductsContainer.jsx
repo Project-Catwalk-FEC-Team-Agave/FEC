@@ -5,6 +5,8 @@ import YourOutfitCarousel from './Your OutFit Carousel/YourOutfitCarousel.jsx';
 import { TOKEN } from '../../../../config.js';
 import stars from '.././Shared/stars.js';
 import sampleAllProducts from '../../../../sample_data/sampleAllProducts.js';
+import './styles.css';
+
 
 class RelatedProductsContainer extends React.Component {
   constructor(props) {
