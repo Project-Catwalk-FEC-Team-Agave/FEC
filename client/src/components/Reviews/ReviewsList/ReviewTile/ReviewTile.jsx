@@ -4,8 +4,8 @@ import Image from './ReviewImages.jsx';
 import HelpfulButton from './HelpfulButton.jsx';
 
 function ReviewTile(props) {
-
-  const {summary, body, date, rating, photos} = props.review
+//Still need to add in conditional for user recommended and response
+  const {summary, body, date, rating, photos, reviewer_name} = props.review
 
   if (photos) {
     return (
@@ -16,6 +16,7 @@ function ReviewTile(props) {
         {photos.map((photo, i) => {
           <picture><Image url={photo.url}/></picture>
         })}
+        {reviewer_name}
         <HelpfulButton/>
       </div>
     )
