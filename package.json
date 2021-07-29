@@ -4,8 +4,8 @@
   "description": "Team Agave's Front-End Capstone",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon server.js -w",
-    "build:dev": "webpack -w"
+    "start": "npx nodemon server.js -w",
+    "build:dev": "webpack --mode=development -w"
   },
   "repository": {
     "type": "git",
@@ -27,6 +27,7 @@
     "eslint": "^7.31.0",
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "nodemon": "^2.0.12",
+    "style-loader": "^3.2.1",
     "webpack": "^5.45.1",
     "webpack-cli": "^4.7.2"
   },
