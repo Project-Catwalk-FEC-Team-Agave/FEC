@@ -7,7 +7,6 @@ import stars from '.././Shared/stars.jsx';
 import sampleAllProducts from '../../../../sample_data/sampleAllProducts.js';
 import './styles.css';
 
-
 class RelatedProductsContainer extends React.Component {
   constructor(props) {
     super(props);
