@@ -18,7 +18,7 @@ class YourOutfitCarousel extends React.Component {
   render() {
     return (
       <>
-			Hiiiiiii
+
       </>
     );
   }

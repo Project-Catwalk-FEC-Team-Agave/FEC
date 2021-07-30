@@ -5,7 +5,7 @@ const RelatedProductsCarousel = ({ stars, sampleAllProducts }) => {
 
   return (
     <>
-		<ul>
+		<ul style={{ listStyleType: "none" }}>
 			{sampleAllProducts.map((product, i) => (
 				<li key={i}>
 					<RelatedProductsCard stars={stars} product={product}/>
