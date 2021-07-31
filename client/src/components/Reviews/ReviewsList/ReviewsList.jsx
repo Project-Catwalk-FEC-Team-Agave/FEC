@@ -8,7 +8,7 @@ import { TOKEN } from '../../../../../config.js'
 
 function ReviewsList ({id}) {
 
-  const [sort, setSort] = useState('Relevant');
+  const [sort, setSort] = useState('relevant');
   const [totalReviews, setTotalReviews] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
   const [reviews, setReviews] = useState([]);
@@ -25,6 +25,7 @@ function ReviewsList ({id}) {
     axios.request(reqOptions)
     .then((response) => {
       const {data} = response
+
       if (data.results.length) {
         setReviews(...reviews, data.results);
       }
@@ -40,7 +41,7 @@ function ReviewsList ({id}) {
 
   return (
     <div>
-      <SortReviews id={id} currentPage={currentPage} getReviews={getReviews}/>
+      <SortReviews sort={setSort}/>
       {reviews.map((review, i) => {
         return <ReviewTile review={review} key={i}/>
       })}

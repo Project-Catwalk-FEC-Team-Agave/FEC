@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import ReviewsList from './ReviewsList/ReviewsList.jsx';
 import SummaryBreakdown from './RatingsBreakdown/SummaryBreakdown.jsx';
+import AddReviewForm from './AddReviewForm/AddReviewForm.jsx';
 import Grid from '@material-ui/core/Grid';
 
 function Reviews(props) {
 
-  const id = 11004; //placeholder - change when everything tied together
+  const id = 11005  ; //placeholder - change when everything tied together
 
   return (
     <div>
@@ -20,6 +21,7 @@ function Reviews(props) {
           </Grid>
         </Grid>
       </div>
+      <AddReviewForm/>
     </div>
   )
 }

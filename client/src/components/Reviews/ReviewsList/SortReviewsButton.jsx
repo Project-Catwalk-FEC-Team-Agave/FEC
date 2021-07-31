@@ -1,15 +1,15 @@
 import React from 'react';
 
-function SortReviews(props) {
+function SortReviews({sort}) {
 
   return (
     <select onChange={(e) => {
       e.preventDefault();
-      props.getReviews(props.id, e.target.value, props.currentPage)
+      sort(e.target.value)
     }}>
-      <option>Helpful</option>
-      <option>Newest</option>
-      <option>Relevant</option>
+      <option value="helpful">Helpful</option>
+      <option value="newest">Newest</option>
+      <option value="relevant">Relevant</option>
     </select>
   )
 }
