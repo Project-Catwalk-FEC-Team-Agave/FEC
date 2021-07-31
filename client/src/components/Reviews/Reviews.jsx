@@ -5,14 +5,14 @@ import Grid from '@material-ui/core/Grid';
 
 function Reviews(props) {
 
-  const id = 11001; //placeholder - change when everything tied together
+  const id = 11004; //placeholder - change when everything tied together
 
   return (
     <div>
       <h3>Reviews and Ratings</h3>
       <div>
         <Grid container spacing={10}>
-          <Grid xs={6} item>
+          <Grid xs={3} item>
             <SummaryBreakdown id={id}/>
           </Grid>
           <Grid xs={6} item>

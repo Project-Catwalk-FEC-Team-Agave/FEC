@@ -6,7 +6,7 @@ import Rating from '@material-ui/lab/Rating';
 
 function ReviewTile(props) {
 //Still need to add in conditional for user recommended and response
-  const {summary, body, date, rating, photos, reviewer_name} = props.review
+  const {summary, body, date, rating, photos, reviewer_name, helpfulness, review_id} = props.review
 
   if (photos) {
     return (
@@ -21,7 +21,7 @@ function ReviewTile(props) {
           <picture><Image url={photo.url}/></picture>
         })}
         {reviewer_name}
-        <HelpfulButton/>
+        <HelpfulButton helpful={helpfulness} review_id={review_id}/>
       </div>
     )
   } else {
@@ -33,7 +33,7 @@ function ReviewTile(props) {
         </div>
         <strong>{summary}</strong>
         <div>{body}</div>
-        <HelpfulButton/>
+        <HelpfulButton helpful={helpfulness} review_id={review_id}/>
       </div>
     )
   }

@@ -55,6 +55,8 @@ function SummaryBreakdown({id}) {
       <br></br>
       <ReviewsChart ratings={ratings}/>
         {recommended}% of Buyers Recommend
+        <br></br>
+        <br></br>
       <ProductDetails characteristics={characteristics}/>
     </div>
   )
