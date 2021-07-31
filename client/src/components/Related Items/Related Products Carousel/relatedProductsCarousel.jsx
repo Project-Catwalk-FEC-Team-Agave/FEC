@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import RelatedProductsCard from './Related Products Card/RelatedProductsCard.jsx';
+import RelatedProductsCard from './Related Products Card/relatedProductsCard.jsx';
 import './styles.css';
 import Grid from '@material-ui/core/Grid';
 // import { ArrowBackIosIcon, ArrowForwardIosIcon } from '@material-ui/icons';

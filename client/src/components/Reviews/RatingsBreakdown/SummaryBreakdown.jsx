@@ -3,7 +3,7 @@ import axios from 'axios'
 import Stars from '../../Shared/stars.jsx';
 import ReviewsChart from './SummaryBarChart.jsx';
 import ProductDetails from './ProductDetails.jsx';
-import TOKEN from '../../../../../config.js'
+import { TOKEN } from '../../../../../config.js'
 
 function SummaryBreakdown({id}) {
 

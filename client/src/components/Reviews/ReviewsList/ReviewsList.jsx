@@ -4,7 +4,7 @@ import SortReviews from './SortReviewsButton.jsx';
 import AddReview from './AddReviewButton.jsx';
 import MoreReviews from './MoreReviewsButton.jsx';
 import ReviewsTile from './ReviewTile/ReviewTile.jsx'
-import TOKEN from '../../../../../config.js'
+import { TOKEN } from '../../../../../config.js'
 
 function ReviewsList ({id}) {
 
