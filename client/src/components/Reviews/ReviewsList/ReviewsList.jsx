@@ -25,7 +25,6 @@ function ReviewsList ({id}) {
     axios.request(reqOptions)
     .then((response) => {
       const {data} = response
-      console.log(data)
 
       if (data.results.length) {
         setReviews(...reviews, data.results);
