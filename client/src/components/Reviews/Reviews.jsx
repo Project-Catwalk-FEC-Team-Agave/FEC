@@ -4,7 +4,7 @@ import SummaryBreakdown from './RatingsBreakdown/SummaryBreakdown.jsx';
 
 function Reviews(props) {
 
-  const id = 11002; //placeholder - change when everything tied together
+  const id = 11001; //placeholder - change when everything tied together
 
   return (
     <div>
