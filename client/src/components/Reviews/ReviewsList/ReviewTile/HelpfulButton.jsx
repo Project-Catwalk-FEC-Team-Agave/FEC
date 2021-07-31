@@ -9,21 +9,22 @@ function HelpfulButton({review_id, helpful}) {
   const markHelpful = (e) => {
     e.preventDefault();
 
-    let reqOptions = {
-      url: `https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/reviews/${review_id}/helpful`,
-      method: "PUT",
-      headers: {
-        "Authorization": TOKEN
-       },
+    if (!submitted) {
+      let reqOptions = {
+        url: `https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/reviews/${review_id}/helpful`,
+        method: "PUT",
+        headers: {
+          "Authorization": TOKEN
+        },
+      }
+
+      axios.request(reqOptions)
+      .then(function (response) {
+        changeSubmitted(true);
+        console.log('Review marked helpful');
+      })
     }
-
-    axios.request(reqOptions)
-    .then(function (response) {
-      changeSubmitted(true);
-      console.log('Review marked helpful');
-    })
   }
-
 
   const markUnhelpful = (e) => {
     e.preventDefault();

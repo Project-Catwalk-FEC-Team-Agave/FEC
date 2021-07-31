@@ -1,11 +1,11 @@
 import React from 'react';
 
-function SortReviews({sort}) {
+function SortReviews(props) {
 
   return (
     <select onChange={(e) => {
       e.preventDefault();
-      sort(e.target.value)
+      props.getReviews(props.id, e.target.value, props.currentPage)
     }}>
       <option>Helpful</option>
       <option>Newest</option>

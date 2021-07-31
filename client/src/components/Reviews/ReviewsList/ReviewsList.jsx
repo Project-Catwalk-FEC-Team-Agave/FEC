@@ -25,7 +25,6 @@ function ReviewsList ({id}) {
     axios.request(reqOptions)
     .then((response) => {
       const {data} = response
-
       if (data.results.length) {
         setReviews(...reviews, data.results);
       }
@@ -41,7 +40,7 @@ function ReviewsList ({id}) {
 
   return (
     <div>
-      <SortReviews sort={setSort}/>
+      <SortReviews id={id} currentPage={currentPage} getReviews={getReviews}/>
       {reviews.map((review, i) => {
         return <ReviewTile review={review} key={i}/>
       })}
