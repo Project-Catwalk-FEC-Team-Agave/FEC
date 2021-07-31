@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 function ProductDetails({characteristics}) {
 
   return characteristics.map((characteristic, i) => {
-    return <div>{characteristic[0]}: {characteristic[1]}</div> rating={characteristic.value}/>
+    return <div key={i}>{characteristic[0]}: {characteristic[1]}</div>
   })
 }
 

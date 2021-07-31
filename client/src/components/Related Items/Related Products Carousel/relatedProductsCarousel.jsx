@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState } from 'react';
 import RelatedProductsCard from './Related Products Card/RelatedProductsCard.jsx';
 import './styles.css';
@@ -6,14 +7,19 @@ import Grid from '@material-ui/core/Grid';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import { IconButton } from '@material-ui/core';
 import useStyles from './styles.js';
+=======
+import React from 'react';
+import RelatedProductsCard from './Related Products Card/relatedProductsCard.jsx';
+>>>>>>> reviews-data
 
-const RelatedProductsCarousel = ({ stars, sampleAllProducts }) => {
+const RelatedProductsCarousel = ({ Stars, sampleAllProducts }) => {
 
 	const classes = useStyles();
 
 	//const [currImage, setCurrImage] = useState(0);
 
   return (
+<<<<<<< HEAD
 <<<<<<< HEAD
 	<Grid className={classes.mainContainer} container alignItems='stretch' spacing={4}>
     <div className="carousel">
@@ -48,9 +54,20 @@ export default RelatedProductsCarousel;
     <>
 		<ul style={{ listStyleType: "none" }}>
 >>>>>>> 2b75d93c261ef499c3b59360713084a855e11295
+=======
+		<ul>
+>>>>>>> reviews-data
 			{sampleAllProducts.map((product, i) => (
 				<li key={i}>
-					<RelatedProductsCard stars={stars} product={product}/>
+					<RelatedProductsCard stars={Stars} product={product}/>
 				</li>
 			))}
+<<<<<<< HEAD
 		</ul> */}
+=======
+		</ul>
+  );
+}
+
+export default RelatedProductsCarousel;
+>>>>>>> reviews-data

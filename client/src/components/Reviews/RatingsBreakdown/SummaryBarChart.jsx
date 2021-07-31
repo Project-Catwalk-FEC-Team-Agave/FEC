@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import c3 from 'c3';
 
-function ReviewsChart(props) {
+function ReviewsChart({ratings}) {
 
   var labels = Object.keys(ratings);
   var data = Object.values(ratings);

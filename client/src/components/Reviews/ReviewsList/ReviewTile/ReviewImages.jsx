@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 
-function Images(props) {
+function Image({url}) {
   return(
     <a>
-      <img width="50px" src="https://images.unsplash.com/photo-1501088430049-71c79fa3283e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80"></img>
+      <img width="40px" src={url}></img>
     </a>
   )
 }
 
-export default Images;
+export default Image;

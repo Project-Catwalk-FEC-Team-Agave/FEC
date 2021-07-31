@@ -3,5 +3,7 @@ node_modules
 
 package-lock.json
 
+client/dist/bundle.js
+
 ## Private API Keys File
 config.js

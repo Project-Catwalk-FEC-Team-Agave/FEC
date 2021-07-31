@@ -4,6 +4,7 @@ import App from './components/App.jsx';
 import Overview from './components/Overview/overview.jsx';
 
 import QA from './components/questions/qa.jsx';
+<<<<<<< HEAD
 
 
 import Reviews from './components/Reviews/Reviews.jsx'
@@ -15,6 +16,16 @@ ReactDOM.render(
   <App />,
   document.getElementById('app')
 )
+=======
+import Reviews from './components/Reviews/Reviews.jsx'
+import Related from './components/Related Items/RelatedProductsContainer.jsx';
+
+
+// ReactDOM.render(
+//   <App />,
+//   document.getElementById('app')
+// )
+>>>>>>> reviews-data
 
 // ReactDOM.render(
 //   <App />,
