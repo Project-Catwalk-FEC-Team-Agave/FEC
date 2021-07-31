@@ -3,6 +3,7 @@ import axios from 'axios'
 import Stars from '../../Shared/stars.jsx';
 import ReviewsChart from './SummaryBarChart.jsx';
 import ProductDetails from './ProductDetails.jsx';
+import Rating from '@material-ui/lab/Rating';
 import { TOKEN } from '../../../../../config.js'
 
 function SummaryBreakdown({id}) {
@@ -50,7 +51,8 @@ function SummaryBreakdown({id}) {
 
   return (
     <div>
-      {average}<Stars value={average}/><br></br>
+      {average}<Rating name="read-only" value={average} readOnly precision={0.25}/>
+      <br></br>
       <ReviewsChart ratings={ratings}/>
         {recommended}% of Buyers Recommend
       <ProductDetails characteristics={characteristics}/>

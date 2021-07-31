@@ -21,6 +21,3 @@ export default function Stars(props) {
     </div>
   );
 }
-
-//dfaultValue = props
-// props = { value: 3.5 }

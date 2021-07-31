@@ -2,6 +2,7 @@ import React from 'react';
 import Stars from '../../../Shared/stars.jsx';
 import Image from './ReviewImages.jsx';
 import HelpfulButton from './HelpfulButton.jsx';
+import Rating from '@material-ui/lab/Rating';
 
 function ReviewTile(props) {
 //Still need to add in conditional for user recommended and response
@@ -10,7 +11,10 @@ function ReviewTile(props) {
   if (photos) {
     return (
       <div>
-        <div><Stars value={rating}/><em>{date}</em></div>
+        <div>
+          <Rating name="read-only" value={rating} readOnly precision={0.25}/>
+          <em>{date}</em>
+        </div>
         <strong>{summary}</strong>
         <div>{body}</div>
         {photos.map((photo, i) => {
@@ -23,7 +27,10 @@ function ReviewTile(props) {
   } else {
     return (
       <div>
-        <div><Stars value={rating}/><em>{date}</em></div>
+        <div>
+          <Rating name="read-only" value={rating} readOnly />
+          <em>{date}</em>
+        </div>
         <strong>{summary}</strong>
         <div>{body}</div>
         <HelpfulButton/>
