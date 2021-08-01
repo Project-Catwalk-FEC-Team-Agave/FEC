@@ -9,9 +9,9 @@ const ReviewTextFields = (props) => {
       <label htmlFor="summary">Review Summary:</label><br></br>
       <input id="summary" type="text" name="summary" maxLength="60" size="60"></input><br></br><br></br>
       <label htmlFor="body">Review Body:</label><br></br>
-      <textarea id="body" type="text" name="body" autofocus rows="5" cols="60"
+      <textarea id="body" type="text" name="body" autoFocus rows="5" cols="60"
         placeholder="Why did you like the product or not?"
-        maxLength="1000" minLength="50" required
+        maxLength="1000" minLength="50" required style={ {resize: 'none'} }
         onChange={(e) => {
           e.preventDefault();
           if (e.target.value.length > 50) {

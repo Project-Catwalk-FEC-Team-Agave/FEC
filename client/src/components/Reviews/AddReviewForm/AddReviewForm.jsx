@@ -29,8 +29,6 @@ const AddReviewForm = ({id}) => {
     // Photos
       // Text box accepting links
 
-    // Submit review button
-      // Error if any blanks, under 50 chars, not correct email format, bad images
 
   const postReview = (e) => {
     console.log(e)
