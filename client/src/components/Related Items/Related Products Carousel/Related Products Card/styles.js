@@ -1,25 +1,16 @@
 import { makeStyles } from '@material-ui/core/styles';
-import { red } from '@material-ui/core/colors';
 
 export default makeStyles((theme) => ({
   root: {
     maxWidth: 245,
+		marginBottom: '20px'
   },
   media: {
-    height: 0,
-    paddingTop: '56.25%', // 16:9
+    paddingTop: '100%'
   },
-  expand: {
-    transform: 'rotate(0deg)',
-    marginLeft: 'auto',
-    transition: theme.transitions.create('transform', {
-      duration: theme.transitions.duration.shortest,
-    }),
-  },
-  expandOpen: {
-    transform: 'rotate(180deg)',
-  },
-  avatar: {
-    backgroundColor: red[500],
-  },
+	overlay: {
+		position: 'absolute',
+		top: '-245px',
+		left: '195px'
+  }
 }));
