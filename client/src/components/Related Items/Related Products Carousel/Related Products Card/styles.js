@@ -4,6 +4,7 @@ export default makeStyles((theme) => ({
   root: {
     maxWidth: 245,
     maxHeight: 'relative',
+    marginTop: '20px',
 		marginBottom: '20px'
   },
   media: {
