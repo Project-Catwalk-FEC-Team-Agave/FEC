@@ -3,12 +3,12 @@ import axios from 'axios';
 import SortReviews from './SortReviewsButton.jsx';
 import AddReview from './AddReviewButton.jsx';
 import MoreReviews from './MoreReviewsButton.jsx';
-import ReviewsTile from './ReviewTile/ReviewTile.jsx'
-import TOKEN from '../../../../../config.js'
+import ReviewTile from './ReviewTile/ReviewTile.jsx'
+import { TOKEN } from '../../../../../config.js'
 
 function ReviewsList ({id}) {
 
-  const [sort, setSort] = useState('Relevant');
+  const [sort, setSort] = useState('relevant');
   const [totalReviews, setTotalReviews] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
   const [reviews, setReviews] = useState([]);
@@ -25,7 +25,6 @@ function ReviewsList ({id}) {
     axios.request(reqOptions)
     .then((response) => {
       const {data} = response
-      console.log(data)
 
       if (data.results.length) {
         setReviews(...reviews, data.results);
@@ -44,7 +43,7 @@ function ReviewsList ({id}) {
     <div>
       <SortReviews sort={setSort}/>
       {reviews.map((review, i) => {
-        return <ReviewsTile review={review} key={i}/>
+        return <ReviewTile review={review} key={i}/>
       })}
       <AddReview/>
       <MoreReviews id={id} sort={sort}

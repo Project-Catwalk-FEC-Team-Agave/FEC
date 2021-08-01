@@ -7,9 +7,9 @@ function SortReviews({sort}) {
       e.preventDefault();
       sort(e.target.value)
     }}>
-      <option>Helpful</option>
-      <option>Newest</option>
-      <option>Relevant</option>
+      <option value="helpful">Helpful</option>
+      <option value="newest">Newest</option>
+      <option value="relevant">Relevant</option>
     </select>
   )
 }

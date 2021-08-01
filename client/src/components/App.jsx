@@ -5,6 +5,7 @@ import Related from './Related Items/RelatedProductsContainer.jsx';
 import stars from './Shared/stars.jsx';
 import sampleProductData from '../../../sample_data/sampleProductData.js';
 import NavBar from './NavBar.jsx';
+import Reviews from './Reviews/Reviews.jsx'
 
 class App extends React.Component {
 
