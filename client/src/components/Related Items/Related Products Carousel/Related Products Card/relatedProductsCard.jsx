@@ -29,11 +29,14 @@ const RelatedProductsCard = ({ stars, product }) => {
         </IconButton>
       </CardMedia>
       <CardContent>
-        <Typography variant="h5" color="textSecondary" component="p">
+        <Typography variant="caption" color="textSecondary" component="p">
+          {product.category.toUpperCase()}
+        </Typography>
+        <Typography variant="h6" color="textSecondary" component="p">
           {product.name}
         </Typography>
         <Typography variant="caption" color="textSecondary" component="p">
-          {'$123'}
+          {'$' + product.default_price.split('.')[0]}
         </Typography>
         <>
           {starCount}
