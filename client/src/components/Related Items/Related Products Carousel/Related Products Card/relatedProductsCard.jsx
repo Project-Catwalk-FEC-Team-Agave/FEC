@@ -1,10 +1,5 @@
 import React from 'react';
-import axios from 'axios';
 import useStyles from './styles.js';
-import { TOKEN } from '../../../../../../config.js';
-
-//import { withStyles } from '@material-ui/core/styles';
-
 import { Card, CardHeader, CardMedia, CardContent, CardActions, Typography, IconButton } from '@material-ui/core';
 
 // import DoneAllIcon from '@material-ui/icons/DoneAll';
@@ -27,7 +22,7 @@ const RelatedProductsCard = ({ product }) => {
         className={classes.media}
         image={photo}
       >
-        <IconButton style={{ color: '#f4b400' }} aria-label="settings" className={classes.overlay}>
+        <IconButton style={{ color: 'black' }} aria-label="settings" className={classes.overlay}>
           <StarBorderIcon style={{ color: '#f4b400' }} aria-label="compare to current product"/>
         </IconButton>
       </CardMedia>
