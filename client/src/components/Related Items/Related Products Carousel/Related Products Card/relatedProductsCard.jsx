@@ -1,25 +1,53 @@
 import React from 'react';
 import axios from 'axios';
-//https://material-ui.com/components/cards/
-import { Card, CardContent, CardActions, CardMedia, Button, Typography} from '@material-ui/core';
+import useStyles from './styles.js';
 import { TOKEN } from '../../../../../../config.js';
+
+//import { withStyles } from '@material-ui/core/styles';
+
+import { Card, CardHeader, CardMedia, CardContent, CardActions, Typography, IconButton } from '@material-ui/core';
+
+// import DoneAllIcon from '@material-ui/icons/DoneAll';
+import StarBorderIcon from '@material-ui/icons/StarBorder';
+
 //product photos are located in the styles endpoint
 
 const RelatedProductsCard = ({ stars, product }) => {
-  let starCount = stars();
+  const classes = useStyles();
+
+  //dynamically render stars later
+  let starCount = stars(3.5);
 
   let photo = "https://images.unsplash.com/photo-1501088430049-71c79fa3283e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80";
 
   return (
-    <>
-      <div>
-        <img src={photo} width='10%' height='10%'/>
-      </div>
-      <div>
-        {starCount}
-      </div>
+  <Card className={classes.root}>
+      <CardMedia
+        className={classes.media}
+        image={photo}
+      >
+        <IconButton style={{ color: '#f4b400' }} aria-label="settings" className={classes.overlay}>
+          <StarBorderIcon style={{ color: '#f4b400' }} aria-label="compare to current product"/>
+        </IconButton>
+      </CardMedia>
+      <CardContent>
+        <Typography variant="caption" color="textSecondary" component="p">
+          {product.category.toUpperCase()}
+        </Typography>
+        <Typography variant="h6" color="textSecondary" component="p">
+          {product.name}
+        </Typography>
+        <Typography variant="caption" color="textSecondary" component="p">
+          {'$' + product.default_price.split('.')[0]}
+        </Typography>
+        <>
+          {starCount}
+        </>
+      </CardContent>
+      {/* <CardActions disableSpacing>
 
-    </>
+      </CardActions> */}
+    </Card>
   );
 }
 
