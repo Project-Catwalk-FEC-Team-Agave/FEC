@@ -11,7 +11,7 @@ const RelatedProductsCarousel = ({ stars, sampleAllProducts }) => {
 
 	const classes = useStyles();
 
-	const [currImage, setCurrImage] = useState(0);
+	//const [currImage, setCurrImage] = useState(0);
 
   return (
 	<Grid className={classes.mainContainer} container alignItems='stretch' spacing={4}>
