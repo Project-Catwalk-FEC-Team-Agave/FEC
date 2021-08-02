@@ -2,9 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/App.jsx';
 import Overview from './components/Overview/overview.jsx';
-import QA from './components/questions/qa.jsx';
+
+// import QA from './components/questions/qa.jsx';
+
+
+import Reviews from './components/Reviews/Reviews.jsx'
+
 import Related from './components/Related Items/RelatedProductsContainer.jsx';
-import Reviews from './components/Reviews/reviews.jsx'
+
 
 ReactDOM.render(
   <App />,
@@ -35,3 +40,4 @@ ReactDOM.render(
 //   <QA />,
 //   document.getElementById('app')
 // )
+

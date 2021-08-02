@@ -3,9 +3,11 @@ import { makeStyles } from '@material-ui/core/styles';
 export default makeStyles((theme) => ({
   root: {
     maxWidth: 245,
-    maxHeight: 'relative',
+    height: 400,
     marginTop: '20px',
-		marginBottom: '20px'
+		marginBottom: '20px',
+    marginRight: '10px',
+    marginLeft: '10px'
   },
   media: {
     paddingTop: '100%'
