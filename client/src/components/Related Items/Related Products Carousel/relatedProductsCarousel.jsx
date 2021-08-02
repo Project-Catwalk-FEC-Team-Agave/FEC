@@ -7,7 +7,7 @@ import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import { IconButton } from '@material-ui/core';
 import useStyles from './styles.js';
 
-const RelatedProductsCarousel = ({ sampleAllProducts }) => {
+const RelatedProductsCarousel = ({ sampleAllProducts, actualProducts }) => {
 
 	const classes = useStyles();
 

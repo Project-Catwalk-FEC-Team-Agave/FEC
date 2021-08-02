@@ -20,7 +20,9 @@ const RelatedProductsCard = ({ product }) => {
   let photo = "https://images.unsplash.com/photo-1501088430049-71c79fa3283e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80";
 
   return (
-  <Card className={classes.root}>
+  <Card
+  //onClick here updates top-level product overview ID
+  className={classes.root}>
       <CardMedia
         className={classes.media}
         image={photo}

@@ -11,7 +11,8 @@ class RelatedProductsContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      relatedProducts: []
+      relatedProductsIDs: [],
+      relatedProductStyleInfo: []
     }
 
     //this.fetchRelatedOnClick = this.fetchRelatedOnClick.bind(this);
@@ -30,10 +31,55 @@ class RelatedProductsContainer extends React.Component {
     return axios(config)
     .then(({ data }) => {
       this.setState({
-        relatedProducts: data
-      }, () => console.log(this.state))
+        relatedProductsIDs: data
+      }, () => console.log('Product IDs in state: ', this.state.relatedProductsIDs));
+
+      data.forEach(productID => {
+
+        const innerConfig = {
+          method: 'get',
+          url: `https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/products/${productID}/styles`,
+          headers: {
+            'Authorization': TOKEN
+          }
+        };
+
+        return axios(innerConfig)
+        .then(({ data }) => {
+          this.setState({
+            relatedProductStyleInfo: data
+          }, () => console.log('Related products style info: ', this.state.relatedProductStyleInfo))
+          })
+        .catch(err => console.log('Error retrieving related product INFO: ', err));
+
+      })
+
     })
-    .catch(err => console.log('Error retrieving related products: ', err));
+    .catch(err => console.log('Error retrieving related product IDs: ', err));
+  }
+
+
+  fetchRelated() {
+
+    this.state.relatedProductsIDs.forEach((productID) => {
+
+      const config = {
+        method: 'get',
+        url: `https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/products/${productID}/styles`,
+        headers: {
+          'Authorization': TOKEN
+        }
+      };
+
+      return axios(config)
+      .then(({ data }) => {
+        this.setState({
+          relatedProductInfo: data
+        }, () => console.log('Related product info', this.state))
+        })
+      .catch(err => console.log('Error retrieving related product INFO: ', err));
+
+    })
   }
 
   // fetchRelatedOnClick(e) {
@@ -48,12 +94,12 @@ class RelatedProductsContainer extends React.Component {
 
   render() {
     const { changeProduct, addOutfit, getProductInfo, primaryProductID } = this.props;
-    console.log('Related Products State: ', this.state.relatedProducts);
+    console.log('Related Products State: ', this.state.relatedProductsIDs);
     return (
 
       <div className="related-products-container">
         <div>
-          <RelatedProductsCarousel stars={stars} sampleAllProducts={sampleAllProducts}/>
+          <RelatedProductsCarousel stars={stars} sampleAllProducts={sampleAllProducts} actualProducts={this.state.relatedProducts}/>
         </div>
         <div>
           <YourOutfitCarousel/>
