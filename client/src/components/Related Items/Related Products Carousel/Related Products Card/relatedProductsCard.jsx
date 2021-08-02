@@ -14,9 +14,13 @@ import StarBorderIcon from '@material-ui/icons/StarBorder';
 
 const RelatedProductsCard = ({ stars, product }) => {
   const classes = useStyles();
+<<<<<<< HEAD
 
   //dynamically render stars later
   let starCount = stars(3.5);
+=======
+  let starCount = stars();
+>>>>>>> 2b75d93c261ef499c3b59360713084a855e11295
 
   let photo = "https://images.unsplash.com/photo-1501088430049-71c79fa3283e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80";
 

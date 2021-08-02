@@ -14,6 +14,7 @@ const RelatedProductsCarousel = ({ stars, sampleAllProducts }) => {
 	//const [currImage, setCurrImage] = useState(0);
 
   return (
+<<<<<<< HEAD
 	<Grid className={classes.mainContainer} container alignItems='stretch' spacing={4}>
     <div className="carousel">
 			<div className="innerCarousel">
@@ -43,6 +44,10 @@ export default RelatedProductsCarousel;
 
 
 {/* <ul style={{ listStyleType: "none" }}>
+=======
+    <>
+		<ul style={{ listStyleType: "none" }}>
+>>>>>>> 2b75d93c261ef499c3b59360713084a855e11295
 			{sampleAllProducts.map((product, i) => (
 				<li key={i}>
 					<RelatedProductsCard stars={stars} product={product}/>

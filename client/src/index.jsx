@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import App from './components/App.jsx';
 import Overview from './components/Overview/overview.jsx';
 
-// import QA from './components/questions/qa.jsx';
+import QA from './components/questions/qa.jsx';
 
 
 import Reviews from './components/Reviews/Reviews.jsx'
