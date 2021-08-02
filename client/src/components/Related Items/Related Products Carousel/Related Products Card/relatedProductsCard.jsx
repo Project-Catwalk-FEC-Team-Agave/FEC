@@ -9,10 +9,11 @@ import { Card, CardHeader, CardMedia, CardContent, CardActions, Typography, Icon
 
 // import DoneAllIcon from '@material-ui/icons/DoneAll';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
+import stars from '../../../Shared/stars.jsx';
 
 //product photos are located in the styles endpoint
 
-const RelatedProductsCard = ({ stars, product }) => {
+const RelatedProductsCard = ({ product }) => {
   const classes = useStyles();
   let starCount = stars();
 

@@ -2,11 +2,7 @@ import React from 'react';
 import Overview from './Overview/overview.jsx';
 import QA from './questions/qa.jsx';
 import Related from './Related Items/RelatedProductsContainer.jsx';
-<<<<<<< HEAD
 import stars from './Shared/stars.jsx';
-=======
-import Stars from './Shared/stars.jsx';
->>>>>>> reviews-data
 import sampleProductData from '../../../sample_data/sampleProductData.js';
 import NavBar from './NavBar.jsx';
 
