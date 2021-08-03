@@ -9,18 +9,7 @@ import useStyles from './styles.js';
 
 
 const YourOutfitCarousel = ({ productInfo, photoObjs, relatedProductsIDs, reviewsData }) => {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     yourOutfits: []
-  //   }
-  // }
 
-	// componentDidMount() {
-  //   this.setState({
-
-  //   })
-  // }
     const classes = useStyles();
 
     let choosePhoto = (prod) => {
@@ -33,34 +22,26 @@ const YourOutfitCarousel = ({ productInfo, photoObjs, relatedProductsIDs, review
     }
 
   return (
-
-
       <Grid className={classes.mainContainer} container alignItems='stretch' spacing={4}>
     <div className="carousel">
 			<div className="innerCarousel">
-
 			    {productInfo.map((product, i) => (
 				  <Grid key={i} xs={12} sm={6} item>
 					<YourOutfitCard
-
 						photo={choosePhoto(product)}
 						product={product}
 						reviewsData={reviewsData}/>
 				  </Grid>
 			    ))}
-
 				<div className="carouselRight">
 				<IconButton style={{ color: 'black' }} aria-label="settings" className={classes.overlay}>
           <ArrowForwardIosIcon style={{ color: 'black' }} aria-label="show next item in related products list"/>
         </IconButton>
-
 				</div>
 			</div>
-
     </div>
 		</Grid>
   )
-
 }
 
 export default YourOutfitCarousel;
