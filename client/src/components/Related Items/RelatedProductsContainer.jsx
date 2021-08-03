@@ -106,7 +106,11 @@ class RelatedProductsContainer extends React.Component {
           reviewsData={reviewsData} />
         </div>
         <div>
-          <YourOutfitCarousel/>
+          <YourOutfitCarousel
+          productInfo={productInfo}
+          relatedProductsIDs={relatedProductsIDs}
+          photoObjs={photoObjs}
+          reviewsData={reviewsData}/>
         </div>
       </div>
     )
