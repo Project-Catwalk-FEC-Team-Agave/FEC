@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Modal, Backdrop, Fade } from '@material-ui/core';
+import useStyles from './styles.js';
 //https://material-ui.com/components/modal/
 
 const ComparisonModal = () => {
   const classes = useStyles();
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
 
   const handleOpen = () => {
     setOpen(true);
@@ -16,9 +17,9 @@ const ComparisonModal = () => {
 
   return (
     <div>
-      <button type="button" onClick={handleOpen}>
+      {/* <button type="button" onClick={handleOpen}>
         react-transition-group
-      </button>
+      </button> */}
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
