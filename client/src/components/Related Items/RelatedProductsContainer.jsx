@@ -3,7 +3,7 @@ import axios from 'axios';
 import RelatedProductsCarousel from './Related Products Carousel/RelatedProductsCarousel.jsx';
 import YourOutfitCarousel from './Your OutFit Carousel/YourOutfitCarousel.jsx';
 import { TOKEN } from '../../../../config.js';
-import sampleAllProducts from '../../../../sample_data/sampleAllProducts.js';
+//import sampleAllProducts from '../../../../sample_data/sampleAllProducts.js';
 import './styles.css';
 
 const auth = { headers: {'Authorization': TOKEN}};
@@ -14,7 +14,7 @@ class RelatedProductsContainer extends React.Component {
     this.state = {
       productInfo: [],
       relatedProductsIDs: [],
-      relatedProductStyleInfo: [],
+      photoObjs: [],
       reviewsData: []
     }
     //function binding goes here
@@ -30,7 +30,7 @@ class RelatedProductsContainer extends React.Component {
 
       data.forEach(productID => {
         this.getProductInfo(productID);
-        this.getRelatedStyles(productID);
+        this.getPhotos(productID);
         this.getRating(productID);
       })
     })
@@ -41,6 +41,7 @@ class RelatedProductsContainer extends React.Component {
 
     return axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/products/${productID}`, auth)
     .then(({ data }) => {
+      console.log('getProductInfo: ', data)
       this.setState({
         productInfo: [...this.state.productInfo, data]
       })
@@ -48,15 +49,25 @@ class RelatedProductsContainer extends React.Component {
     .catch(err => console.log('Error retrieving product INFO: ', err));
   }
 
-  getRelatedStyles(productID) {
+  getPhotos(productID) {
 
     return axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/products/${productID}/styles`, auth)
     .then(({ data }) => {
-      this.setState({
-        relatedProductStyleInfo: [...this.state.relatedProductStyleInfo, data]
+
+      data.results.forEach(result => {
+        if (result['default?'] === true) {
+          // let copy = this.state.productInfo.slice();
+          // copy.photo = result.photos[0].url;
+
+          let photo = result.photos[0].url || 'https://images.unsplash.com/photo-1492447105260-2e947425b5cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80';
+
+          this.setState({
+            photoObjs: [...this.state.photoObjs, {productID, photo}]
+          })
+        }
       })
     })
-    .catch(err => console.log('Error retrieving related product INFO: ', err));
+    .catch(err => console.log('Error retrieving photos: ', err));
   }
 
   getRating(productID) {
@@ -70,26 +81,31 @@ class RelatedProductsContainer extends React.Component {
     .catch(err => console.log('Error retrieving reviews: ', err));
   }
 
+  addProperty(val) {
+    let copy = this.state.productInfo.slice();
+    return mappedProductInfo = copy.map(product => {
+      product.photo = val.photos[0].url;
+    });
+  }
+
   render() {
     const { changeProduct, addOutfit, getProductInfo, primaryProductID } = this.props;
-    console.log('State: ', this.state);
+    //console.log('State: ', this.state);
 
-    const { productInfo, relatedProductsIDs, relatedProductStyleInfo, reviewsData } = this.state;
+    const { productInfo, relatedProductsIDs, photoObjs, reviewsData } = this.state;
 
     return (
 
       <div className="related-products-container">
         <div>
-          <RelatedProductsCarousel sampleAllProducts={sampleAllProducts} products={this.state.productInfo}/>
+          <RelatedProductsCarousel productInfo={productInfo} relatedProductsIDs={relatedProductsIDs} photoObjs={photoObjs} reviewsData={reviewsData} />
         </div>
         <div>
           <YourOutfitCarousel/>
         </div>
-
       </div>
     )
   }
-
 }
 
 export default RelatedProductsContainer;
