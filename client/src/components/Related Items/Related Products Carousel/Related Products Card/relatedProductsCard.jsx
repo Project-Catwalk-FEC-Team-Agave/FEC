@@ -15,6 +15,8 @@ const RelatedProductsCard = ({ changeProduct, photo, product, relatedProductStyl
   const classes = useStyles();
   let starCount = stars();
 
+  console.log('!!!!!!!', product.id)
+
   const [open, setOpen] = useState(false);
 
   const handleOpen = () => {
@@ -30,11 +32,14 @@ const RelatedProductsCard = ({ changeProduct, photo, product, relatedProductStyl
     data-myattr={product.id}
     //onClick here updates top-level product overview ID
     onClick={(e) => {
+      console.log(product.id)
+      console.log('clicked!!')
+      console.log(e);
       changeProduct(e.target.dataset.myattr);
     }}
     className={classes.root}>
 
-      <div>
+      {/* <div>
         <Modal
           aria-labelledby="transition-modal-title"
           aria-describedby="transition-modal-description"
@@ -49,21 +54,21 @@ const RelatedProductsCard = ({ changeProduct, photo, product, relatedProductStyl
         >
           <Fade in={open}>
             <div className={classes.paper}>
-              <h2 id="transition-modal-title">Transition modal</h2>
-              <p id="transition-modal-description">react-transition-group animates me.</p>
+              <h2 id="transition-modal-title">Comparison modal</h2>
+              <p id="transition-modal-description">This will show product comparison!</p>
             </div>
           </Fade>
         </Modal>
-      </div>
+      </div> */}
 
         <CardMedia
           className={classes.media}
           image={photo[2]}>
           <IconButton
-            onClick={() => {
-              console.log('clicked!');
-              handleOpen();
-            }}
+            // onClick={() => {
+            //   console.log('clicked!');
+            //   handleOpen();
+            // }}
             style={{ color: 'black' }}
             aria-label="settings"
             className={classes.overlay}>
