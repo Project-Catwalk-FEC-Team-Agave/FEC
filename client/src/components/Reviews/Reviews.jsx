@@ -21,7 +21,6 @@ function Reviews(props) {
           </Grid>
         </Grid>
       </div>
-      {/* <AddReviewForm/> */}
     </div>
   )
 }

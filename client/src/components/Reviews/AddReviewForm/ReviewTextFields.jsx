@@ -20,7 +20,6 @@ const ReviewTextFields = (props) => {
             changeTotalChars(50 - e.target.value.length + ' more characters required');
           }}}>
       </textarea><br></br><em>{totalChars}</em><br></br><br></br>
-
     </>
   )
 };

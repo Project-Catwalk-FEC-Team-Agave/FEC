@@ -7,7 +7,7 @@ import CharacteristicsRadio from './CharacteristicsRadio.jsx';
 import ReviewTextFields from './ReviewTextFields.jsx';
 import NameAndEmailFields from './NameAndEmailFields.jsx';
 
-const AddReviewForm = ({id}) => {
+const AddReviewForm = () => {
 
   //MODAL WINDOW
     return (
