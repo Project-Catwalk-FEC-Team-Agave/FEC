@@ -47,6 +47,11 @@ const StyleSelector = () => {
   const styles = useStylesStore((state) => state.photos);
   const name = useStylesStore((state) => state.name);
   const classes = useStyles();
+  const id = 16546;
+  // const handleClick = useStylesStore((state) => state.handleStyleChange);
+  const handleClick = (e) => {
+    console.log(e.target.key);
+  };
   return (
     <div>
       Style Selector
@@ -63,7 +68,7 @@ const StyleSelector = () => {
               <CheckIcon style={{ fill: 'green' }} fontSize="small" />
             }
           >
-            <Avatar src={image.thumbnail_url} />
+            <Avatar onClick={handleClick} src={image.thumbnail_url} key={id} />
           </Badge>
         ))}
       </div>

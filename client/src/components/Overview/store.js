@@ -1,5 +1,6 @@
 import create from 'zustand';
 import { data } from './sampleStyleData';
+import axios from 'axios';
 
 export const usePoroductStore = create((set) => ({
   id: 11001,
@@ -10,6 +11,14 @@ export const usePoroductStore = create((set) => ({
   category: 'Jackets',
   default_price: '140.00',
 }));
+
+// const useStore = create((set) => ({
+//   pokemons: [],
+//   getPokemons: async () => {
+//     const response = await axios.get('');
+//     set({ pokemons: response.data });
+//   },
+// }));
 
 export const useStylesStore = create((set) => ({
   handleSizeChange: (e) =>
@@ -22,7 +31,10 @@ export const useStylesStore = create((set) => ({
       }
       return { sizeSelected: e.target.value, sizeQuantity: amount };
     }),
-  currentStyle:
+  handleStyleChange: (e) =>
+    set((state) => ({ currentStyleId: e.target.value })),
+
+  currentStyleId: 0,
   product_id: '11001',
   style_id: 51158,
   name: 'Forest Green & Black',
