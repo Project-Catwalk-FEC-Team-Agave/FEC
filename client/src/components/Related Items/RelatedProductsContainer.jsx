@@ -98,7 +98,12 @@ class RelatedProductsContainer extends React.Component {
 
       <div className="related-products-container">
         <div>
-          <RelatedProductsCarousel productInfo={productInfo} relatedProductsIDs={relatedProductsIDs} photoObjs={photoObjs} reviewsData={reviewsData} />
+          <RelatedProductsCarousel
+          changeProduct={changeProduct}
+          productInfo={productInfo}
+          relatedProductsIDs={relatedProductsIDs}
+          photoObjs={photoObjs}
+          reviewsData={reviewsData} />
         </div>
         <div>
           <YourOutfitCarousel/>

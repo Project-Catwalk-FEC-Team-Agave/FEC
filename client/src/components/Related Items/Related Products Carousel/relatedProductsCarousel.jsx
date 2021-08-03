@@ -7,7 +7,7 @@ import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import { IconButton } from '@material-ui/core';
 import useStyles from './styles.js';
 
-const RelatedProductsCarousel = ({ productInfo, photoObjs, relatedProductsIDs, reviewsData }) => {
+const RelatedProductsCarousel = ({ changeProduct, productInfo, photoObjs, relatedProductsIDs, reviewsData }) => {
 
 	const classes = useStyles();
 
@@ -28,6 +28,7 @@ const RelatedProductsCarousel = ({ productInfo, photoObjs, relatedProductsIDs, r
 			    {productInfo.map((product, i) => (
 				  <Grid key={i} xs={12} sm={6} item>
 					<RelatedProductsCard
+					  changeProduct={changeProduct}
 						photo={choosePhoto(product)}
 						product={product}
 						reviewsData={reviewsData}/>

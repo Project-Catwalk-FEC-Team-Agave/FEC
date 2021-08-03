@@ -1,6 +1,6 @@
 import React from 'react';
 import useStyles from './styles.js';
-import { Card, CardHeader, CardMedia, CardContent, CardActions, Typography, IconButton } from '@material-ui/core';
+import { Card, CardHeader, CardMedia, CardContent, CardActions, CardActionArea, Typography, IconButton } from '@material-ui/core';
 
 // import DoneAllIcon from '@material-ui/icons/DoneAll';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
@@ -9,16 +9,22 @@ import BrokenImageIcon from '@material-ui/icons/BrokenImage';
 
 //product photos are located in the styles endpoint
 
-const RelatedProductsCard = ({ photo, product, relatedProductStyleInfo, relatedProductsIDs, reviewsData }) => {
+const RelatedProductsCard = ({ changeProduct, photo, product, relatedProductStyleInfo, relatedProductsIDs, reviewsData }) => {
   const classes = useStyles();
   let starCount = stars();
 
-  console.log('PHOTO @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@', photo[2])
-
   return (
   <Card
+  data-myattr={product.id}
   //onClick here updates top-level product overview ID
+  onClick={(e) => {
+    console.log('eeeee!!!!!!!!!!!!!!!!!!!!', e.target.dataset.myattr);
+    changeProduct(e.target.dataset.myattr);
+  }}
   className={classes.root}>
+    {/* <CardActionArea
+
+    > */}
       <CardMedia
         className={classes.media}
         image={photo[2]}
@@ -44,7 +50,8 @@ const RelatedProductsCard = ({ photo, product, relatedProductStyleInfo, relatedP
       {/* <CardActions disableSpacing>
 
       </CardActions> */}
-    </Card>
+    {/* </CardActionArea> */}
+  </Card>
   );
 }
 
