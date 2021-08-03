@@ -7,15 +7,18 @@ export default makeStyles((theme) => ({
     marginTop: '20px',
 		marginBottom: '20px',
     marginRight: '10px',
-    marginLeft: '10px'
+    marginLeft: '10px',
+    position: 'relative',
+    zIndex: '50'
   },
   media: {
     paddingTop: '100%'
   },
 	overlay: {
-		position: 'absolute',
-		top: '-245px',
-		left: '195px'
+		position: 'fixed',
+		top: '-470px',
+		left: '195px',
+    zIndex: '99'
   },
   modal: {
     display: 'flex',
