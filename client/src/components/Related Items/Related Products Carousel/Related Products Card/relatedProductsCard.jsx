@@ -26,76 +26,67 @@ const RelatedProductsCard = ({ changeProduct, photo, product, relatedProductStyl
   };
 
   return (
-  <Card
-  data-myattr={product.id}
-  //onClick here updates top-level product overview ID
-  onClick={(e) => {
-    changeProduct(e.target.dataset.myattr);
-  }}
-  className={classes.root}>
+    <Card
+    data-myattr={product.id}
+    //onClick here updates top-level product overview ID
+    onClick={(e) => {
+      changeProduct(e.target.dataset.myattr);
+    }}
+    className={classes.root}>
 
-<div>
-      <Modal
-        aria-labelledby="transition-modal-title"
-        aria-describedby="transition-modal-description"
-        className={classes.modal}
-        open={open}
-        onClose={handleClose}
-        closeAfterTransition
-        BackdropComponent={Backdrop}
-        BackdropProps={{
-          timeout: 500,
-        }}
-      >
-        <Fade in={open}>
-          <div className={classes.paper}>
-            <h2 id="transition-modal-title">Transition modal</h2>
-            <p id="transition-modal-description">react-transition-group animates me.</p>
-          </div>
-        </Fade>
-      </Modal>
-    </div>
-
-
-    {/* <ComparisonModal/> */}
-
-
-      <CardMedia
-        className={classes.media}
-        image={photo[2]}>
-        <IconButton
-          onClick={() => {
-            console.log('clicked!');
-            handleOpen();
+      <div>
+        <Modal
+          aria-labelledby="transition-modal-title"
+          aria-describedby="transition-modal-description"
+          className={classes.modal}
+          open={open}
+          onClose={handleClose}
+          closeAfterTransition
+          BackdropComponent={Backdrop}
+          BackdropProps={{
+            timeout: 500,
           }}
-          style={{ color: 'black' }}
-          aria-label="settings"
-          className={classes.overlay}>
-          <StarBorderIcon
-            style={{ color: '#f4b400' }}
-            aria-label="compare to current product"/>
+        >
+          <Fade in={open}>
+            <div className={classes.paper}>
+              <h2 id="transition-modal-title">Transition modal</h2>
+              <p id="transition-modal-description">react-transition-group animates me.</p>
+            </div>
+          </Fade>
+        </Modal>
+      </div>
 
-        </IconButton>
-      </CardMedia>
-      <CardContent>
-        <Typography variant="caption" color="textSecondary" component="p">
-          {product.category.toUpperCase()}
-        </Typography>
-        <Typography variant="h6" color="textSecondary" component="p">
-          {product.name}
-        </Typography>
-        <Typography variant="caption" color="textSecondary" component="p">
-          {'$' + product.default_price.split('.')[0]}
-        </Typography>
-        <>
-          {starCount}
-        </>
-      </CardContent>
-  </Card>
-
-
-
-
+        <CardMedia
+          className={classes.media}
+          image={photo[2]}>
+          <IconButton
+            onClick={() => {
+              console.log('clicked!');
+              handleOpen();
+            }}
+            style={{ color: 'black' }}
+            aria-label="settings"
+            className={classes.overlay}>
+            <StarBorderIcon
+              style={{ color: '#f4b400' }}
+              aria-label="compare to current product"/>
+          </IconButton>
+        </CardMedia>
+        <CardContent>
+          <Typography variant="caption" color="textSecondary" component="p">
+            {product.category.toUpperCase()}
+          </Typography>
+          <Typography variant="h6" color="textSecondary" component="p">
+            {product.name}
+          </Typography>
+          <Typography variant="caption" color="textSecondary" component="p">
+            {'$' + product.default_price.split('.')[0]}
+          </Typography>
+          <>
+            {starCount}
+          </>
+        </CardContent>
+    </Card>
   );
 }
 
