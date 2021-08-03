@@ -39,7 +39,7 @@ const RelatedProductsCard = ({ changeProduct, photo, product, relatedProductStyl
     }}
     className={classes.root}>
 
-      {/* <div>
+      <div>
         <Modal
           aria-labelledby="transition-modal-title"
           aria-describedby="transition-modal-description"
@@ -59,16 +59,16 @@ const RelatedProductsCard = ({ changeProduct, photo, product, relatedProductStyl
             </div>
           </Fade>
         </Modal>
-      </div> */}
+      </div>
 
         <CardMedia
           className={classes.media}
           image={photo[2]}>
           <IconButton
-            // onClick={() => {
-            //   console.log('clicked!');
-            //   handleOpen();
-            // }}
+            onClick={() => {
+              console.log('clicked!');
+              handleOpen();
+            }}
             style={{ color: 'black' }}
             aria-label="settings"
             className={classes.overlay}>
