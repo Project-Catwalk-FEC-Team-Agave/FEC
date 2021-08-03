@@ -12,12 +12,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Stars(value) {
+export default function Stars(props) {
   const classes = useStyles();
 
   return (
     <div className={classes.root}>
-      <Rating name="quarter-rating" defaultValue={value} precision={0.25} />
+      <Rating name="quarter-rating" defaultValue={props.value} precision={0.25} />
     </div>
   );
 }

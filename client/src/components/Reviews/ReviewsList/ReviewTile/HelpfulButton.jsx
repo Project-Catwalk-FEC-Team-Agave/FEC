@@ -1,13 +1,40 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { TOKEN } from '../../../../../../config.js'
 
-function HelpfulButton({id}) {
+function HelpfulButton({review_id, helpful}) {
 
   const [submitted, changeSubmitted] = useState(false);
 
+  const markHelpful = (e) => {
+    e.preventDefault();
+
+    if (!submitted) {
+      let reqOptions = {
+        url: `https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/reviews/${review_id}/helpful`,
+        method: "PUT",
+        headers: {
+          "Authorization": TOKEN
+        },
+      }
+
+      axios.request(reqOptions)
+      .then(function (response) {
+        changeSubmitted(true);
+        console.log('Review marked helpful');
+      })
+    }
+  }
+
+  const markUnhelpful = (e) => {
+    e.preventDefault();
+    changeSubmitted(true);
+  }
+
   return(
     <div>Was this review helpful?
-      <button>Yes</button>COUNT<button>No</button>COUNT
+      <button onClick={markHelpful}>Yes</button>{helpful}
+      <button onClick={markUnhelpful}>No</button>
     </div>
 
   )
@@ -18,27 +45,3 @@ export default HelpfulButton;
 
 //API put call - need to set up Yes/No so only clickable if not submitted
 
-const markHelpful = () => {
-
-  let headersList = {
-   "Accept": "*/*",
-   "Authorization": "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"
-  }
-
-  let reqOptions = {
-    url: `https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/reviews/${id}/helpful`,
-    method: "PUT",
-    headers: headersList,
-  }
-
-  axios.request(reqOptions)
-  .then(function (response) {
-    changeSubmitted = true;
-    console.log('Review marked helpful');
-  })
-}
-
-
-const markUnhelpful = () => {
-  changeSubmitted = true;
-}

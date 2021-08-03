@@ -1,41 +1,48 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios'
 import Stars from '../../Shared/stars.jsx';
 import ReviewsChart from './SummaryBarChart.jsx';
 import ProductDetails from './ProductDetails.jsx';
-
+import Rating from '@material-ui/lab/Rating';
+import { TOKEN } from '../../../../../config.js'
 
 function SummaryBreakdown({id}) {
 
-  const [ratings, setRatings] = useState({});
-  const [characteristics, setCharacteristics] = useState([]);
-  const [recommended, setRecommended] = useState(0);
+  const [ratings, setRatings] = useState({5: '1'});
+  const [characteristics, setCharacteristics] = useState([["Fit", 3], ["Style", 5]]);
+  const [recommended, setRecommended] = useState(75);
+  const [averageRating, setAverageRatings] = useState(0);
 
-  const average = Object.values(ratings).reduce((accumulator, rating, i) => {
+  const average = Math.round(10*
+    (Object.values(ratings).reduce((accumulator, rating, i) => {
     return Number(accumulator) + (rating * i)
     }, 0) /
     Object.values(ratings).reduce((accumulator, rating) => {
       return Number(accumulator) + Number(rating)
-    })
+    })))/10
 
   const getMetaData = (id) => {
     let reqOptions = {
       url: `https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/reviews/meta?product_id=${id}`,
       method: "GET",
       headers: {
-        "Authorization": "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"
-      }
+        "Authorization": TOKEN
+        }
     }
+
     axios.request(reqOptions)
     .then((response) => {
-      setRatings(response.ratings);
+      const {data} = response
+      setRatings(data.ratings);
       var characteristics = [];
-      for (var key in response.characteristics) {
-        characteristics.push([key, response.characteristics[key].value])
+      for (var key in data.characteristics) {
+        characteristics.push([key, data.characteristics[key].value.slice(0,3)])
       }
       setCharacteristics(characteristics);
-      setRecommended(response.recommended.true /
-        (response.recommended.true + response.recommended.false) * 100)
+      setRecommended(Math.floor(data.recommended.true /
+        (Number(data.recommended.true) + Number(data.recommended.false)) * 100))
    })
+   .catch(err => console.log(err))
   }
 
   useEffect(() => {
@@ -44,10 +51,13 @@ function SummaryBreakdown({id}) {
 
   return (
     <div>
-      {average}<Stars value={average}/><br></br>
+      {average}<Rating name="read-only" value={average} readOnly precision={0.25}/>
+      <br></br>
       <ReviewsChart ratings={ratings}/>
         {recommended}% of Buyers Recommend
-      <ProductDetails characteristics={characteristcs}/>
+        <br></br>
+        <br></br>
+      <ProductDetails characteristics={characteristics}/>
     </div>
   )
 }

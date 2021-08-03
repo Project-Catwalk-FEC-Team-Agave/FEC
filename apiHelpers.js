@@ -1,5 +1,5 @@
 const axios = require('axios');
-const { TOKEN } = require('./config.js');
+const TOKEN = require('./config.js');
 
 const getAllProducts = () => {
 
@@ -38,6 +38,30 @@ const getRelatedProducts = (primaryProductID) => {
 	.catch(err => console.log('Error retrieving related products: ', err));
 
 }
+
+// const getReviews = (productId) => {
+//   let reqOptions = {
+//     url: "https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/reviews?product_id=11001",
+//     method: "GET",
+//     headers: {
+//      "Authorization": "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"
+//     }
+//   }
+// }
+
+// const reviewsMetaData = (productId) => {
+//   return reqOptions = {
+//     url: `https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/reviews/meta?product_id=${productId}`,
+//     method: "GET",
+//     headers: {
+//       "Authorization": TOKEN
+//       }
+//     }
+// }
+
+// const markReviewHelpful = (reviewId) => {
+
+// }
 
 //TEST
 //getAllProducts();
