@@ -14,18 +14,7 @@ export default makeStyles((theme) => ({
   },
 	overlay: {
 		position: 'absolute',
-		top: '-245px',
+		top: '20px',
 		left: '195px'
-  },
-  modal: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  paper: {
-    backgroundColor: theme.palette.background.paper,
-    border: '2px solid #000',
-    boxShadow: theme.shadows[5],
-    padding: theme.spacing(2, 4, 3),
   }
 }));

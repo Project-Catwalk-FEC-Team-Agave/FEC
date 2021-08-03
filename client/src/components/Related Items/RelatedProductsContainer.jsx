@@ -3,66 +3,118 @@ import axios from 'axios';
 import RelatedProductsCarousel from './Related Products Carousel/RelatedProductsCarousel.jsx';
 import YourOutfitCarousel from './Your OutFit Carousel/YourOutfitCarousel.jsx';
 import { TOKEN } from '../../../../config.js';
-import stars from '.././Shared/stars.jsx';
-import sampleAllProducts from '../../../../sample_data/sampleAllProducts.js';
+//import sampleAllProducts from '../../../../sample_data/sampleAllProducts.js';
 import './styles.css';
+
+const auth = { headers: {'Authorization': TOKEN}};
 
 class RelatedProductsContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      relatedProducts: []
+      productInfo: [],
+      relatedProductsIDs: [],
+      photoObjs: [],
+      reviewsData: []
     }
-
-    //this.fetchRelatedOnClick = this.fetchRelatedOnClick.bind(this);
+    //function binding goes here
   }
 
   componentDidMount() {
 
-    const config = {
-      method: 'get',
-      url: `https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/products/${this.props.primaryProductID}/related`,
-      headers: {
-        'Authorization': TOKEN
-      }
-    };
-
-    return axios(config)
+    return axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/products/${this.props.primaryProductID}/related`, auth)
     .then(({ data }) => {
       this.setState({
-        relatedProducts: data
-      }, () => console.log(this.state))
+        relatedProductsIDs: data
+      });
+
+      data.forEach(productID => {
+        this.getProductInfo(productID);
+        this.getPhotos(productID);
+        this.getRating(productID);
+      })
     })
-    .catch(err => console.log('Error retrieving related products: ', err));
+    .catch(err => console.log('Error retrieving data in componentDidMount: ', err));
   }
 
-  // fetchRelatedOnClick(e) {
+  getProductInfo(productID) {
 
-  //   getRelatedProducts(e.target.value)
-  //   .then(() => {
-  //     this.setState({
-  //       relatedProducts: data
-  //     }, () => console.log(this.state))
-  //   })
-  // }
+    return axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/products/${productID}`, auth)
+    .then(({ data }) => {
+      console.log('getProductInfo: ', data)
+      this.setState({
+        productInfo: [...this.state.productInfo, data]
+      })
+    })
+    .catch(err => console.log('Error retrieving product INFO: ', err));
+  }
+
+  getPhotos(productID) {
+
+    return axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/products/${productID}/styles`, auth)
+    .then(({ data }) => {
+
+      data.results.forEach(result => {
+        if (result['default?'] === true) {
+          // let copy = this.state.productInfo.slice();
+          // copy.photo = result.photos[0].url;
+
+          let photo = result.photos[0].url || 'https://images.unsplash.com/photo-1492447105260-2e947425b5cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80';
+
+          this.setState({
+            photoObjs: [...this.state.photoObjs, {productID, photo}]
+          })
+        }
+      })
+    })
+    .catch(err => console.log('Error retrieving photos: ', err));
+  }
+
+  getRating(productID) {
+
+    return axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/reviews/?product_id=${productID}`, auth)
+    .then(({ data }) => {
+      this.setState({
+        reviewsData: [...this.state.reviewsData, data]
+      })
+    })
+    .catch(err => console.log('Error retrieving reviews: ', err));
+  }
+
+  addProperty(val) {
+    let copy = this.state.productInfo.slice();
+    return mappedProductInfo = copy.map(product => {
+      product.photo = val.photos[0].url;
+    });
+  }
 
   render() {
     const { changeProduct, addOutfit, getProductInfo, primaryProductID } = this.props;
-    console.log('Related Products State: ', this.state.relatedProducts);
+    //console.log('State: ', this.state);
+
+    const { productInfo, relatedProductsIDs, photoObjs, reviewsData } = this.state;
+
     return (
 
       <div className="related-products-container">
         <div>
-          <RelatedProductsCarousel stars={stars} sampleAllProducts={sampleAllProducts}/>
+          <RelatedProductsCarousel
+          changeProduct={changeProduct}
+          productInfo={productInfo}
+          relatedProductsIDs={relatedProductsIDs}
+          photoObjs={photoObjs}
+          reviewsData={reviewsData} />
         </div>
         <div>
-          <YourOutfitCarousel/>
+          <YourOutfitCarousel
+          productInfo={productInfo}
+          relatedProductsIDs={relatedProductsIDs}
+          photoObjs={photoObjs}
+          reviewsData={reviewsData}/>
         </div>
-
       </div>
     )
   }
-
 }
 
 export default RelatedProductsContainer;
