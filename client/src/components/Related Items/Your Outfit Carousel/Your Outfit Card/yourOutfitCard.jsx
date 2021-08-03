@@ -7,7 +7,7 @@ import stars from '../../../Shared/stars.jsx';
 
 const YourOutfitCard = ({ photo, product, relatedProductStyleInfo, relatedProductsIDs, reviewsData }) => {
   const classes = useStyles();
-  let starCount = stars();
+  let starCount = stars(3.5);
 
   return (
   <Card

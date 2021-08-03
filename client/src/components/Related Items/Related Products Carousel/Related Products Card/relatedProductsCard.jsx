@@ -13,7 +13,7 @@ import { Modal, Backdrop, Fade } from '@material-ui/core';
 
 const RelatedProductsCard = ({ changeProduct, photo, product, relatedProductStyleInfo, relatedProductsIDs, reviewsData }) => {
   const classes = useStyles();
-  let starCount = stars();
+  let starCount = stars(3.5);
 
   console.log('!!!!!!!', product.id)
 
@@ -28,38 +28,19 @@ const RelatedProductsCard = ({ changeProduct, photo, product, relatedProductStyl
   };
 
   return (
+    <>
     <Card
     data-myattr={product.id}
     //onClick here updates top-level product overview ID
     onClick={(e) => {
-      console.log(product.id)
-      console.log('clicked!!')
+      // console.log('product id: ', product.id)
+      // console.log('data-myattr', e.target.dataset.myattr);
+      // console.log('LOOK HERE', e.currentTarget.getAttribute("data-myattr"));
+      // console.log('clicked!!')
       console.log(e);
-      changeProduct(e.target.dataset.myattr);
+      changeProduct(e.currentTarget.getAttribute("data-myattr"));
     }}
     className={classes.root}>
-
-      <div>
-        <Modal
-          aria-labelledby="transition-modal-title"
-          aria-describedby="transition-modal-description"
-          className={classes.modal}
-          open={open}
-          onClose={handleClose}
-          closeAfterTransition
-          BackdropComponent={Backdrop}
-          BackdropProps={{
-            timeout: 500,
-          }}
-        >
-          <Fade in={open}>
-            <div className={classes.paper}>
-              <h2 id="transition-modal-title">Comparison modal</h2>
-              <p id="transition-modal-description">This will show product comparison!</p>
-            </div>
-          </Fade>
-        </Modal>
-      </div>
 
         <CardMedia
           className={classes.media}
@@ -92,6 +73,29 @@ const RelatedProductsCard = ({ changeProduct, photo, product, relatedProductStyl
           </>
         </CardContent>
     </Card>
+
+    <div>
+    <Modal
+      aria-labelledby="transition-modal-title"
+      aria-describedby="transition-modal-description"
+      className={classes.modal}
+      open={open}
+      onClose={handleClose}
+      closeAfterTransition
+      BackdropComponent={Backdrop}
+      BackdropProps={{
+        timeout: 500,
+      }}
+    >
+      <Fade in={open}>
+        <div className={classes.paper}>
+          <h2 id="transition-modal-title">Comparison modal</h2>
+          <p id="transition-modal-description">This will show product comparison!</p>
+        </div>
+      </Fade>
+    </Modal>
+  </div>
+  </>
   );
 }
 
