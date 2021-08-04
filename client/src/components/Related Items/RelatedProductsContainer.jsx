@@ -44,14 +44,12 @@ class RelatedProductsContainer extends React.Component {
 
     return axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/products/${this.props.primaryProductID}`, auth)
     .then(({ data }) => {
-      console.log('OVERVIEW PRODUCT', data);
       this.setState({
         overviewProductInfo: data
       });
 
     })
     .catch(err => console.log('Error retrieving data in componentDidMount: ', err));
-
   }
 
   getProductInfo(productID) {
@@ -129,10 +127,12 @@ class RelatedProductsContainer extends React.Component {
         </div>
         <div>
           <YourOutfitCarousel
+          addOutfit={addOutfit}
           productInfo={productInfo}
           relatedProductsIDs={relatedProductsIDs}
           photoObjs={photoObjs}
-          reviewsData={reviewsData}/>
+          reviewsData={reviewsData}
+          overviewProductInfo={this.state.overviewProductInfo}/>
         </div>
       </div>
     )
