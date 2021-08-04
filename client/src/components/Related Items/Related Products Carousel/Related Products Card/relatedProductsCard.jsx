@@ -36,7 +36,7 @@ const RelatedProductsCard = ({ changeProduct, photo, product, relatedProductStyl
       className={classes.root}>
         <CardMedia
           className={classes.media}
-          image={photo[1]}>
+          image={photo[2]}>
         </CardMedia>
         <CardContent>
           <Typography variant="caption" color="textSecondary" component="p">
@@ -82,7 +82,10 @@ const RelatedProductsCard = ({ changeProduct, photo, product, relatedProductStyl
         <Fade in={open}>
           <div className={classes.paper}>
             <h2 id="transition-modal-title">Comparison modal</h2>
-            <p id="transition-modal-description">This will show product comparison!</p>
+            <p id="transition-modal-description">
+              {/* pass down info here and render out in modal file?! */}
+              This will show product comparison!
+            </p>
           </div>
         </Fade>
       </Modal>
