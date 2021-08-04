@@ -1,19 +1,9 @@
 import React, { useState } from 'react';
 import useStyles from './styles.js';
-import { Card, CardHeader, CardMedia, CardContent, CardActions, CardActionArea, Typography, IconButton } from '@material-ui/core';
-
-// import DoneAllIcon from '@material-ui/icons/DoneAll';
+import { Card, CardHeader, CardMedia, CardContent, CardActions, CardActionArea, Typography, IconButton, Modal, Backdrop, Fade, CircularProgress } from '@material-ui/core';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
 import stars from '../../../Shared/stars.jsx';
 import ComparisonModal from '../Comparison Modal/comparisonModal.jsx';
-import BrokenImageIcon from '@material-ui/icons/BrokenImage';
-import { Modal, Backdrop, Fade } from '@material-ui/core';
-
-
-import { LoadingButton } from '@material-ui/lab';
-import { CircularProgress } from '@material-ui/core';
-
-//product photos are located in the styles endpoint
 
 const RelatedProductsCard = ({ overviewProductInfo, changeProduct, photo, product, relatedProductStyleInfo, relatedProductsIDs, reviewsData }) => {
   const classes = useStyles();
