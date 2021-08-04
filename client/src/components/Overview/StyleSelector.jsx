@@ -45,25 +45,23 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const StyleSelector = () => {
-  const styles = useStylesStore((state) => state.photos);
-  const name = useStylesStore((state) => state.name);
+  const allStyles = useStylesStore((state) => state.allStyles);
+  const name = useStylesStore((state) => state.currentStyleName);
   const classes = useStyles();
-  const id = 16546;
-  // const handleClick = useStylesStore((state) => state.handleStyleChange);
-  const handleClick = (e) => {
-    e.preventDefault();
-    console.log(e.target.parentElement.id);
-  };
+  const currentStyleId = useStylesStore((state) => state.currentStyleId);
+
+  const handleClick = useStylesStore((state) => state.handleStyleChange);
+  // console.log('currentid', allStyles[0].photos);
   return (
     <div>
       <h3 className="style-name">Style > {name}</h3>
 
       <div className="style-container">
         <Grid container spacing={1}>
-          {styles.map((image) => (
-            <Grid item xs={1.8}>
+          {allStyles.map((style, i) => (
+            <Grid item xs={2} key={i}>
               <Badge
-                value={id}
+                id={style.style_id}
                 overlap="circular"
                 anchorOrigin={{
                   vertical: 'top',
@@ -74,8 +72,9 @@ const StyleSelector = () => {
                 }
               >
                 <Avatar
-                  src={image.thumbnail_url}
-                  id={id}
+                  key={i}
+                  src={style.photos[0].url}
+                  id={style.style_id}
                   onClick={handleClick}
                 />
               </Badge>

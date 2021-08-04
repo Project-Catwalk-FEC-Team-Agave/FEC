@@ -4,20 +4,16 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a lo
 import { Carousel } from 'react-responsive-carousel';
 // import { Carousel } from 'react-bootstrap';
 const ImageGallery = () => {
-  const photo = useStylesStore((state) => state.photos[0].url);
+  const photos = useStylesStore((state) => state.photos);
+
   return (
     <div>
-      <h3>Image gallery</h3>
       <Carousel transitionTime="1000">
-        <div>
-          <img src={photo} />
-        </div>
-        <div>
-          <img src={photo} />
-        </div>
-        <div>
-          <img src={photo} />
-        </div>
+        {photos.map((photo, i) => (
+          <div key={i}>
+            <img src={photo.url} />
+          </div>
+        ))}
       </Carousel>
     </div>
   );
