@@ -12,6 +12,10 @@ const Overview = (props) => {
   const categogy = usePoroductStore((state) => state.category);
   const slogan = usePoroductStore((state) => state.slogan);
   const description = usePoroductStore((state) => state.description);
+  const getData = useStylesStore((state) => state.getData);
+  useEffect(() => {
+    getData();
+  }, []);
 
   return (
     <Grid container spacing={3}>
