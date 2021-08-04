@@ -1,3 +1,44 @@
-.product-container {
-  color: red;
+.overview-container {
+  padding-top: 20px;
+  align-content: center;
+  margin-left: 5%;
+}
+.category {
+  font-size: 15px;
+  text-transform: uppercase;
+  font-weight: lighter;
+}
+.name {
+  font-size: 30px;
+  font-weight: 600;
+}
+.price {
+  font-size: 15px;
+  font-weight: lighter;
+}
+.carousel-root {
+  width: 80%;
+  height: 40%;
+}
+.carousel.carousel-slider {
+  width: 80%;
+}
+.carousel {
+  width: 80%;
+  position: absolute;
+}
+
+.carousel-slider {
+  width: 80%;
+  flex-direction: column;
+}
+/* STYLE SELECTOR */
+
+.style-container {
+  padding-bottom: 20px;
+  justify-content: space-between;
+}
+.style-name {
+  padding-bottom: 10px;
+  font-size: 17px;
 }
