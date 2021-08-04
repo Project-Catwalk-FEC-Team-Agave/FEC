@@ -1,6 +1,7 @@
 import create from 'zustand';
 import { data } from './sampleStyleData';
 import axios from 'axios';
+const { TOKEN } = require('./config.js');
 
 export const usePoroductStore = create((set) => ({
   id: 11001,
@@ -12,13 +13,14 @@ export const usePoroductStore = create((set) => ({
   default_price: '140.00',
 }));
 
-// const useStore = create((set) => ({
-//   pokemons: [],
-//   getPokemons: async () => {
-//     const response = await axios.get('');
-//     set({ pokemons: response.data });
-//   },
-// }));
+var config = {
+  method: 'get',
+  url:
+    'https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/products/11001/styles',
+  headers: {
+    Authorization: TOKEN,
+  },
+};
 
 export const useStylesStore = create((set) => ({
   handleSizeChange: (e) =>
@@ -33,7 +35,15 @@ export const useStylesStore = create((set) => ({
     }),
   handleStyleChange: (e) =>
     set((state) => ({ currentStyleId: e.target.value })),
-
+  getData: () => {
+    axios(config).then(({ data }) => {
+      console.log('data', data);
+      set({
+        style_idtest: data.style_id,
+        nametest: data.name,
+      });
+    });
+  },
   currentStyleId: 0,
   product_id: '11001',
   style_id: 51158,
