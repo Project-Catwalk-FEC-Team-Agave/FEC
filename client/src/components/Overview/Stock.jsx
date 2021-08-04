@@ -37,7 +37,6 @@ const Stock = () => {
           label="Size"
         >
           {sizes.map((size, i) => {
-            console.log(size);
             return (
               // if (skus[id].quantity > 0) {
               <MenuItem key={i} value={size}>
