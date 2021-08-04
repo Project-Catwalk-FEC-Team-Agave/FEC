@@ -1,13 +1,15 @@
-import React, { useState } from 'react';
-import { Modal, Backdrop, Fade } from '@material-ui/core';
-import useStyles from './styles.js';
+import React from 'react';
+//import useStyles from './styles.js';
 //https://material-ui.com/components/modal/
 
-const ComparisonModal = () => {
+const ComparisonModal = ({ overviewProductInfo, product }) => {
+
+  console.log('Overview to compare:', overviewProductInfo);
+  console.log('Product to compare:', product)
 
   return (
     <div>
-
+hi!!!!!!
     </div>
   );
 }

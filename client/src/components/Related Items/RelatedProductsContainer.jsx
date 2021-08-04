@@ -14,12 +14,14 @@ class RelatedProductsContainer extends React.Component {
       productInfo: [],
       relatedProductsIDs: [],
       photoObjs: [],
-      reviewsData: []
+      reviewsData: [],
+      overviewProductInfo: {}
     }
     //function binding goes here
   }
 
   componentDidMount() {
+    this.getOverviewProductInfo();
 
     return axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/products/${this.props.primaryProductID}/related`, auth)
     .then(({ data }) => {
@@ -34,6 +36,22 @@ class RelatedProductsContainer extends React.Component {
       })
     })
     .catch(err => console.log('Error retrieving data in componentDidMount: ', err));
+  }
+
+  getOverviewProductInfo(id) {
+
+    const auth = { headers: {'Authorization': TOKEN}};
+
+    return axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/products/${this.props.primaryProductID}`, auth)
+    .then(({ data }) => {
+      console.log('OVERVIEW PRODUCT', data);
+      this.setState({
+        overviewProductInfo: data
+      });
+
+    })
+    .catch(err => console.log('Error retrieving data in componentDidMount: ', err));
+
   }
 
   getProductInfo(productID) {
@@ -107,7 +125,8 @@ class RelatedProductsContainer extends React.Component {
           productInfo={productInfo}
           relatedProductsIDs={relatedProductsIDs}
           photoObjs={photoObjs}
-          reviewsData={reviewsData} />
+          reviewsData={reviewsData}
+          overviewProductInfo={this.state.overviewProductInfo}/>
         </div>
         <div>
           <YourOutfitCarousel

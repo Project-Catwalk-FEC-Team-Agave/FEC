@@ -7,12 +7,13 @@ import sampleProductData from '../../../sample_data/sampleProductData.js';
 import NavBar from './NavBar.jsx';
 import Reviews from './Reviews/Reviews.jsx'
 import { TOKEN } from '../../../config.js';
+import axios from 'axios';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      productId: 11001,
+      productId: '11001',
       overviewProductInfo: {},
       favorites: [],
       productInfo: {}
@@ -32,18 +33,31 @@ class App extends React.Component {
   }
 
   componentDidMount() {
+
     this.setState({
       productId: 11001,
       favorites: [],
       productInfo: sampleProductData
     })
+
   }
 
   //set info for product overview
-  getOverviewProductInfo() {
+  // getOverviewProductInfo() {
 
+  //   const auth = { headers: {'Authorization': TOKEN}};
 
-  }
+  //   return axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/products/${this.state.productId}`, auth)
+  //   .then(({ data }) => {
+  //     console.log(data);
+  //     this.setState({
+  //       overviewProductInfo: data
+  //     }, () => console.log(this.state.overviewProductInfo));
+
+  //   })
+  //   .catch(err => console.log('Error retrieving data in componentDidMount: ', err));
+
+  // }
 
   changeProduct(id) {
     this.setState({
@@ -66,6 +80,7 @@ class App extends React.Component {
   }
 
   render() {
+
     return (
       <>
       <NavBar/>
