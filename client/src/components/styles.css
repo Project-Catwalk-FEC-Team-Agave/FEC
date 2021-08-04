@@ -1,3 +1,25 @@
-.product-container {
-  color: red;
+.carousel-root {
+  width: 80%;
+  height: 40%;
+}
+.carousel.carousel-slider {
+  width: 80%;
+}
+.carousel {
+  width: 80%;
+  position: absolute;
+}
+
+.carousel-slider {
+  width: 80%;
+  flex-direction: column;
+}
+/* STYLE SELECTOR */
+
+.style-container {
+  padding-bottom: 20px;
+  justify-content: space-between;
+}
+.style-name {
+  padding-bottom: 10px;
 }
