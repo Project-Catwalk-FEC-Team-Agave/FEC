@@ -10,7 +10,7 @@ export default makeStyles((theme) => ({
     marginLeft: '10px'
   },
   media: {
-    paddingTop: '100%'
+    height: '60%'
   },
 	overlay: {
 		position: 'absolute',

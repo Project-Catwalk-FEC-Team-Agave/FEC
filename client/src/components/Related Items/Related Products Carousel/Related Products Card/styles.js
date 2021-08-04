@@ -9,16 +9,19 @@ export default makeStyles((theme) => ({
     marginRight: '10px',
     marginLeft: '10px',
     position: 'relative',
-    zIndex: '50'
   },
   media: {
-    paddingTop: '100%'
+    height: '60%'
   },
 	overlay: {
 		position: 'relative',
-		top: '-470px',
-		left: '195px',
+		top: '-105%',
+		left: '65%',
     zIndex: '99'
+  },
+  icon: {
+    width: '30px',
+    height: '30px'
   },
   modal: {
     display: 'flex',

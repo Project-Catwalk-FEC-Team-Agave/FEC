@@ -63,7 +63,8 @@ const RelatedProductsCard = ({ changeProduct, photo, product, relatedProductStyl
             className={classes.overlay}>
             <StarBorderIcon
               style={{ color: '#f4b400' }}
-              aria-label="compare to current product"/>
+              aria-label="compare to current product"
+              className={classes.icon}/>
           </IconButton>
 
     <div>

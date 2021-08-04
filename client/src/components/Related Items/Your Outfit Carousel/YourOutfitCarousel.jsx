@@ -37,10 +37,12 @@ const YourOutfitCarousel = ({ productInfo, photoObjs, relatedProductsIDs, review
             </CardMedia>
           </Card>
         );
-      } else {
+      } else if (i > 0) {
+        i++;
         photoObjs.forEach(obj => {
           console.log('Product: ', product)
           console.log('Photo: ', obj);
+          console.log(product.id === obj.productID)
           if (product.id === obj.productID) {
 
             return (
