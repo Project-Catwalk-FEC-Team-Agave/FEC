@@ -7,17 +7,22 @@ import QA from './components/questions/qa.jsx';
 import Reviews from './components/Reviews/Reviews.jsx';
 import Related from './components/Related Items/RelatedProductsContainer.jsx';
 
-// ReactDOM.render(
-//   <App />,
-//   document.getElementById('app')
-// )
+ReactDOM.render(
+  <App />,
+  document.getElementById('app')
+)
 
 // ReactDOM.render(
 //   <App />,
 //   document.getElementById('app')
 // )
 
-ReactDOM.render(<Overview />, document.getElementById('app'));
+// ReactDOM.render(
+//   <App />,
+//   document.getElementById('app')
+// )
+
+//ReactDOM.render(<Overview />, document.getElementById('app'));
 
 // ReactDOM.render(
 //   <Overview />,
@@ -29,7 +34,12 @@ ReactDOM.render(<Overview />, document.getElementById('app'));
 //   document.getElementById('app')
 // )
 
-ReactDOM.render(<Reviews />, document.getElementById('app'));
+// ReactDOM.render(
+//   <Reviews />,
+//   document.getElementById('app')
+// )
+
+//ReactDOM.render(<Reviews />, document.getElementById('app'));
 
 // ReactDOM.render(
 //   <QA />,

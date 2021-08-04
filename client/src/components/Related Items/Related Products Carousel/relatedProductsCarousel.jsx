@@ -16,7 +16,7 @@ const RelatedProductsCarousel = ({ changeProduct, productInfo, photoObjs, relate
 			if (obj.productID === prod.id) {
 				return obj.photo;
 			}
-			return 'https://images.unsplash.com/photo-1492447105260-2e947425b5cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80';
+			return 'https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg';
 		})
 	}
 
