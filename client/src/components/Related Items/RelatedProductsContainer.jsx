@@ -110,9 +110,8 @@ class RelatedProductsContainer extends React.Component {
   }
 
   render() {
-    console.log('STATE: ', this.state);
+    // console.log('STATE: ', this.state);
     const { changeProduct, addOutfit, getProductInfo, primaryProductID } = this.props;
-    //console.log('State: ', this.state);
 
     const { productInfo, relatedProductsIDs, photoObjs, reviewsData } = this.state;
 

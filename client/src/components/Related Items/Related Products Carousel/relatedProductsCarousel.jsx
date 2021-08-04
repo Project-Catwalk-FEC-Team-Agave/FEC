@@ -11,11 +11,8 @@ const RelatedProductsCarousel = ({ overviewProductInfo, changeProduct, productIn
 
 	const classes = useStyles();
 
-	console.log('****************', overviewProductInfo);
-
 	let choosePhoto = (prod) => {
 		return photoObjs.map(obj => {
-			console.log(obj.productID === prod.id)
 			if (obj.productID === prod.id) {
 				return obj.photo;
 			} else {

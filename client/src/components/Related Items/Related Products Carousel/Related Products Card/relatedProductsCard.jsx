@@ -8,7 +8,6 @@ import stars from '../../../Shared/stars.jsx';
 import ComparisonModal from '../Comparison Modal/comparisonModal.jsx';
 import BrokenImageIcon from '@material-ui/icons/BrokenImage';
 import { Modal, Backdrop, Fade } from '@material-ui/core';
-import { ButtonBase } from '@material-ui/core';
 
 //product photos are located in the styles endpoint
 
@@ -36,7 +35,7 @@ const RelatedProductsCard = ({ overviewProductInfo, changeProduct, photo, produc
       className={classes.root}>
         <CardMedia
           className={classes.media}
-          image={photo[2]}>
+          image={photo[1]}>
         </CardMedia>
         <CardContent>
           <Typography variant="caption" color="textSecondary" component="p">
@@ -82,9 +81,9 @@ const RelatedProductsCard = ({ overviewProductInfo, changeProduct, photo, produc
       >
         <Fade in={open}>
           <div className={classes.paper}>
-            <h2 id="transition-modal-title">Comparison modal</h2>
-              {/* pass down info here and render out in modal file?! */}
-              This will show product comparison!
+            <Typography id="transition-modal-title" variant="caption" color="textSecondary" component="p">
+              COMPARING
+            </Typography>
               <ComparisonModal
                 overviewProductInfo={overviewProductInfo}
                 product={product}/>
