@@ -51,7 +51,8 @@ const StyleSelector = () => {
   const id = 16546;
   // const handleClick = useStylesStore((state) => state.handleStyleChange);
   const handleClick = (e) => {
-    console.log(e.target.key);
+    e.preventDefault();
+    console.log(e.target.parentElement.id);
   };
   return (
     <div>
@@ -60,8 +61,9 @@ const StyleSelector = () => {
       <div className="style-container">
         <Grid container spacing={1}>
           {styles.map((image) => (
-            <Grid item xs={1.5}>
+            <Grid item xs={1.8}>
               <Badge
+                value={id}
                 overlap="circular"
                 anchorOrigin={{
                   vertical: 'top',
@@ -72,9 +74,9 @@ const StyleSelector = () => {
                 }
               >
                 <Avatar
-                  onClick={handleClick}
                   src={image.thumbnail_url}
-                  key={id}
+                  id={id}
+                  onClick={handleClick}
                 />
               </Badge>
             </Grid>
