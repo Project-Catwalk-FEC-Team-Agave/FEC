@@ -9,9 +9,6 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
-import CheckIcon from '@material-ui/icons/Check';
-
-// √
 
 const ComparisonModal = ({ overviewProductInfo, product }) => {
 
@@ -42,11 +39,18 @@ let productFeatures = [];
 let overviewFeatures = [];
 
 product.features.forEach(feature => {
+  if (!feature.value) {
+    feature.value = '';
+  }
   allFeatures.push(feature.value + ' ' + feature.feature);
   productFeatures.push(feature.value + ' ' + feature.feature);
 });
 
 overviewProductInfo.features.forEach(feature => {
+  if (!feature.value) {
+    feature.value = '';
+  }
+
   allFeatures.push(feature.value + ' ' + feature.feature);
   overviewFeatures.push(feature.value + ' ' + feature.feature);
 });
@@ -55,8 +59,13 @@ console.log('FEATURES', allFeatures);
 
 const rows = allFeatures.map(feature => {
 
-  return createData('check', feature, 'check');
-
+  if (productFeatures.indexOf(feature) >= 0 && overviewFeatures.indexOf(feature) >= 0) {
+    return createData('√', feature, '√');
+  } else if (productFeatures.indexOf(feature) >= 0 && overviewFeatures.indexOf(feature) === -1) {
+    return createData('√', feature, ' ');
+  } else {
+    return createData(' ', feature, '√');
+  }
 })
 
 
