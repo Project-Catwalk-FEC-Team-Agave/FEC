@@ -9,32 +9,14 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
-//https://material-ui.com/components/modal/
+import CheckIcon from '@material-ui/icons/Check';
 
-
-
-// const rows = [
-//   createData('India', 'IN', 1324171354, 3287263),
-//   createData('China', 'CN', 1403500365, 9596961),
-//   createData('Italy', 'IT', 60483973, 301340),
-//   createData('United States', 'US', 327167434, 9833520),
-//   createData('Canada', 'CA', 37602103, 9984670),
-//   createData('Australia', 'AU', 25475400, 7692024),
-//   createData('Germany', 'DE', 83019200, 357578),
-//   createData('Ireland', 'IE', 4857000, 70273),
-//   createData('Mexico', 'MX', 126577691, 1972550),
-//   createData('Japan', 'JP', 126317000, 377973),
-//   createData('France', 'FR', 67022000, 640679),
-//   createData('United Kingdom', 'GB', 67545757, 242495),
-//   createData('Russia', 'RU', 146793744, 17098246),
-//   createData('Nigeria', 'NG', 200962417, 923768),
-//   createData('Brazil', 'BR', 210147125, 8515767),
-// ];
+// √
 
 const ComparisonModal = ({ overviewProductInfo, product }) => {
 
   const columns = [
-    { id: 'name', label: product.name, minWidth: 170 },
+    { id: 'name1', label: product.name, minWidth: 170 },
     {
       id: 'features',
       label: 'Features',
@@ -43,7 +25,7 @@ const ComparisonModal = ({ overviewProductInfo, product }) => {
       format: (value) => value.toLocaleString('en-US'),
     },
     {
-      id: 'size',
+      id: 'name2',
       label: overviewProductInfo.name,
       minWidth: 170,
       align: 'right',
@@ -51,23 +33,31 @@ const ComparisonModal = ({ overviewProductInfo, product }) => {
     }
   ];
 
-  function createData(name, population, size) {
-    return { name, population, size };
+  function createData(name1, features, name2) {
+    return { name1, features, name2 };
   }
 
 let allFeatures = [];
+let productFeatures = [];
+let overviewFeatures = [];
 
 product.features.forEach(feature => {
-  allFeatures.push(feature);
-})
+  allFeatures.push(feature.value + ' ' + feature.feature);
+  productFeatures.push(feature.value + ' ' + feature.feature);
+});
+
+overviewProductInfo.features.forEach(feature => {
+  allFeatures.push(feature.value + ' ' + feature.feature);
+  overviewFeatures.push(feature.value + ' ' + feature.feature);
+});
 
 console.log('FEATURES', allFeatures);
 
+const rows = allFeatures.map(feature => {
 
-const rows = [createData('check', product.features[0].feature, 'check')];
+  return createData('check', feature, 'check');
 
-
-
+})
 
 
   console.log('Overview to compare:', overviewProductInfo);
