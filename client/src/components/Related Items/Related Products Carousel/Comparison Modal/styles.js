@@ -5,6 +5,6 @@ export default makeStyles((theme) => ({
     width: '100%',
   },
   container: {
-    maxHeight: 440,
+    maxHeight: 300,
   }
 }));
