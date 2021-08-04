@@ -9,6 +9,10 @@ import ComparisonModal from '../Comparison Modal/comparisonModal.jsx';
 import BrokenImageIcon from '@material-ui/icons/BrokenImage';
 import { Modal, Backdrop, Fade } from '@material-ui/core';
 
+
+import { LoadingButton } from '@material-ui/lab';
+import { CircularProgress } from '@material-ui/core';
+
 //product photos are located in the styles endpoint
 
 const RelatedProductsCard = ({ overviewProductInfo, changeProduct, photo, product, relatedProductStyleInfo, relatedProductsIDs, reviewsData }) => {
@@ -33,10 +37,15 @@ const RelatedProductsCard = ({ overviewProductInfo, changeProduct, photo, produc
         changeProduct(e.currentTarget.getAttribute("data-myattr"));
       }}
       className={classes.root}>
-        <CardMedia
+
+        {photo[1] ? (
+          <CardMedia
           className={classes.media}
-          image={photo[1]}>
-        </CardMedia>
+          image={photo[1]}/>
+        ) : (
+          <CircularProgress/>
+        )}
+
         <CardContent>
           <Typography variant="caption" color="textSecondary" component="p">
             {product.category.toUpperCase()}
