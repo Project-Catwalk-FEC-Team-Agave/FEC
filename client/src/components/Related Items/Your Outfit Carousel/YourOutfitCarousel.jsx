@@ -10,6 +10,7 @@ import { Card, CardMedia} from '@material-ui/core';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
 
 //***********NEXT STEPS*********
+
 //get photos to align with Your Outfit products!
 
 
@@ -18,7 +19,6 @@ const YourOutfitCarousel = ({ overviewProductInfo, addOutfit, productInfo, photo
   const classes = useStyles();
 
   const [outfits, addYourOutfit] = useState([]);
-
 
   return (
     <Grid className={classes.mainContainer} container alignItems='stretch' spacing={4}>
@@ -31,7 +31,11 @@ const YourOutfitCarousel = ({ overviewProductInfo, addOutfit, productInfo, photo
               image={'https://images.pexels.com/photos/242236/pexels-photo-242236.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'}
             >
               <IconButton
-                onClick={() => addYourOutfit([...outfits, overviewProductInfo])}
+                onClick={() => {
+                  if (outfits.indexOf(overviewProductInfo) === -1) {
+                    addYourOutfit([...outfits, overviewProductInfo])
+                  }
+                }}
                 style={{ color: 'black' }}
                 aria-label="settings"
                 className={classes.overlay}>
