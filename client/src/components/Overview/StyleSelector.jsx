@@ -4,6 +4,7 @@ import CheckIcon from '@material-ui/icons/Check';
 import Badge from '@material-ui/core/Badge';
 import Avatar from '@material-ui/core/Avatar';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
+import Grid from '@material-ui/core/Grid';
 
 const StyledBadge = withStyles((theme) => ({
   badge: {
@@ -54,35 +55,33 @@ const StyleSelector = () => {
   };
   return (
     <div>
-      Style Selector
-      <div>
-        <b>{name}</b>
-        {styles.map((image) => (
-          <Badge
-            overlap="circular"
-            anchorOrigin={{
-              vertical: 'top',
-              horizontal: 'right',
-            }}
-            badgeContent={
-              <CheckIcon style={{ fill: 'green' }} fontSize="small" />
-            }
-          >
-            <Avatar onClick={handleClick} src={image.thumbnail_url} key={id} />
-          </Badge>
-        ))}
+      <h3 className="style-name">Style > {name}</h3>
+
+      <div className="style-container">
+        <Grid container spacing={1}>
+          {styles.map((image) => (
+            <Grid item xs={1.5}>
+              <Badge
+                overlap="circular"
+                anchorOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                badgeContent={
+                  <CheckIcon style={{ fill: 'green' }} fontSize="small" />
+                }
+              >
+                <Avatar
+                  onClick={handleClick}
+                  src={image.thumbnail_url}
+                  key={id}
+                />
+              </Badge>
+            </Grid>
+          ))}
+        </Grid>
       </div>
     </div>
   );
 };
 export default StyleSelector;
-
-// small circle for checkmark
-
-// const SmallAvatar = withStyles((theme) => ({
-//   root: {
-//     width: 22,
-//     height: 22,
-//     border: `2px solid ${theme.palette.background.paper}`,
-//   },
-// }))(Avatar);
