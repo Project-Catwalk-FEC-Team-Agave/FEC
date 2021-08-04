@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import App from './components/App.jsx';
+import App from './components/App.jsx';
 import Overview from './components/Overview/overview.jsx';
 
 import QA from './components/questions/qa.jsx';
