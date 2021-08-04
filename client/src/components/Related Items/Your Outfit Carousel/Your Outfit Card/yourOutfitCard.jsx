@@ -7,14 +7,14 @@ import stars from '../../../Shared/stars.jsx';
 
 const YourOutfitCard = ({ photo, product, relatedProductStyleInfo, relatedProductsIDs, reviewsData }) => {
   const classes = useStyles();
-  let starCount = stars();
+  let starCount = stars(3.5);
 
   return (
   <Card
   className={classes.root}>
       <CardMedia
         className={classes.media}
-        image={photo[2]}
+        image={photo}
       >
         <IconButton style={{ color: 'black' }} aria-label="settings" className={classes.overlay}>
           <HighlightOffIcon style={{ color: 'black' }} aria-label="delete item from Your Outfits"/>

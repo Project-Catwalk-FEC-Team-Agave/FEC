@@ -3,7 +3,6 @@ import axios from 'axios';
 import RelatedProductsCarousel from './Related Products Carousel/relatedProductsCarousel.jsx';
 import YourOutfitCarousel from './Your Outfit Carousel/YourOutfitCarousel.jsx';
 import { TOKEN } from '../../../../config.js';
-//import sampleAllProducts from '../../../../sample_data/sampleAllProducts.js';
 import './styles.css';
 
 const auth = { headers: {'Authorization': TOKEN}};
@@ -41,7 +40,6 @@ class RelatedProductsContainer extends React.Component {
 
     return axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/products/${productID}`, auth)
     .then(({ data }) => {
-      console.log('getProductInfo: ', data)
       this.setState({
         productInfo: [...this.state.productInfo, data]
       })
@@ -52,20 +50,32 @@ class RelatedProductsContainer extends React.Component {
   getPhotos(productID) {
 
     return axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/products/${productID}/styles`, auth)
-    .then(({ data }) => {
+    .then(({data}) => {
 
-      data.results.forEach(result => {
-        if (result['default?'] === true) {
-          // let copy = this.state.productInfo.slice();
-          // copy.photo = result.photos[0].url;
+      let array = [];
 
-          let photo = result.photos[0].url || 'https://images.unsplash.com/photo-1492447105260-2e947425b5cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80';
+      if (data.product_id === '11007') {
+        data.results.forEach(result => {
+          array.push(result.photos[0].url)
+        })
+      }
 
-          this.setState({
-            photoObjs: [...this.state.photoObjs, {productID, photo}]
-          })
-        }
+      let photo = array[0];
+
+      if (data.product_id !== '11007') {
+        data.results.forEach(result => {
+
+          if (result['default?'] === true) {
+
+            photo = result.photos[0].url || 'https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg';
+          }
+        })
+      }
+
+      this.setState({
+        photoObjs: [...this.state.photoObjs, {productID, photo}]
       })
+
     })
     .catch(err => console.log('Error retrieving photos: ', err));
   }
@@ -81,14 +91,8 @@ class RelatedProductsContainer extends React.Component {
     .catch(err => console.log('Error retrieving reviews: ', err));
   }
 
-  addProperty(val) {
-    let copy = this.state.productInfo.slice();
-    return mappedProductInfo = copy.map(product => {
-      product.photo = val.photos[0].url;
-    });
-  }
-
   render() {
+    console.log('STATE: ', this.state);
     const { changeProduct, addOutfit, getProductInfo, primaryProductID } = this.props;
     //console.log('State: ', this.state);
 

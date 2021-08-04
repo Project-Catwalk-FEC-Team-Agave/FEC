@@ -6,6 +6,9 @@ const app = express();
 const port = 6969;
 // process.env.PORT || 1128;
 
+//serve up static image file
+//app.use client/dist/ --- photo file -- can ask Varun for help on this!
+
 
 
 // Middleware
