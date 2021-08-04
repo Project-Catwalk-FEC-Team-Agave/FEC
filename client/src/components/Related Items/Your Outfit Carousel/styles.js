@@ -7,7 +7,7 @@ export default makeStyles((theme) => ({
 		paddingTop: '50px'
   },
   root: {
-    maxWidth: 245,
+    minWidth: 245,
     height: 450,
     marginTop: '20px',
 		marginBottom: '20px',

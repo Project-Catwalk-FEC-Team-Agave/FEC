@@ -6,12 +6,14 @@ import stars from './Shared/stars.jsx';
 import sampleProductData from '../../../sample_data/sampleProductData.js';
 import NavBar from './NavBar.jsx';
 import Reviews from './Reviews/Reviews.jsx'
+import { TOKEN } from '../../../config.js';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       productId: 11001,
+      overviewProductInfo: {},
       favorites: [],
       productInfo: {}
     }
@@ -23,9 +25,9 @@ class App extends React.Component {
     this.addOutfit = this.addOutfit.bind(this);
   }
 
-  addOutfit(id) {
+  addOutfit(product) {
     this.setState({
-      favorites: [...this.state.favorites, id],
+      favorites: [...this.state.favorites, product],
     });
   }
 
@@ -35,6 +37,12 @@ class App extends React.Component {
       favorites: [],
       productInfo: sampleProductData
     })
+  }
+
+  //set info for product overview
+  getOverviewProductInfo() {
+
+
   }
 
   changeProduct(id) {
@@ -63,7 +71,7 @@ class App extends React.Component {
       <NavBar/>
 
         <div>
-          <Related changeProduct={this.changeProduct}  addOutfit={this.addOutfit} getProductInfo={this.getProductInfo} primaryProductID={this.state.productId}/>
+          <Related changeProduct={this.changeProduct}  addOutfit={this.addOutfit} getProductInfo={this.getProductInfo} primaryProductID={this.state.productId} yourOutfits={this.state.favorites}/>
 
           <QA />
         </div>
