@@ -9,6 +9,9 @@ import useStyles from './styles.js';
 import { Card, CardMedia} from '@material-ui/core';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
 
+//***********NEXT STEPS*********
+//get photos to align with Your Outfit products!
+
 
 const YourOutfitCarousel = ({ overviewProductInfo, addOutfit, productInfo, photoObjs, relatedProductsIDs, reviewsData }) => {
 
@@ -28,7 +31,7 @@ const YourOutfitCarousel = ({ overviewProductInfo, addOutfit, productInfo, photo
               image={'https://images.pexels.com/photos/242236/pexels-photo-242236.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'}
             >
               <IconButton
-                onClick={() => addYourOutfit(overviewProductInfo)}
+                onClick={() => addYourOutfit([...outfits, overviewProductInfo])}
                 style={{ color: 'black' }}
                 aria-label="settings"
                 className={classes.overlay}>
@@ -39,10 +42,11 @@ const YourOutfitCarousel = ({ overviewProductInfo, addOutfit, productInfo, photo
               </IconButton>
             </CardMedia>
           </Card>
-            {productInfo.slice(0, 3).map((product, i) => (
+            {outfits.map((product, i) => (
             <Grid key={i} xs={12} sm={6} item>
               {/* {renderCards(product, i)} */}
               <YourOutfitCard
+              //fix photo here!!!!!!
                 photo={'https://images.unsplash.com/photo-1492447105260-2e947425b5cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80'}
                 product={product}
                 reviewsData={reviewsData}>
