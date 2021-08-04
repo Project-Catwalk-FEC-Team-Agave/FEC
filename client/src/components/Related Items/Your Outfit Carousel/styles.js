@@ -15,11 +15,17 @@ export default makeStyles((theme) => ({
     marginLeft: '10px'
   },
   media: {
-    paddingTop: '100%'
+    height: 450,
+    position: 'relative'
   },
 	overlay: {
-		position: 'absolute',
-		top: '20px',
-		left: '195px'
+		position: 'relative',
+		top: '40%',
+		left: '35%'
+  },
+  icon: {
+    width: '60px',
+    height: '60px',
+    opacity: '50%'
   }
 }));
