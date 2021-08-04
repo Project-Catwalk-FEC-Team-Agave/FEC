@@ -1,3 +1,21 @@
+.overview-container {
+  padding-top: 20px;
+  align-content: center;
+  margin-left: 5%;
+}
+.category {
+  font-size: 15px;
+  text-transform: uppercase;
+  font-weight: lighter;
+}
+.name {
+  font-size: 30px;
+  font-weight: 600;
+}
+.price {
+  font-size: 15px;
+  font-weight: lighter;
+}
 .carousel-root {
   width: 80%;
   height: 40%;
@@ -22,4 +40,5 @@
 }
 .style-name {
   padding-bottom: 10px;
+  font-size: 17px;
 }
