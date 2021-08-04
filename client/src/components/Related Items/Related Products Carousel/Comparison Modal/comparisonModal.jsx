@@ -1,76 +1,66 @@
 import React from 'react';
-import { Typography} from '@material-ui/core';
+import { Typography, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TablePagination, TableRow} from '@material-ui/core';
 import useStyles from './styles.js';
-import Paper from '@material-ui/core/Paper';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableContainer from '@material-ui/core/TableContainer';
-import TableHead from '@material-ui/core/TableHead';
-import TablePagination from '@material-ui/core/TablePagination';
-import TableRow from '@material-ui/core/TableRow';
+import CheckIcon from '@material-ui/icons/Check';
 
 const ComparisonModal = ({ overviewProductInfo, product }) => {
 
   const columns = [
-    { id: 'name1', label: product.name, minWidth: 170 },
+    {
+      id: 'name1',
+      label: product.name,
+      minWidth: 150,
+      align: 'left'
+    },
     {
       id: 'features',
       label: 'Features',
-      minWidth: 170,
-      align: 'right',
-      format: (value) => value.toLocaleString('en-US'),
+      minWidth: 150,
+      align: 'center'
     },
     {
       id: 'name2',
       label: overviewProductInfo.name,
-      minWidth: 170,
-      align: 'right',
-      format: (value) => value.toLocaleString('en-US'),
+      minWidth: 150,
+      align: 'right'
     }
   ];
 
-  function createData(name1, features, name2) {
-    return { name1, features, name2 };
+  const createData = (name1, features, name2) => {
+      return { name1, features, name2 };
   }
 
-let allFeatures = [];
-let productFeatures = [];
-let overviewFeatures = [];
+  let allFeatures = [];
+  let productFeatures = [];
+  let overviewFeatures = [];
 
-product.features.forEach(feature => {
-  if (!feature.value) {
-    feature.value = '';
-  }
-  allFeatures.push(feature.value + ' ' + feature.feature);
-  productFeatures.push(feature.value + ' ' + feature.feature);
-});
+  product.features.forEach(feature => {
+    if (!feature.value) {
+      feature.value = '';
+    }
+    allFeatures.push(feature.value + ' ' + feature.feature);
+    productFeatures.push(feature.value + ' ' + feature.feature);
+  });
 
-overviewProductInfo.features.forEach(feature => {
-  if (!feature.value) {
-    feature.value = '';
-  }
+  overviewProductInfo.features.forEach(feature => {
+    if (!feature.value) {
+      feature.value = '';
+    }
 
-  allFeatures.push(feature.value + ' ' + feature.feature);
-  overviewFeatures.push(feature.value + ' ' + feature.feature);
-});
+    allFeatures.push(feature.value + ' ' + feature.feature);
+    overviewFeatures.push(feature.value + ' ' + feature.feature);
+  });
 
-console.log('FEATURES', allFeatures);
+  const rows = allFeatures.map(feature => {
 
-const rows = allFeatures.map(feature => {
-
-  if (productFeatures.indexOf(feature) >= 0 && overviewFeatures.indexOf(feature) >= 0) {
-    return createData('√', feature, '√');
-  } else if (productFeatures.indexOf(feature) >= 0 && overviewFeatures.indexOf(feature) === -1) {
-    return createData('√', feature, ' ');
-  } else {
-    return createData(' ', feature, '√');
-  }
-})
-
-
-  console.log('Overview to compare:', overviewProductInfo);
-  console.log('Product to compare:', product)
+    if (productFeatures.indexOf(feature) >= 0 && overviewFeatures.indexOf(feature) >= 0) {
+      return createData(<CheckIcon style={{ color: 'green' }}/>, feature, <CheckIcon style={{ color: 'green' }}/>);
+    } else if (productFeatures.indexOf(feature) >= 0 && overviewFeatures.indexOf(feature) === -1) {
+      return createData(<CheckIcon style={{ color: 'green' }}/>, feature, ' ');
+    } else {
+      return createData(' ', feature, <CheckIcon style={{ color: 'green' }}/>);
+    }
+  })
 
   const classes = useStyles();
   const [page, setPage] = React.useState(0);
@@ -121,7 +111,7 @@ const rows = allFeatures.map(feature => {
         </Table>
       </TableContainer>
       <TablePagination
-        rowsPerPageOptions={[10, 25, 100]}
+        rowsPerPageOptions={[10, 20, 30]}
         component="div"
         count={rows.length}
         rowsPerPage={rowsPerPage}
