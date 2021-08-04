@@ -1,11 +1,11 @@
 import React from 'react';
 import Overview from './Overview/overview.jsx';
-import QA from './questions/qa.jsx';
-import Related from './Related Items/RelatedProductsContainer.jsx';
-import stars from './Shared/stars.jsx';
-import sampleProductData from '../../../sample_data/sampleProductData.js';
-import NavBar from './NavBar.jsx';
-import Reviews from './Reviews/Reviews.jsx'
+// import QA from './questions/qa.jsx';
+// import Related from './Related Items/RelatedProductsContainer.jsx';
+// import stars from './Shared/stars.jsx';
+// import sampleProductData from '../../../sample_data/sampleProductData.js';
+// import NavBar from './NavBar.jsx';
+// import Reviews from './Reviews/Reviews.jsx'
 
 class App extends React.Component {
   constructor(props) {
@@ -13,8 +13,8 @@ class App extends React.Component {
     this.state = {
       productId: 11001,
       favorites: [],
-      productInfo: {}
-    }
+      productInfo: {},
+    };
 
     this.getReviews = this.getReviews.bind(this);
     this.getProductInfo = this.getProductInfo.bind(this);
@@ -33,8 +33,8 @@ class App extends React.Component {
     this.setState({
       productId: 11001,
       favorites: [],
-      productInfo: sampleProductData
-    })
+      productInfo: sampleProductData,
+    });
   }
 
   changeProduct(id) {
@@ -60,17 +60,20 @@ class App extends React.Component {
   render() {
     return (
       <>
-      <NavBar/>
+        <NavBar />
 
         <div>
-          <Related changeProduct={this.changeProduct}  addOutfit={this.addOutfit} getProductInfo={this.getProductInfo} primaryProductID={this.state.productId}/>
+          <Related
+            changeProduct={this.changeProduct}
+            addOutfit={this.addOutfit}
+            getProductInfo={this.getProductInfo}
+            primaryProductID={this.state.productId}
+          />
 
           <QA />
         </div>
       </>
-
-    )
-
+    );
   }
 }
 export default App;

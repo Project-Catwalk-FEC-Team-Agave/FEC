@@ -5,7 +5,7 @@ import YourOutfitCarousel from './Your Outfit Carousel/YourOutfitCarousel.jsx';
 import { TOKEN } from '../../../../config.js';
 import './styles.css';
 
-const auth = { headers: {'Authorization': TOKEN}};
+const auth = { headers: { Authorization: TOKEN } };
 
 class RelatedProductsContainer extends React.Component {
   constructor(props) {
@@ -14,110 +14,133 @@ class RelatedProductsContainer extends React.Component {
       productInfo: [],
       relatedProductsIDs: [],
       photoObjs: [],
-      reviewsData: []
-    }
+      reviewsData: [],
+    };
     //function binding goes here
   }
 
   componentDidMount() {
+    return axios
+      .get(
+        `https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/products/${this.props.primaryProductID}/related`,
+        auth
+      )
+      .then(({ data }) => {
+        this.setState({
+          relatedProductsIDs: data,
+        });
 
-    return axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/products/${this.props.primaryProductID}/related`, auth)
-    .then(({ data }) => {
-      this.setState({
-        relatedProductsIDs: data
-      });
-
-      data.forEach(productID => {
-        this.getProductInfo(productID);
-        this.getPhotos(productID);
-        this.getRating(productID);
+        data.forEach((productID) => {
+          this.getProductInfo(productID);
+          this.getPhotos(productID);
+          this.getRating(productID);
+        });
       })
-    })
-    .catch(err => console.log('Error retrieving data in componentDidMount: ', err));
+      .catch((err) =>
+        console.log('Error retrieving data in componentDidMount: ', err)
+      );
   }
 
   getProductInfo(productID) {
-
-    return axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/products/${productID}`, auth)
-    .then(({ data }) => {
-      this.setState({
-        productInfo: [...this.state.productInfo, data]
+    return axios
+      .get(
+        `https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/products/${productID}`,
+        auth
+      )
+      .then(({ data }) => {
+        this.setState({
+          productInfo: [...this.state.productInfo, data],
+        });
       })
-    })
-    .catch(err => console.log('Error retrieving product INFO: ', err));
+      .catch((err) => console.log('Error retrieving product INFO: ', err));
   }
 
   getPhotos(productID) {
+    return axios
+      .get(
+        `https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/products/${productID}/styles`,
+        auth
+      )
+      .then(({ data }) => {
+        let array = [];
 
-    return axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/products/${productID}/styles`, auth)
-    .then(({data}) => {
+        if (data.product_id === '11007') {
+          data.results.forEach((result) => {
+            array.push(result.photos[0].url);
+          });
+        }
 
-      let array = [];
+        let photo = array[0];
 
-      if (data.product_id === '11007') {
-        data.results.forEach(result => {
-          array.push(result.photos[0].url)
-        })
-      }
+        if (data.product_id !== '11007') {
+          data.results.forEach((result) => {
+            if (result['default?'] === true) {
+              photo =
+                result.photos[0].url ||
+                'https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg';
+            }
+          });
+        }
 
-      let photo = array[0];
-
-      if (data.product_id !== '11007') {
-        data.results.forEach(result => {
-
-          if (result['default?'] === true) {
-
-            photo = result.photos[0].url || 'https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg';
-          }
-        })
-      }
-
-      this.setState({
-        photoObjs: [...this.state.photoObjs, {productID, photo}]
+        this.setState({
+          photoObjs: [...this.state.photoObjs, { productID, photo }],
+        });
       })
-
-    })
-    .catch(err => console.log('Error retrieving photos: ', err));
+      .catch((err) => console.log('Error retrieving photos: ', err));
   }
 
   getRating(productID) {
-
-    return axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/reviews/?product_id=${productID}`, auth)
-    .then(({ data }) => {
-      this.setState({
-        reviewsData: [...this.state.reviewsData, data]
+    return axios
+      .get(
+        `https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/reviews/?product_id=${productID}`,
+        auth
+      )
+      .then(({ data }) => {
+        this.setState({
+          reviewsData: [...this.state.reviewsData, data],
+        });
       })
-    })
-    .catch(err => console.log('Error retrieving reviews: ', err));
+      .catch((err) => console.log('Error retrieving reviews: ', err));
   }
 
   render() {
     console.log('STATE: ', this.state);
-    const { changeProduct, addOutfit, getProductInfo, primaryProductID } = this.props;
+    const {
+      changeProduct,
+      addOutfit,
+      getProductInfo,
+      primaryProductID,
+    } = this.props;
     //console.log('State: ', this.state);
 
-    const { productInfo, relatedProductsIDs, photoObjs, reviewsData } = this.state;
+    const {
+      productInfo,
+      relatedProductsIDs,
+      photoObjs,
+      reviewsData,
+    } = this.state;
 
     return (
-
       <div className="related-products-container">
         <div>
           <RelatedProductsCarousel
-          changeProduct={changeProduct}
-          productInfo={productInfo}
-          relatedProductsIDs={relatedProductsIDs}
-          photoObjs={photoObjs}
-          reviewsData={reviewsData} />
+            changeProduct={changeProduct}
+            productInfo={productInfo}
+            relatedProductsIDs={relatedProductsIDs}
+            photoObjs={photoObjs}
+            reviewsData={reviewsData}
+          />
         </div>
         <div>
           <YourOutfitCarousel
-          productInfo={productInfo}
-          relatedProductsIDs={relatedProductsIDs}
-          photoObjs={photoObjs}
-          reviewsData={reviewsData}/>
+            productInfo={productInfo}
+            relatedProductsIDs={relatedProductsIDs}
+            photoObjs={photoObjs}
+            reviewsData={reviewsData}
+          />
         </div>
       </div>
-    )
+    );
   }
 }
 
