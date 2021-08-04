@@ -12,10 +12,10 @@ const CharacteristicsRadio = (props) => {
   ]
 
   return (
-    characteristics.map((characteristic) => {
+    characteristics.map((characteristic, i) => {
       return (
-        <div>{characteristic}<br></br>
-          <input type="radio" id="1" name={characteristic} value="1"></input>
+        <div key={i}>{characteristic}<br></br>
+          <input type="radio" id="1" name={characteristic} value="1" required></input>
           <label htmlFor="1">1</label>
           <input type="radio" id="2" name={characteristic} value="2"></input>
           <label htmlFor="2">2</label>
