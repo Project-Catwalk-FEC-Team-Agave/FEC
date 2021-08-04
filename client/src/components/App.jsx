@@ -8,9 +8,8 @@ import NavBar from './NavBar.jsx';
 import Reviews from './Reviews/Reviews.jsx'
 
 class App extends React.Component {
-
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       productId: 11001,
       favorites: [],
@@ -24,11 +23,10 @@ class App extends React.Component {
     this.addOutfit = this.addOutfit.bind(this);
   }
 
-
-  addOutfit (id) {
+  addOutfit(id) {
     this.setState({
-      favorites: [...this.state.favorites, id]
-    })
+      favorites: [...this.state.favorites, id],
+    });
   }
 
   componentDidMount() {
@@ -40,32 +38,26 @@ class App extends React.Component {
   }
 
   changeProduct(id) {
-    this.setState( {
-      productId: id
-    })
+    this.setState({
+      productId: id,
+    });
   }
 
-  getProductInfo (id) {
-
+  getProductInfo(id) {
     // api call
   }
 
   //this has the url links
   getStyles(id) {
-
     //api call to GET /products/:product_id/styles
-
   }
 
   // method to get review for a product
   getReviews(productId) {
     // api call
-
   }
 
-
   render() {
-
     return (
       <>
       <NavBar/>

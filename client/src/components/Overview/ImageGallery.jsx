@@ -1,18 +1,13 @@
 import React from 'react';
+import { usePoroductStore, useStylesStore } from './store';
 
-class ImageGallery extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
-  render() {
-    return (
-      <div>
-        <h3>Image gallery</h3>
-        <img src={this.props.image}></img>
-      </div>
-    );
-  }
-}
+const ImageGallery = () => {
+  const photo = useStylesStore((state) => state.photos[0].url);
+  return (
+    <div>
+      <h3>Image gallery</h3>
+      <img src={photo}></img>
+    </div>
+  );
+};
 export default ImageGallery;

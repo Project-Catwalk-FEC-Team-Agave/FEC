@@ -1,4 +1,6 @@
 import create from 'zustand';
+import { data } from './sampleStyleData';
+import axios from 'axios';
 
 export const usePoroductStore = create((set) => ({
   id: 11001,
@@ -10,13 +12,37 @@ export const usePoroductStore = create((set) => ({
   default_price: '140.00',
 }));
 
+// const useStore = create((set) => ({
+//   pokemons: [],
+//   getPokemons: async () => {
+//     const response = await axios.get('');
+//     set({ pokemons: response.data });
+//   },
+// }));
+
 export const useStylesStore = create((set) => ({
+  handleSizeChange: (e) =>
+    set((state) => {
+      let amount = 0;
+      for (let key in state.skus) {
+        if (state.skus[key].size === e.target.value) {
+          amount = state.skus[key].quantity;
+        }
+      }
+      return { sizeSelected: e.target.value, sizeQuantity: amount };
+    }),
+  handleStyleChange: (e) =>
+    set((state) => ({ currentStyleId: e.target.value })),
+
+  currentStyleId: 0,
   product_id: '11001',
   style_id: 51158,
   name: 'Forest Green & Black',
   original_price: '140.00',
   sale_price: null,
   default: true,
+  sizeQuantity: 1,
+  sizeSelected: '',
   photos: [
     {
       thumbnail_url:
@@ -30,5 +56,43 @@ export const useStylesStore = create((set) => ({
       url:
         'https://images.unsplash.com/photo-1534011546717-407bced4d25c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2734&q=80',
     },
+    {
+      thumbnail_url:
+        'https://images.unsplash.com/photo-1549831243-a69a0b3d39e0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80',
+      url:
+        'https://images.unsplash.com/photo-1549831243-a69a0b3d39e0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2775&q=80',
+    },
+    {
+      thumbnail_url:
+        'https://images.unsplash.com/photo-1527522883525-97119bfce82d?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80',
+      url:
+        'https://images.unsplash.com/photo-1527522883525-97119bfce82d?ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80',
+    },
   ],
+  skus: {
+    295408: {
+      quantity: 8,
+      size: 'XS',
+    },
+    295409: {
+      quantity: 16,
+      size: 'S',
+    },
+    295410: {
+      quantity: 17,
+      size: 'M',
+    },
+    295411: {
+      quantity: 10,
+      size: 'L',
+    },
+    295412: {
+      quantity: 15,
+      size: 'XL',
+    },
+    295413: {
+      quantity: 4,
+      size: 'XL',
+    },
+  },
 }));
