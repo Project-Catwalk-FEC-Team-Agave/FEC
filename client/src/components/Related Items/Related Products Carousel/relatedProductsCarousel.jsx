@@ -9,12 +9,15 @@ import useStyles from './styles.js';
 
 const RelatedProductsCarousel = ({ overviewProductInfo, changeProduct, productInfo, photoObjs, relatedProductsIDs, reviewsData }) => {
 
+//photoObj.productID
+//product.id
+
 	const classes = useStyles();
 
-	let choosePhoto = (prod) => {
-		return photoObjs.map(obj => {
-			if (obj.productID === prod.id) {
-				return obj.photo;
+	let matchPhoto = (product) => {
+		photoObjs.forEach(photoObj => {
+			if (photoObj.productID === product.id) {
+				return photoObj.photo;
 			} else {
 				return 'https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg';
 			}
@@ -27,14 +30,14 @@ const RelatedProductsCarousel = ({ overviewProductInfo, changeProduct, productIn
 			<div className="innerCarousel">
 
 			    {productInfo.map((product, i) => (
-				  <Grid key={i} xs={12} sm={6} item>
-					<RelatedProductsCard
-					  changeProduct={changeProduct}
-						photo={choosePhoto(product)}
-						product={product}
-						reviewsData={reviewsData}
-						overviewProductInfo={overviewProductInfo}/>
-				  </Grid>
+						<Grid key={i} xs={12} sm={6} item>
+						<RelatedProductsCard
+							changeProduct={changeProduct}
+							photo={matchPhoto(product)}
+							product={product}
+							reviewsData={reviewsData}
+							overviewProductInfo={overviewProductInfo}/>
+						</Grid>
 			    ))}
 
 				<div className="carouselRight">
@@ -51,4 +54,55 @@ const RelatedProductsCarousel = ({ overviewProductInfo, changeProduct, productIn
 }
 
 export default RelatedProductsCarousel;
+
+	// {photoObjs.map(photoObj => (
+	// 	productInfo.map((product, i) => (
+
+	// 		photoObj.productID === product.id ? (
+	// 			<Grid key={i} xs={12} sm={6} item>
+	// 			 <RelatedProductsCard
+	// 				 changeProduct={changeProduct}
+	// 				 photo={photoObj.photo}
+	// 				 product={product}
+	// 				 reviewsData={reviewsData}
+	// 				 overviewProductInfo={overviewProductInfo}/>
+	// 			 </Grid>
+	// 		) : null
+	// 	))
+	// ))}
+
+
+//let choosePhoto = (prod) => {
+	// 	return photoObjs.map(obj => {
+	// 		if (obj.productID === prod.id) {
+	// 			return obj.photo;
+	// 		} else {
+	// 			return 'https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg';
+	// 		}
+	// 	})
+	// }
+
+	// let helper = () => {
+
+	// 	photoObjs.forEach(photoObj => {
+
+	// 	})
+
+	// 	productInfo.map((product, i) => {
+
+	// 		if (photoObj.productID === product.id) {
+
+	// 			return (
+	// 				<Grid key={i} xs={12} sm={6} item>
+	// 				<RelatedProductsCard
+	// 					changeProduct={changeProduct}
+	// 					photo={photoObj.photo}
+	// 					product={product}
+	// 					reviewsData={reviewsData}
+	// 					overviewProductInfo={overviewProductInfo}/>
+	// 				</Grid>
+	// 			)
+	// 		}
+	// 	})
+	// }
 

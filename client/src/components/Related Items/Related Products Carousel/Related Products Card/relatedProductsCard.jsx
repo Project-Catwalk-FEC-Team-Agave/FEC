@@ -27,10 +27,10 @@ const RelatedProductsCard = ({ overviewProductInfo, changeProduct, photo, produc
           changeProduct(e.currentTarget.getAttribute("data-myattr"));
         }}
         className={classes.root}>
-        {photo[1] ? (
+        {photo ? (
           <CardMedia
           className={classes.media}
-          image={photo[1]}/>
+          image={photo}/>
         ) : (
           <CircularProgress/>
         )}
