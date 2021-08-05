@@ -10,7 +10,7 @@ export default makeStyles((theme) => ({
     height: 450,
     marginTop: '20px',
 		marginBottom: '20px',
-    marginRight: '45px',
+    marginRight: '10px',
     marginLeft: '10px',
     position: 'relative'
   },
@@ -26,7 +26,7 @@ export default makeStyles((theme) => ({
   arrow: {
     position: 'absolute',
     top: '50%',
-		left: '100%'
+		left: '150%'
   },
   icon: {
     width: '60px',
