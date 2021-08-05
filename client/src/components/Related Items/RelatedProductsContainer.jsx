@@ -37,11 +37,11 @@ class RelatedProductsContainer extends React.Component {
         this.getProductInfo(productID);
         this.getPhotos(productID);
         this.getRating(productID);
-
       })
       .catch((err) =>
         console.log('Error retrieving data in componentDidMount: ', err)
       );
+    });
   }
 
   getOverviewProductInfo(id) {

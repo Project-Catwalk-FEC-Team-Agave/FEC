@@ -8,7 +8,7 @@ import Reviews from './components/Reviews/Reviews.jsx';
 import Related from './components/Related Items/RelatedProductsContainer.jsx';
 
 // ReactDOM.render(
-//   <Index />,
+//   <App />,
 //   document.getElementById('app')
 // )
 
