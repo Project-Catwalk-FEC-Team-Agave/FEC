@@ -9,6 +9,8 @@ const RelatedProductsCard = ({ overviewProductInfo, changeProduct, photo, produc
   const classes = useStyles();
   let starCount = stars(3.5);
 
+  console.log('PHOTO:', photo);
+
   const [open, setOpen] = useState(false);
 
   const handleOpen = () => {
@@ -30,10 +32,13 @@ const RelatedProductsCard = ({ overviewProductInfo, changeProduct, photo, produc
         {photo ? (
           <CardMedia
           className={classes.media}
-          image={photo}/>
+          image={photo.photo}/>
         ) : (
           <CircularProgress/>
         )}
+        {/* <CardMedia
+          className={classes.media}
+          image={photo}/> */}
         <CardContent>
           <Typography variant="caption" color="textSecondary" component="p">
             {product.category.toUpperCase()}

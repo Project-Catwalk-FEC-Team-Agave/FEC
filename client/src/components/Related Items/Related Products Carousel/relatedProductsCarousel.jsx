@@ -9,8 +9,8 @@ import useStyles from './styles.js';
 
 const RelatedProductsCarousel = ({ overviewProductInfo, changeProduct, productInfo, photoObjs, relatedProductsIDs, reviewsData }) => {
 
-//photoObj.productID
-//product.id
+	console.log('PRODUCTS: ', productInfo);
+	console.log('PHOTOS: ', photoObjs);
 
 	const classes = useStyles();
 
@@ -33,7 +33,7 @@ const RelatedProductsCarousel = ({ overviewProductInfo, changeProduct, productIn
 						<Grid key={i} xs={12} sm={6} item>
 						<RelatedProductsCard
 							changeProduct={changeProduct}
-							photo={matchPhoto(product)}
+							photo={photoObjs[i]}
 							product={product}
 							reviewsData={reviewsData}
 							overviewProductInfo={overviewProductInfo}/>
