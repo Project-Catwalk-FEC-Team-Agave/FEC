@@ -18,7 +18,6 @@ function ReviewsList ({ id, metaData, totalReviews }) {
   const { sort, reviewsDisplayed } = requestParams;
 
   const getReviews = (id, sort, count, totalReviews) => {
-    console.log(`Getting Review! Sorting by ${sort} and getting ${count} total reviews` )
     let reqOptions = {
       url: `https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/reviews?product_id=${id}&sort=${sort}&count=${totalReviews}`,
       method: "GET",
@@ -31,9 +30,6 @@ function ReviewsList ({ id, metaData, totalReviews }) {
     .then((response) => {
       const {data} = response;
       setReviews(data.results.slice(0, count));
-      setTotalReviews(Object.values(metaData.ratings).reduce((accumulator, rating) => {
-        return Number(accumulator) + Number(rating);
-      }))
       if (data.results.length < reviewsDisplayed) {
         setToggleMoreReviews(false);
       } else {
