@@ -9,13 +9,13 @@ import { TOKEN } from '../../../../../config.js'
 function ReviewsList ({ id, metaData }) {
 
   const [sort, setSort] = useState('relevant');
-  const [totalReviews, setTotalReviews] = useState(0);
-  const [currentPage, setCurrentPage] = useState(1);
+  const [reviewsDisplayed, setReviewsDisplayed] = useState(2);
   const [reviews, setReviews] = useState([]);
+  const [toggleMoreReviews, setToggleMoreReviews] = useState(true);
 
-  const getReviews = (id, sort, page) => {
+  const getReviews = (id, sort, count) => {
     let reqOptions = {
-      url: `https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/reviews?product_id=${id}&page=${page}&sort=${sort}`,
+      url: `https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/reviews?product_id=${id}&sort=${sort}&count=${count}`,
       method: "GET",
       headers: {
        "Authorization": TOKEN
@@ -25,29 +25,36 @@ function ReviewsList ({ id, metaData }) {
     axios.request(reqOptions)
     .then((response) => {
       const {data} = response
-
-      if (data.results.length) {
-        setReviews(...reviews, data.results);
+      setReviews(data.results)
+      if (toggleMoreReviews) {
+        setToggleMoreReviews(false);
+      } else {
+        setReviewsDisplayed(reviewsDisplayed + 2)
+        setToggleMoreReviews(true);
       }
-      setTotalReviews(data.count);
-      setCurrentPage(currentPage + 1);
     })
     .catch(err => console.log(err))
   }
 
   useEffect(() => {
-    getReviews(id, sort, currentPage);
+    getReviews(id, sort, reviewsDisplayed);
   }, []);
 
   return (
     <div>
-      <SortReviews sort={setSort}/>
+      <SortReviews sort={sort} setSort={setSort}
+        reviewsDisplayed={reviewsDisplayed} setReviewsDisplayed={setReviewsDisplayed}
+        getReviews={getReviews} id={id}
+        />
       {reviews.map((review, i) => {
         return <ReviewTile review={review} key={i}/>
       })}
       <AddReview id={id} metaData={metaData}/>
-      <MoreReviews id={id} sort={sort}
-        currentPage={currentPage} getReviews={getReviews}/>
+      {toggleMoreReviews === true &&
+        <MoreReviews id={id} sort={sort}
+        reviewsDisplayed={reviewsDisplayed}
+        getReviews={getReviews}/>
+      }
     </div>
     )
 }
