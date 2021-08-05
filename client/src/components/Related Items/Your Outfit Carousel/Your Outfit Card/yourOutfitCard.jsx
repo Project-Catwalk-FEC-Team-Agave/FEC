@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import AddIcon from '@material-ui/icons/Add';
 import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 import useStyles from './styles.js';
 import { Card, CardHeader, CardMedia, CardContent, CardActions, CardActionArea, Typography, IconButton } from '@material-ui/core';
 import stars from '../../../Shared/stars.jsx';
 
-const YourOutfitCard = ({ photo, product, relatedProductStyleInfo, relatedProductsIDs, reviewsData }) => {
+const YourOutfitCard = ({ addYourOutfit, outfits, photo, product, relatedProductStyleInfo, relatedProductsIDs, reviewsData }) => {
   const classes = useStyles();
   let starCount = stars(3.5);
 
@@ -16,7 +16,13 @@ const YourOutfitCard = ({ photo, product, relatedProductStyleInfo, relatedProduc
           className={classes.media}
           image={photo.photo}
         >
-          <IconButton style={{ color: 'black' }} aria-label="settings" className={classes.overlay}>
+          <IconButton
+            onClick={() => {
+              addYourOutfit(outfits.filter(item => item.name !== product.name))
+            }}
+            style={{ color: 'black' }}
+            aria-label="settings"
+            className={classes.overlay}>
             <HighlightOffIcon style={{ color: 'black' }} aria-label="delete item from Your Outfits"/>
           </IconButton>
         </CardMedia>

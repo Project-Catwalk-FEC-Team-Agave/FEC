@@ -12,7 +12,6 @@ import { spacing } from '@material-ui/system';
 
 //***********NEXT STEPS*********
 
-//get photos to align with Your Outfit products!
 //save outfits to local storage!
 
 
@@ -61,9 +60,11 @@ const YourOutfitCarousel = ({ overViewPhoto, overviewProductInfo, addOutfit, pro
             {outfits.map((product, i) => (
             <Grid key={i} xs={12} sm={6} item>
               <YourOutfitCard
+                outfits={outfits}
                 photo={overViewPhoto}
                 product={product}
-                reviewsData={reviewsData}>
+                reviewsData={reviewsData}
+                addYourOutfit={addYourOutfit}>
               </YourOutfitCard>
             </Grid>
             ))}
