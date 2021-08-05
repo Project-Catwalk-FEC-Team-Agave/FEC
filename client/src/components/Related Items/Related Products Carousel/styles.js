@@ -5,5 +5,10 @@ export default makeStyles((theme) => ({
     display: 'flex',
     //alignItems: 'center',
 		paddingTop: '50px'
+  },
+  overlay: {
+    position: 'absolute',
+    top: '50%',
+		left: '100%'
   }
 }));

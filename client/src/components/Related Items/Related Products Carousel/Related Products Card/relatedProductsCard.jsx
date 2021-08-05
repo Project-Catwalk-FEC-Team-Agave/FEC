@@ -22,12 +22,11 @@ const RelatedProductsCard = ({ overviewProductInfo, changeProduct, photo, produc
   return (
     <>
       <Card
-      data-myattr={product.id}
-      onClick={(e) => {
-        changeProduct(e.currentTarget.getAttribute("data-myattr"));
-      }}
-      className={classes.root}>
-
+        data-myattr={product.id}
+        onClick={(e) => {
+          changeProduct(e.currentTarget.getAttribute("data-myattr"));
+        }}
+        className={classes.root}>
         {photo[1] ? (
           <CardMedia
           className={classes.media}
@@ -35,7 +34,6 @@ const RelatedProductsCard = ({ overviewProductInfo, changeProduct, photo, produc
         ) : (
           <CircularProgress/>
         )}
-
         <CardContent>
           <Typography variant="caption" color="textSecondary" component="p">
             {product.category.toUpperCase()}
@@ -53,18 +51,17 @@ const RelatedProductsCard = ({ overviewProductInfo, changeProduct, photo, produc
     </Card>
 
     <IconButton
-            onClick={() => {
-              handleOpen();
-            }}
-            style={{ color: 'black' }}
-            aria-label="settings"
-            className={classes.overlay}>
-            <StarBorderIcon
-              style={{ color: '#f4b400' }}
-              aria-label="compare to current product"
-              className={classes.icon}/>
-          </IconButton>
-
+      onClick={() => {
+        handleOpen();
+      }}
+      style={{ color: 'black' }}
+      aria-label="settings"
+      className={classes.overlay}>
+      <StarBorderIcon
+        style={{ color: '#f4b400' }}
+        aria-label="compare to current product"
+        className={classes.icon}/>
+    </IconButton>
     <div>
       <Modal
         aria-labelledby="transition-modal-title"

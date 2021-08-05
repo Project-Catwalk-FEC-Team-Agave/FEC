@@ -28,7 +28,7 @@ class App extends React.Component {
 
   addOutfit(product) {
     this.setState({
-      favorites: [...this.state.favorites, product],
+      favorites: [...this.state.favorites, product]
     });
   }
 
@@ -42,21 +42,13 @@ class App extends React.Component {
 
   }
 
-  //set info for product overview
-  // getOverviewProductInfo() {
-
-  //   const auth = { headers: {'Authorization': TOKEN}};
-
-  //   return axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/products/${this.state.productId}`, auth)
-  //   .then(({ data }) => {
-  //     console.log(data);
+  //need to find a way to re-render when overview state is changed!
+  // componentDidUpdate(prevState) {
+  //   if (this.state.productId !== prevState.productId) {
   //     this.setState({
-  //       overviewProductInfo: data
-  //     }, () => console.log(this.state.overviewProductInfo));
-
-  //   })
-  //   .catch(err => console.log('Error retrieving data in componentDidMount: ', err));
-
+  //       productId: this.state.productId
+  //     })
+  //   }
   // }
 
   changeProduct(id) {

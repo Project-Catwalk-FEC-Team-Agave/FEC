@@ -59,7 +59,7 @@ const YourOutfitCarousel = ({ overviewProductInfo, addOutfit, productInfo, photo
             </Grid>
             ))}
           <div className="carouselRight">
-          <IconButton style={{ color: 'black' }} aria-label="settings" className={classes.overlay}>
+          <IconButton style={{ color: 'black' }} aria-label="settings" className={classes.arrow}>
             <ArrowForwardIosIcon style={{ color: 'black' }} aria-label="show next item in related products list"/>
           </IconButton>
           </div>

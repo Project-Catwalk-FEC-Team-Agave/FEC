@@ -23,6 +23,11 @@ export default makeStyles((theme) => ({
 		top: '40%',
 		left: '35%'
   },
+  arrow: {
+    position: 'absolute',
+    top: '50%',
+		left: '100%'
+  },
   icon: {
     width: '60px',
     height: '60px',
