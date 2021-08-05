@@ -57,7 +57,7 @@ const YourOutfitCarousel = ({ overViewPhoto, overviewProductInfo, addOutfit, pro
               </Typography>
             </CardMedia>
           </Card>
-            {outfits.map((product, i) => (
+            {outfits.slice(0, 3).map((product, i) => (
             <Grid key={i} xs={12} sm={6} item>
               <YourOutfitCard
                 outfits={outfits}

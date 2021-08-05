@@ -13,7 +13,7 @@ const RelatedProductsCarousel = ({ overviewProductInfo, changeProduct, productIn
 	<Grid className={classes.mainContainer} container alignItems='stretch' spacing={4}>
     <div className="carousel">
 			<div className="innerCarousel">
-			    {productInfo.map((product, i) => (
+			    {productInfo.slice(0, 4).map((product, i) => (
 						<Grid key={i} xs={12} sm={6} item>
 						<RelatedProductsCard
 							changeProduct={changeProduct}
