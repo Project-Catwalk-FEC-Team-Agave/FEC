@@ -6,7 +6,6 @@ const CharacteristicsRadio = ({ changeDetailRatings, detailRatings, characterist
     <div>Please rate the different characteristics for this product
     {Object.keys(characteristics).map((characteristic, i) => {
       var id = characteristics[characteristic].id;
-      console.log(id)
       return (
         <div key={i}>{characteristic}*<br></br>
           <input type="radio"name={characteristic} value="1" required

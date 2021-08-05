@@ -1,12 +1,15 @@
 import React from 'react';
 
 const MoreReviews = (props) => {
-  const { id, sort, getReviews, reviewsDisplayed } = props
+  const { requestParams, setRequestParams } = props
 
   return(
     <button onClick={(e) => {
       e.preventDefault();
-      getReviews(id, sort, reviewsDisplayed);
+      setRequestParams({
+        reviewsDisplayed: requestParams.reviewsDisplayed += 2,
+        sort: requestParams.sort
+      });
     }}> See More Reviews</button>
   )
 }

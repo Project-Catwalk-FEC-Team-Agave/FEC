@@ -6,16 +6,20 @@ import MoreReviews from './MoreReviewsButton.jsx';
 import ReviewTile from './ReviewTile/ReviewTile.jsx'
 import { TOKEN } from '../../../../../config.js'
 
-function ReviewsList ({ id, metaData }) {
+function ReviewsList ({ id, metaData, totalReviews }) {
 
-  const [sort, setSort] = useState('relevant');
-  const [reviewsDisplayed, setReviewsDisplayed] = useState(2);
-  const [reviews, setReviews] = useState([]);
+  const [requestParams, setRequestParams] = useState({
+    sort: 'relevant',
+    reviewsDisplayed: 2,
+  })
   const [toggleMoreReviews, setToggleMoreReviews] = useState(true);
+  const [reviews, setReviews] = useState([]);
 
-  const getReviews = (id, sort, count) => {
+  const { sort, reviewsDisplayed } = requestParams;
+
+  const getReviews = (id, sort, count, totalReviews) => {
     let reqOptions = {
-      url: `https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/reviews?product_id=${id}&sort=${sort}&count=${count}`,
+      url: `https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/reviews?product_id=${id}&sort=${sort}&count=${totalReviews}`,
       method: "GET",
       headers: {
        "Authorization": TOKEN
@@ -24,12 +28,11 @@ function ReviewsList ({ id, metaData }) {
 
     axios.request(reqOptions)
     .then((response) => {
-      const {data} = response
-      setReviews(data.results)
-      if (toggleMoreReviews) {
+      const {data} = response;
+      setReviews(data.results.slice(0, count));
+      if (data.results.length < reviewsDisplayed) {
         setToggleMoreReviews(false);
       } else {
-        setReviewsDisplayed(reviewsDisplayed + 2)
         setToggleMoreReviews(true);
       }
     })
@@ -37,23 +40,19 @@ function ReviewsList ({ id, metaData }) {
   }
 
   useEffect(() => {
-    getReviews(id, sort, reviewsDisplayed);
-  }, []);
+    getReviews(id, sort, reviewsDisplayed, totalReviews)
+  }, [requestParams]);
 
   return (
     <div>
-      <SortReviews sort={sort} setSort={setSort}
-        reviewsDisplayed={reviewsDisplayed} setReviewsDisplayed={setReviewsDisplayed}
-        getReviews={getReviews} id={id}
-        />
+      <SortReviews sort={sort} setRequestParams={setRequestParams}/>
       {reviews.map((review, i) => {
         return <ReviewTile review={review} key={i}/>
       })}
       <AddReview id={id} metaData={metaData}/>
       {toggleMoreReviews === true &&
-        <MoreReviews id={id} sort={sort}
-        reviewsDisplayed={reviewsDisplayed}
-        getReviews={getReviews}/>
+        <MoreReviews
+          requestParams={requestParams} setRequestParams={setRequestParams}/>
       }
     </div>
     )

@@ -1,22 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/App.jsx';
-//import Overview from './components/Overview/overview.jsx';
-//import './components/styles.css';
-// import QA from './components/questions/qa.jsx';
-// import Reviews from './components/Reviews/Reviews.jsx';
-// import Related from './components/Related Items/RelatedProductsContainer.jsx';
+import Overview from './components/Overview/overview.jsx';
+import './components/styles.css';
+import QA from './components/questions/qa.jsx';
+import Reviews from './components/Reviews/Reviews.jsx';
+import Related from './components/Related Items/RelatedProductsContainer.jsx';
 
 // ReactDOM.render(
-
-//   <Overview />,
-
+//   <Index />,
 //   document.getElementById('app')
 // )
 
-//ReactDOM.render(<Overview />, document.getElementById('app'));
-
-ReactDOM.render(<Overview />, document.getElementById('app'));
+// ReactDOM.render(
+//   <Overview />,
+//   document.getElementById('app')
+// )
 
 // ReactDOM.render(
 //   <Related />,
@@ -27,8 +26,6 @@ ReactDOM.render(<Overview />, document.getElementById('app'));
 //   <Reviews />,
 //   document.getElementById('app')
 // )
-
-
 
 // ReactDOM.render(
 //   <QA />,

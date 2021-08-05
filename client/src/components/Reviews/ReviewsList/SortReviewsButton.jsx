@@ -1,13 +1,14 @@
 import React from 'react';
 
-function SortReviews({ id, sort, setSort, getReviews, reviewsDisplayed, setReviewsDisplayed }) {
+function SortReviews({ setRequestParams }) {
 
   return (
     <select onChange={(e) => {
       e.preventDefault();
-      setSort(e.target.value);
-      setReviewsDisplayed(2);
-      getReviews(id, sort, 2)
+      setRequestParams({
+        reviewsDisplayed: 2,
+        sort: e.target.value
+      })
     }}>
       <option value="relevant">Relevant</option>
       <option value="helpful">Helpful</option>

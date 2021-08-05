@@ -3,20 +3,30 @@ import c3 from 'c3';
 
 function ReviewsChart({ratings}) {
 
-  var labels = Object.keys(ratings);
-  var data = Object.values(ratings);
 
   var chart = c3.generate({
     bindto: "#chart",
     data: {
         columns: [
-            ['ratings', ...data],
+            ['Ratings', ...Object.values(ratings)],
         ],
-        type: 'bar'
+        type: 'bar',
+        colors: {
+          'Ratings': '#bdbdbd'
+        }
+    },
+    legend: {
+      show: false
     },
     axis: {
-        rotated: true
-      }, bar: {
+        rotated: true,
+        x: {
+          tick: {
+            format: function(d) { return d + 1 + " Star"; }
+          },
+        }
+      },
+      bar: {
         width: {
           ratio: 0.5
         }
