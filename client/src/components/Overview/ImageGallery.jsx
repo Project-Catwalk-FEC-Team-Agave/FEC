@@ -1,8 +1,10 @@
 import React from 'react';
 import { usePoroductStore, useStylesStore } from './store';
+
 import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
 import ImageModal from './ImageModal.jsx';
+
 
 const ImageGallery = () => {
   const photos = useStylesStore((state) => state.photos);

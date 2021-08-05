@@ -15,30 +15,46 @@ class RelatedProductsContainer extends React.Component {
       relatedProductsIDs: [],
       photoObjs: [],
       reviewsData: [],
-    };
+
+      overviewProductInfo: {}
+    }
+
     //function binding goes here
   }
 
   componentDidMount() {
-    return axios
-      .get(
-        `https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/products/${this.props.primaryProductID}/related`,
-        auth
-      )
-      .then(({ data }) => {
-        this.setState({
-          relatedProductsIDs: data,
-        });
 
-        data.forEach((productID) => {
-          this.getProductInfo(productID);
-          this.getPhotos(productID);
-          this.getRating(productID);
-        });
+    this.getOverviewProductInfo();
+
+    return axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/products/${this.props.primaryProductID}/related`, auth)
+    .then(({ data }) => {
+      this.setState({
+        relatedProductsIDs: data
+      });
+
+      data.forEach(productID => {
+        this.getProductInfo(productID);
+        this.getPhotos(productID);
+        this.getRating(productID);
+
       })
       .catch((err) =>
         console.log('Error retrieving data in componentDidMount: ', err)
       );
+  }
+
+  getOverviewProductInfo(id) {
+
+    const auth = { headers: {'Authorization': TOKEN}};
+
+    return axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/products/${this.props.primaryProductID}`, auth)
+    .then(({ data }) => {
+      this.setState({
+        overviewProductInfo: data
+      });
+
+    })
+    .catch(err => console.log('Error retrieving data in componentDidMount: ', err));
   }
 
   getProductInfo(productID) {
@@ -104,14 +120,10 @@ class RelatedProductsContainer extends React.Component {
   }
 
   render() {
-    console.log('STATE: ', this.state);
-    const {
-      changeProduct,
-      addOutfit,
-      getProductInfo,
-      primaryProductID,
-    } = this.props;
-    //console.log('State: ', this.state);
+
+    // console.log('STATE: ', this.state);
+    const { changeProduct, addOutfit, getProductInfo, primaryProductID } = this.props;
+
 
     const {
       productInfo,
@@ -124,20 +136,23 @@ class RelatedProductsContainer extends React.Component {
       <div className="related-products-container">
         <div>
           <RelatedProductsCarousel
-            changeProduct={changeProduct}
-            productInfo={productInfo}
-            relatedProductsIDs={relatedProductsIDs}
-            photoObjs={photoObjs}
-            reviewsData={reviewsData}
-          />
+
+          changeProduct={changeProduct}
+          productInfo={productInfo}
+          relatedProductsIDs={relatedProductsIDs}
+          photoObjs={photoObjs}
+          reviewsData={reviewsData}
+          overviewProductInfo={this.state.overviewProductInfo}/>
         </div>
         <div>
           <YourOutfitCarousel
-            productInfo={productInfo}
-            relatedProductsIDs={relatedProductsIDs}
-            photoObjs={photoObjs}
-            reviewsData={reviewsData}
-          />
+          addOutfit={addOutfit}
+          productInfo={productInfo}
+          relatedProductsIDs={relatedProductsIDs}
+          photoObjs={photoObjs}
+          reviewsData={reviewsData}
+          overviewProductInfo={this.state.overviewProductInfo}/>
+
         </div>
       </div>
     );

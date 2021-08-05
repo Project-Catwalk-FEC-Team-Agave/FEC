@@ -1,18 +1,11 @@
 import React, { useState } from 'react';
 import useStyles from './styles.js';
-import { Card, CardHeader, CardMedia, CardContent, CardActions, CardActionArea, Typography, IconButton } from '@material-ui/core';
-
-// import DoneAllIcon from '@material-ui/icons/DoneAll';
+import { Card, CardHeader, CardMedia, CardContent, CardActions, CardActionArea, Typography, IconButton, Modal, Backdrop, Fade, CircularProgress } from '@material-ui/core';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
 import stars from '../../../Shared/stars.jsx';
-// import ComparisonModal from '../Comparison Modal/comparisonModal.jsx';
-import BrokenImageIcon from '@material-ui/icons/BrokenImage';
-import { Modal, Backdrop, Fade } from '@material-ui/core';
-import { ButtonBase } from '@material-ui/core';
+import ComparisonModal from '../Comparison Modal/comparisonModal.jsx';
 
-//product photos are located in the styles endpoint
-
-const RelatedProductsCard = ({ changeProduct, photo, product, relatedProductStyleInfo, relatedProductsIDs, reviewsData }) => {
+const RelatedProductsCard = ({ overviewProductInfo, changeProduct, photo, product, relatedProductStyleInfo, relatedProductsIDs, reviewsData }) => {
   const classes = useStyles();
   let starCount = stars(3.5);
 
@@ -29,15 +22,18 @@ const RelatedProductsCard = ({ changeProduct, photo, product, relatedProductStyl
   return (
     <>
       <Card
-      data-myattr={product.id}
-      onClick={(e) => {
-        changeProduct(e.currentTarget.getAttribute("data-myattr"));
-      }}
-      className={classes.root}>
-        <CardMedia
+        data-myattr={product.id}
+        onClick={(e) => {
+          changeProduct(e.currentTarget.getAttribute("data-myattr"));
+        }}
+        className={classes.root}>
+        {photo ? (
+          <CardMedia
           className={classes.media}
-          image={photo[2]}>
-        </CardMedia>
+          image={photo}/>
+        ) : (
+          <CircularProgress/>
+        )}
         <CardContent>
           <Typography variant="caption" color="textSecondary" component="p">
             {product.category.toUpperCase()}
@@ -55,17 +51,17 @@ const RelatedProductsCard = ({ changeProduct, photo, product, relatedProductStyl
     </Card>
 
     <IconButton
-            onClick={() => {
-              handleOpen();
-            }}
-            style={{ color: 'black' }}
-            aria-label="settings"
-            className={classes.overlay}>
-            <StarBorderIcon
-              style={{ color: '#f4b400' }}
-              aria-label="compare to current product"/>
-          </IconButton>
-
+      onClick={() => {
+        handleOpen();
+      }}
+      style={{ color: 'black' }}
+      aria-label="settings"
+      className={classes.overlay}>
+      <StarBorderIcon
+        style={{ color: '#f4b400' }}
+        aria-label="compare to current product"
+        className={classes.icon}/>
+    </IconButton>
     <div>
       <Modal
         aria-labelledby="transition-modal-title"
@@ -81,11 +77,12 @@ const RelatedProductsCard = ({ changeProduct, photo, product, relatedProductStyl
       >
         <Fade in={open}>
           <div className={classes.paper}>
-            <h2 id="transition-modal-title">Comparison modal</h2>
-            <p id="transition-modal-description">
-              {/* pass down info here and render out in modal file?! */}
-              This will show product comparison!
-            </p>
+            <Typography id="transition-modal-title" variant="caption" color="textSecondary" component="p">
+              COMPARING
+            </Typography>
+              <ComparisonModal
+                overviewProductInfo={overviewProductInfo}
+                product={product}/>
           </div>
         </Fade>
       </Modal>

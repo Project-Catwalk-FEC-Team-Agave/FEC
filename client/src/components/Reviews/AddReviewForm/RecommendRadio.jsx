@@ -1,11 +1,15 @@
 import React from 'react';
 
-const RecommendRadio = (props) => {
+const RecommendRadio = ({changeRecommendation}) => {
   return (
     <>
-      <input type="radio" id="yes" name="recommend" value="true" required></input>
+      <div>Do you recommend this product?*</div>
+      <input type="radio" id="yes" name="recommend" value={true} required
+        onChange={ (event) => { changeRecommendation(JSON.parse(event.target.value)) } }></input>
       <label htmlFor="yes">Yes</label>
-      <input type="radio" id="no" name="recommend" value="false"></input>
+      <input type="radio" id="no" name="recommend" value={false}
+        onChange={ (event) => { changeRecommendation(JSON.parse(event.target.value)) } }>
+      </input>
       <label htmlFor="no">No</label>
     </>
   )
