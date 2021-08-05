@@ -16,20 +16,29 @@
   font-size: 15px;
   font-weight: lighter;
 }
+/* Product info*/
+.sales-price {
+  font-size: 15px;
+  color: red;
+}
+.on-sale {
+  font-size: 15px;
+  text-decoration: line-through;
+}
+
 .carousel-root {
   width: 80%;
   height: 40%;
 }
-.carousel.carousel-slider {
-  width: 80%;
-}
-.carousel {
-  width: 80%;
-  position: absolute;
-}
 
+.carousel {
+  width: 50%;
+}
+.carousel.carousel-slider {
+  position: absolute;
+  width: 50% !important;
+}
 .carousel-slider {
-  width: 80%;
   flex-direction: column;
 }
 /* STYLE SELECTOR */
@@ -37,8 +46,21 @@
 .style-container {
   padding-bottom: 20px;
   justify-content: space-between;
+  margin: 8px;
 }
 .style-name {
   padding-bottom: 10px;
   font-size: 17px;
+}
+.thumbs.animated {
+  display: flex;
+  flex-direction: column;
+}
+
+/* IMAGE MODEL */
+
+.image-model-container {
+  position: absolute;
+  justify-content: center;
+  width: 70%;
 }

@@ -70,6 +70,7 @@ const StyleSelector = () => {
                 badgeContent={
                   <CheckIcon style={{ fill: 'green' }} fontSize="small" />
                 }
+                invisible={style.style_id !== currentStyleId}
               >
                 <Avatar
                   key={i}
