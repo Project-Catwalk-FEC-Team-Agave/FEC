@@ -7,7 +7,7 @@ export default makeStyles((theme) => ({
 		paddingTop: '50px'
   },
   root: {
-    maxWidth: 245,
+    minWidth: 245,
     height: 450,
     marginTop: '20px',
 		marginBottom: '20px',
@@ -22,6 +22,11 @@ export default makeStyles((theme) => ({
 		position: 'relative',
 		top: '40%',
 		left: '35%'
+  },
+  arrow: {
+    position: 'absolute',
+    top: '50%',
+		left: '100%'
   },
   icon: {
     width: '60px',

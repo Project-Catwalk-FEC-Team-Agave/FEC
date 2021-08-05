@@ -14,12 +14,14 @@ class RelatedProductsContainer extends React.Component {
       productInfo: [],
       relatedProductsIDs: [],
       photoObjs: [],
-      reviewsData: []
+      reviewsData: [],
+      overviewProductInfo: {}
     }
     //function binding goes here
   }
 
   componentDidMount() {
+    this.getOverviewProductInfo();
 
     return axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/products/${this.props.primaryProductID}/related`, auth)
     .then(({ data }) => {
@@ -32,6 +34,20 @@ class RelatedProductsContainer extends React.Component {
         this.getPhotos(productID);
         this.getRating(productID);
       })
+    })
+    .catch(err => console.log('Error retrieving data in componentDidMount: ', err));
+  }
+
+  getOverviewProductInfo(id) {
+
+    const auth = { headers: {'Authorization': TOKEN}};
+
+    return axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/products/${this.props.primaryProductID}`, auth)
+    .then(({ data }) => {
+      this.setState({
+        overviewProductInfo: data
+      });
+
     })
     .catch(err => console.log('Error retrieving data in componentDidMount: ', err));
   }
@@ -92,9 +108,8 @@ class RelatedProductsContainer extends React.Component {
   }
 
   render() {
-    console.log('STATE: ', this.state);
+    // console.log('STATE: ', this.state);
     const { changeProduct, addOutfit, getProductInfo, primaryProductID } = this.props;
-    //console.log('State: ', this.state);
 
     const { productInfo, relatedProductsIDs, photoObjs, reviewsData } = this.state;
 
@@ -107,14 +122,17 @@ class RelatedProductsContainer extends React.Component {
           productInfo={productInfo}
           relatedProductsIDs={relatedProductsIDs}
           photoObjs={photoObjs}
-          reviewsData={reviewsData} />
+          reviewsData={reviewsData}
+          overviewProductInfo={this.state.overviewProductInfo}/>
         </div>
         <div>
           <YourOutfitCarousel
+          addOutfit={addOutfit}
           productInfo={productInfo}
           relatedProductsIDs={relatedProductsIDs}
           photoObjs={photoObjs}
-          reviewsData={reviewsData}/>
+          reviewsData={reviewsData}
+          overviewProductInfo={this.state.overviewProductInfo}/>
         </div>
       </div>
     )

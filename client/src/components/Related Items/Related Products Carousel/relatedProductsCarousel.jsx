@@ -7,7 +7,7 @@ import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import { IconButton } from '@material-ui/core';
 import useStyles from './styles.js';
 
-const RelatedProductsCarousel = ({ changeProduct, productInfo, photoObjs, relatedProductsIDs, reviewsData }) => {
+const RelatedProductsCarousel = ({ overviewProductInfo, changeProduct, productInfo, photoObjs, relatedProductsIDs, reviewsData }) => {
 
 	const classes = useStyles();
 
@@ -15,8 +15,9 @@ const RelatedProductsCarousel = ({ changeProduct, productInfo, photoObjs, relate
 		return photoObjs.map(obj => {
 			if (obj.productID === prod.id) {
 				return obj.photo;
+			} else {
+				return 'https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg';
 			}
-			return 'https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg';
 		})
 	}
 
@@ -31,7 +32,8 @@ const RelatedProductsCarousel = ({ changeProduct, productInfo, photoObjs, relate
 					  changeProduct={changeProduct}
 						photo={choosePhoto(product)}
 						product={product}
-						reviewsData={reviewsData}/>
+						reviewsData={reviewsData}
+						overviewProductInfo={overviewProductInfo}/>
 				  </Grid>
 			    ))}
 
@@ -50,18 +52,3 @@ const RelatedProductsCarousel = ({ changeProduct, productInfo, photoObjs, relate
 
 export default RelatedProductsCarousel;
 
-
-{/* <ul style={{ listStyleType: "none" }}>
-=======
-    <>
-		<ul style={{ listStyleType: "none" }}>
->>>>>>> 2b75d93c261ef499c3b59360713084a855e11295
-=======
-		<ul>
->>>>>>> reviews-data
-			{sampleAllProducts.map((product, i) => (
-				<li key={i}>
-					<RelatedProductsCard stars={Stars} product={product}/>
-				</li>
-			))}
-		</ul> */}
