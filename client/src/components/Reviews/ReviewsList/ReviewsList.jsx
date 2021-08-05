@@ -21,7 +21,7 @@ function ReviewsList ({ id, metaData }) {
   const getReviews = (id, sort, count) => {
     console.log(`Getting Review! Sorting by ${sort} and getting ${count} total reviews` )
     let reqOptions = {
-      url: `https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/reviews?product_id=${id}&sort=${sort}`,
+      url: `https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/reviews?product_id=${id}&sort=${sort}&count=100`,
       method: "GET",
       headers: {
        "Authorization": TOKEN

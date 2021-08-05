@@ -8,7 +8,7 @@ import { TOKEN } from '../../../../config.js';
 
 function Reviews(props) {
 
-  const id = 11004  ; //placeholder - change when everything tied together
+  const id = 11005  ; //placeholder - change when everything tied together
   const [metaData, changeMetaData] = useState({
     recommended: {true: 0, false: 0},
     characteristics: {},
