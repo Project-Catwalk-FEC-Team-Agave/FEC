@@ -49,9 +49,10 @@ const YourOutfitCarousel = ({ overViewPhoto, overviewProductInfo, addOutfit, pro
                   className={classes.icon}>
                 </AddCircleIcon>
               </IconButton>
-              <Typography variant="h6" color="textSecondary" component="p">
-                <div align="center">
-                  {hover ? "Add to Your Outfits" : null}
+              <Typography variant="h6" color="textSecondary">
+                <div
+                  align='center'>
+                  {hover ? "Add to Your Outfit" : null}
                 </div>
               </Typography>
             </CardMedia>
