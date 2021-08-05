@@ -10,26 +10,26 @@ const RelatedProductsCarousel = ({ overviewProductInfo, changeProduct, productIn
 	const classes = useStyles();
 
   return (
-	<Grid className={classes.mainContainer} container alignItems='stretch' spacing={4}>
-    <div className="carousel">
-			<div className="innerCarousel">
-			    {productInfo.slice(0, 4).map((product, i) => (
-						<Grid key={i} xs={12} sm={6} item>
-						<RelatedProductsCard
-							changeProduct={changeProduct}
-							photo={photoObjs[i]}
-							product={product}
-							reviewsData={reviewsData}
-							overviewProductInfo={overviewProductInfo}/>
-						</Grid>
-			    ))}
-				<div className="carouselRight">
-				<IconButton style={{ color: 'black' }} aria-label="settings" className={classes.overlay}>
-          <ArrowForwardIosIcon style={{ color: 'black' }} aria-label="show next item in related products list"/>
-        </IconButton>
+		<Grid className={classes.mainContainer} container alignItems='stretch' spacing={4}>
+			<div className="carousel">
+				<div className="innerCarousel">
+						{productInfo.slice(0, 4).map((product, i) => (
+							<Grid key={i} xs={12} sm={6} item>
+							<RelatedProductsCard
+								changeProduct={changeProduct}
+								photo={photoObjs[i]}
+								product={product}
+								reviewsData={reviewsData}
+								overviewProductInfo={overviewProductInfo}/>
+							</Grid>
+						))}
+					<div className="carouselRight">
+					<IconButton style={{ color: 'black' }} aria-label="settings" className={classes.overlay}>
+						<ArrowForwardIosIcon style={{ color: 'black' }} aria-label="show next item in related products list"/>
+					</IconButton>
+					</div>
 				</div>
 			</div>
-    </div>
 		</Grid>
   );
 }
