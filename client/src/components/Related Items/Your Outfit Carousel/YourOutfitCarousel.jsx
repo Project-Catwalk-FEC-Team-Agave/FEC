@@ -12,6 +12,7 @@ import AddCircleIcon from '@material-ui/icons/AddCircle';
 //***********NEXT STEPS*********
 
 //get photos to align with Your Outfit products!
+//save outfits to local storage!
 
 
 const YourOutfitCarousel = ({ overviewProductInfo, addOutfit, productInfo, photoObjs, relatedProductsIDs, reviewsData }) => {
@@ -19,6 +20,7 @@ const YourOutfitCarousel = ({ overviewProductInfo, addOutfit, productInfo, photo
   const classes = useStyles();
 
   const [outfits, addYourOutfit] = useState([]);
+  // const [hover, setHover]= useState(false);
 
   return (
     <Grid className={classes.mainContainer} container alignItems='stretch' spacing={4}>
@@ -36,13 +38,18 @@ const YourOutfitCarousel = ({ overviewProductInfo, addOutfit, productInfo, photo
                     addYourOutfit([...outfits, overviewProductInfo])
                   }
                 }}
+                // onMouseOver={()=>sethover(true)}
+                // onMouseOut={()=>sethover(false)}
                 style={{ color: 'black' }}
                 aria-label="settings"
                 className={classes.overlay}>
                 <AddCircleIcon
                   style={{ color: 'black' }}
                   aria-label="add item to Your Outfits"
-                  className={classes.icon}/>
+                  className={classes.icon}>
+                    {/* {hover ? "Add To Your Outfits" : null} */}
+                </AddCircleIcon>
+                {/* {hover ? "Add To Your Outfits" : null} */}
               </IconButton>
             </CardMedia>
           </Card>
