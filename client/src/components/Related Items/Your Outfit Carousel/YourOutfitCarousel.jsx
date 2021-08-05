@@ -6,7 +6,7 @@ import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 
 import { IconButton } from '@material-ui/core';
 import useStyles from './styles.js';
-import { Card, CardMedia} from '@material-ui/core';
+import { Card, CardMedia, Typography} from '@material-ui/core';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
 
 //***********NEXT STEPS*********
@@ -20,7 +20,7 @@ const YourOutfitCarousel = ({ overViewPhoto, overviewProductInfo, addOutfit, pro
   const classes = useStyles();
 
   const [outfits, addYourOutfit] = useState([]);
-  // const [hover, setHover]= useState(false);
+  const [hover, setHover]= useState(false);
 
   return (
     <Grid className={classes.mainContainer} container alignItems='stretch' spacing={4}>
@@ -38,8 +38,8 @@ const YourOutfitCarousel = ({ overViewPhoto, overviewProductInfo, addOutfit, pro
                     addYourOutfit([...outfits, overviewProductInfo])
                   }
                 }}
-                // onMouseOver={()=>sethover(true)}
-                // onMouseOut={()=>sethover(false)}
+                onMouseOver={()=>setHover(true)}
+                onMouseOut={()=>setHover(false)}
                 style={{ color: 'black' }}
                 aria-label="settings"
                 className={classes.overlay}>
@@ -47,10 +47,13 @@ const YourOutfitCarousel = ({ overViewPhoto, overviewProductInfo, addOutfit, pro
                   style={{ color: 'black' }}
                   aria-label="add item to Your Outfits"
                   className={classes.icon}>
-                    {/* {hover ? "Add To Your Outfits" : null} */}
                 </AddCircleIcon>
-                {/* {hover ? "Add To Your Outfits" : null} */}
               </IconButton>
+              <Typography variant="h6" color="textSecondary" component="p">
+                <div align="center">
+                  {hover ? "Add to Your Outfits" : null}
+                </div>
+              </Typography>
             </CardMedia>
           </Card>
             {outfits.map((product, i) => (
