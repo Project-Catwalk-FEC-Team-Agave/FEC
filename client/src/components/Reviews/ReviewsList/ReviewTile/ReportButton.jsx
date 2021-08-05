@@ -1,6 +1,8 @@
 //this button is actually never metnioned in BRD so leaving here, but not used anywhere
 
 import React, { useState } from 'react';
+import { TOKEN } from '../../
+
 function ReportButton(props) {
 
   return(
@@ -14,7 +16,7 @@ const reportReview = () => {
 
   let headersList = {
    "Accept": "*/*",
-   "Authorization": "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"
+   "Authorization": TOKEN
   }
 
   let reqOptions = {
