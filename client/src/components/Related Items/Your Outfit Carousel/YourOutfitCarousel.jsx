@@ -15,7 +15,7 @@ import AddCircleIcon from '@material-ui/icons/AddCircle';
 //save outfits to local storage!
 
 
-const YourOutfitCarousel = ({ overviewProductInfo, addOutfit, productInfo, photoObjs, relatedProductsIDs, reviewsData }) => {
+const YourOutfitCarousel = ({ overViewPhoto, overviewProductInfo, addOutfit, productInfo, photoObjs, relatedProductsIDs, reviewsData }) => {
 
   const classes = useStyles();
 
@@ -58,7 +58,7 @@ const YourOutfitCarousel = ({ overviewProductInfo, addOutfit, productInfo, photo
               {/* {renderCards(product, i)} */}
               <YourOutfitCard
               //fix photo here!!!!!!
-                photo={'https://images.unsplash.com/photo-1492447105260-2e947425b5cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80'}
+                photo={overViewPhoto}
                 product={product}
                 reviewsData={reviewsData}>
 

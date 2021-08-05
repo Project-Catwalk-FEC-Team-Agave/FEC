@@ -14,10 +14,10 @@ const YourOutfitCard = ({ photo, product, relatedProductStyleInfo, relatedProduc
   className={classes.root}>
       <CardMedia
         className={classes.media}
-        image={photo}
+        image={photo.photo}
       >
         <IconButton style={{ color: 'black' }} aria-label="settings" className={classes.overlay}>
-          {/* <HighlightOffIcon style={{ color: 'black' }} aria-label="delete item from Your Outfits"/> */}
+          <HighlightOffIcon style={{ color: 'black' }} aria-label="delete item from Your Outfits"/>
         </IconButton>
       </CardMedia>
       <CardContent>

@@ -15,13 +15,15 @@ class RelatedProductsContainer extends React.Component {
       relatedProductsIDs: [],
       photoObjs: [],
       reviewsData: [],
-      overviewProductInfo: {}
+      overviewProductInfo: {},
+      overViewPhoto: {}
     }
     //function binding goes here
   }
 
   componentDidMount() {
     this.getOverviewProductInfo();
+    this.getOverviewPhoto();
 
     return axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/products/${this.props.primaryProductID}/related`, auth)
     .then(({ data }) => {
@@ -96,6 +98,42 @@ class RelatedProductsContainer extends React.Component {
     .catch(err => console.log('Error retrieving photos: ', err));
   }
 
+  getOverviewPhoto() {
+
+    const { primaryProductID } = this.props;
+
+    return axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/products/${primaryProductID}/styles`, auth)
+    .then(({data}) => {
+
+      let array = [];
+
+      if (data.product_id === '11007') {
+        data.results.forEach(result => {
+          array.push(result.photos[0].url)
+        })
+      }
+
+      let photo = array[0];
+
+      if (data.product_id !== '11007') {
+        data.results.forEach(result => {
+
+          if (result['default?'] === true) {
+
+            photo = result.photos[0].url || 'https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg';
+          }
+        })
+      }
+
+      this.setState({
+        overViewPhoto: {primaryProductID, photo}
+      }, () => console.log(this.state.overViewPhoto))
+
+    })
+    .catch(err => console.log('Error retrieving overview photo: ', err));
+
+  }
+
   getRating(productID) {
 
     return axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/reviews/?product_id=${productID}`, auth)
@@ -132,7 +170,8 @@ class RelatedProductsContainer extends React.Component {
           relatedProductsIDs={relatedProductsIDs}
           photoObjs={photoObjs}
           reviewsData={reviewsData}
-          overviewProductInfo={this.state.overviewProductInfo}/>
+          overviewProductInfo={this.state.overviewProductInfo}
+          overViewPhoto={this.state.overViewPhoto}/>
         </div>
       </div>
     )

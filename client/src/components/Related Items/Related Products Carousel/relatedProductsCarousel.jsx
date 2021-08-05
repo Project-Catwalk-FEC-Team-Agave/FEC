@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 import RelatedProductsCard from './Related Products Card/relatedProductsCard.jsx';
 import './styles.css';
-import Grid from '@material-ui/core/Grid';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
-
-import { IconButton } from '@material-ui/core';
+import { IconButton, Grid } from '@material-ui/core';
 import useStyles from './styles.js';
 
 const RelatedProductsCarousel = ({ overviewProductInfo, changeProduct, productInfo, photoObjs, relatedProductsIDs, reviewsData }) => {

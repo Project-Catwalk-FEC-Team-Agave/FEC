@@ -9,8 +9,6 @@ const RelatedProductsCard = ({ overviewProductInfo, changeProduct, photo, produc
   const classes = useStyles();
   let starCount = stars(3.5);
 
-  console.log('PHOTO:', photo);
-
   const [open, setOpen] = useState(false);
 
   const handleOpen = () => {
