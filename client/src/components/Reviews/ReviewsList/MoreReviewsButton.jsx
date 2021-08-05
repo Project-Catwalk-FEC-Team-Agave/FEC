@@ -6,10 +6,10 @@ const MoreReviews = (props) => {
   return(
     <button onClick={(e) => {
       e.preventDefault();
-      console.log(`Count: ${requestParams.reviewsDisplayed} `)
-      var tempObj = requestParams;
-      requestParams.reviewsDisplayed = requestParams.reviewsDisplayed + 2;
-      setRequestParams(tempObj);
+      setRequestParams({
+        reviewsDisplayed: requestParams.reviewsDisplayed += 2,
+        sort: requestParams.sort
+      });
     }}> See More Reviews</button>
   )
 }

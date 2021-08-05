@@ -21,7 +21,7 @@ function ReviewsList ({ id, metaData }) {
   const getReviews = (id, sort, count) => {
     console.log(`Getting Review! Sorting by ${sort} and getting ${count} total reviews` )
     let reqOptions = {
-      url: `https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/reviews?product_id=${id}&sort=${sort}&count=${count}`,
+      url: `https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/reviews?product_id=${id}&sort=${sort}`,
       method: "GET",
       headers: {
        "Authorization": TOKEN
@@ -30,8 +30,9 @@ function ReviewsList ({ id, metaData }) {
 
     axios.request(reqOptions)
     .then((response) => {
+      console.log('request sent')
       const {data} = response;
-      setReviews(data.results);
+      setReviews(data.results.slice(0, count));
       if (data.results.length < reviewsDisplayed) {
         setToggleMoreReviews(false);
       } else {
