@@ -16,6 +16,16 @@
   font-size: 15px;
   font-weight: lighter;
 }
+/* Product info*/
+.sales-price {
+  font-size: 15px;
+  color: red;
+}
+.on-sale {
+  font-size: 15px;
+  text-decoration: line-through;
+}
+
 .carousel-root {
   width: 80%;
   height: 40%;
@@ -47,7 +57,10 @@
   flex-direction: column;
 }
 
-/* .thumbs-wrapper.axis-vertical {
-  margin-top: -683px;
-  margin-left: -29px;
-} */
+/* IMAGE MODEL */
+
+.image-model-container {
+  position: absolute;
+  justify-content: center;
+  width: 70%;
+}

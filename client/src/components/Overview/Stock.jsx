@@ -19,13 +19,16 @@ const Stock = () => {
   const classes = useStyles();
   const id = 295408;
   const skus = useStylesStore((state) => state.skus);
-  const quantity = useStylesStore((state) => state.sizeQuantity);
+  let quantity = useStylesStore((state) => state.sizeQuantity);
+  if (quantity > 15) {
+    quantity = 15;
+  }
   const quantities = [...Array(quantity + 1).keys()];
   const sizes = Object.values(skus).map((sku) => sku.size);
   const handleChange = useStylesStore((state) => state.handleSizeChange);
   const test = useStylesStore((state) => state.sizeSelected);
   const allStyles = useStylesStore((state) => state.allStyles);
-  console.log('skus', sizes);
+
   return (
     <div>
       <FormControl variant="outlined" className={classes.formControl}>
