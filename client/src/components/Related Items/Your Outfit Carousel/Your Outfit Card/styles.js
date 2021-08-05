@@ -7,8 +7,8 @@ export default makeStyles((theme) => ({
     height: 450,
     marginTop: '20px',
 		marginBottom: '20px',
-    marginRight: '10px',
-    marginLeft: '10px'
+    marginRight: '1%',
+    marginLeft: '5%'
   },
   media: {
     height: '60%'
@@ -16,6 +16,8 @@ export default makeStyles((theme) => ({
 	overlay: {
 		position: 'absolute',
 		top: '20px',
-		left: '195px'
+		left: '500px',
+    width: '40px',
+    height: '40px'
   }
 }));

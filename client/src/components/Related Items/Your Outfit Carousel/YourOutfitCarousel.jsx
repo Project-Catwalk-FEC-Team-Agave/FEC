@@ -8,6 +8,7 @@ import { IconButton } from '@material-ui/core';
 import useStyles from './styles.js';
 import { Card, CardMedia, Typography} from '@material-ui/core';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
+import { spacing } from '@material-ui/system';
 
 //***********NEXT STEPS*********
 
@@ -59,13 +60,10 @@ const YourOutfitCarousel = ({ overViewPhoto, overviewProductInfo, addOutfit, pro
           </Card>
             {outfits.map((product, i) => (
             <Grid key={i} xs={12} sm={6} item>
-              {/* {renderCards(product, i)} */}
               <YourOutfitCard
-              //fix photo here!!!!!!
                 photo={overViewPhoto}
                 product={product}
                 reviewsData={reviewsData}>
-
               </YourOutfitCard>
             </Grid>
             ))}
