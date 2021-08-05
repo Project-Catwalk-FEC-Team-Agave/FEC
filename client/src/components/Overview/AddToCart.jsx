@@ -8,10 +8,6 @@ import { Select, MenuItem } from '@material-ui/core';
 import StarIcon from '@material-ui/icons/Star';
 
 const AddToCart = () => {
-  const id = 295408;
-  const size = useStylesStore((state) => state.skus[id].size);
-  const quantity = useStylesStore((state) => state.skus[id].quantity);
-  const sizes = [];
   return (
     <div>
       <Stock />

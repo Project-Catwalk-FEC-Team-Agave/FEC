@@ -15,7 +15,7 @@ export default makeStyles((theme) => ({
     paddingTop: '100%'
   },
 	overlay: {
-		position: 'fixed',
+		position: 'relative',
 		top: '-470px',
 		left: '195px',
     zIndex: '99'

@@ -5,5 +5,27 @@ export default makeStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
 		paddingTop: '50px'
+  },
+  root: {
+    maxWidth: 245,
+    height: 450,
+    marginTop: '20px',
+		marginBottom: '20px',
+    marginRight: '10px',
+    marginLeft: '10px'
+  },
+  media: {
+    height: 450,
+    position: 'relative'
+  },
+	overlay: {
+		position: 'relative',
+		top: '40%',
+		left: '35%'
+  },
+  icon: {
+    width: '60px',
+    height: '60px',
+    opacity: '50%'
   }
 }));

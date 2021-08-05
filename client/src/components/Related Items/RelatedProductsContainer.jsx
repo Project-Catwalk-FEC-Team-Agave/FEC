@@ -42,7 +42,7 @@ class RelatedProductsContainer extends React.Component {
     .then(({ data }) => {
       this.setState({
         productInfo: [...this.state.productInfo, data]
-      }, () => console.log('Product info: ', this.state.productInfo))
+      })
     })
     .catch(err => console.log('Error retrieving product INFO: ', err));
   }
@@ -74,7 +74,7 @@ class RelatedProductsContainer extends React.Component {
 
       this.setState({
         photoObjs: [...this.state.photoObjs, {productID, photo}]
-      }, () => console.log('Photos: ', this.state.photoObjs))
+      })
 
     })
     .catch(err => console.log('Error retrieving photos: ', err));
@@ -86,19 +86,13 @@ class RelatedProductsContainer extends React.Component {
     .then(({ data }) => {
       this.setState({
         reviewsData: [...this.state.reviewsData, data]
-      }, () => console.log('Reviews: ', this.state.reviewsData))
+      })
     })
     .catch(err => console.log('Error retrieving reviews: ', err));
   }
 
-  // addProperty(val) {
-  //   let copy = this.state.productInfo.slice();
-  //   return mappedProductInfo = copy.map(product => {
-  //     product.photo = val.photos[0].url;
-  //   });
-  // }
-
   render() {
+    console.log('STATE: ', this.state);
     const { changeProduct, addOutfit, getProductInfo, primaryProductID } = this.props;
     //console.log('State: ', this.state);
 
