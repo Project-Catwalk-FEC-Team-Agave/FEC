@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const AddReview = (props) => {
+const AddReview = ({ id, metaData }) => {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
@@ -50,7 +50,8 @@ const AddReview = (props) => {
       >
         <Fade in={open}>
           <div className={classes.paper}>
-            <AddReviewForm/>
+            <AddReviewForm id={id} characteristics={metaData.characteristics}/>
+/>
           </div>
         </Fade>
       </Modal>

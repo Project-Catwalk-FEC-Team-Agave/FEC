@@ -1,19 +1,23 @@
 import React, { useState } from 'react';
 
-const ReviewTextFields = (props) => {
+const ReviewTextFields = ({ changeReviewBody, changeReviewSummary }) => {
 
   const [totalChars, changeTotalChars] = useState(50 + ' characters required');
 
   return (
     <>
-      <label htmlFor="summary">Review Summary:</label><br></br>
-      <input id="summary" type="text" name="summary" maxLength="60" size="60"></input><br></br><br></br>
-      <label htmlFor="body">Review Body:</label><br></br>
+      <label htmlFor="summary">Review Summary</label><br></br>
+      <input id="summary" type="text" name="summary" maxLength="60" size="60"
+        onChange={(e) => {
+          e.preventDefault();
+          changeReviewSummary(e.target.value); }}></input><br></br><br></br>
+      <label htmlFor="body">Review Body*</label><br></br>
       <textarea id="body" type="text" name="body" autoFocus rows="5" cols="60"
         placeholder="Why did you like the product or not?"
         maxLength="1000" minLength="50" required style={ {resize: 'none'} }
         onChange={(e) => {
           e.preventDefault();
+          changeReviewBody(e.target.value);
           if (e.target.value.length > 50) {
             changeTotalChars('Minimum review length reached');
           } else {

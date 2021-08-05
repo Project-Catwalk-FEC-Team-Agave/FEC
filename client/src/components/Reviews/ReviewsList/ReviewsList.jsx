@@ -6,7 +6,7 @@ import MoreReviews from './MoreReviewsButton.jsx';
 import ReviewTile from './ReviewTile/ReviewTile.jsx'
 import { TOKEN } from '../../../../../config.js'
 
-function ReviewsList ({id}) {
+function ReviewsList ({ id, metaData }) {
 
   const [sort, setSort] = useState('relevant');
   const [totalReviews, setTotalReviews] = useState(0);
@@ -45,7 +45,7 @@ function ReviewsList ({id}) {
       {reviews.map((review, i) => {
         return <ReviewTile review={review} key={i}/>
       })}
-      <AddReview/>
+      <AddReview id={id} metaData={metaData}/>
       <MoreReviews id={id} sort={sort}
         currentPage={currentPage} getReviews={getReviews}/>
     </div>

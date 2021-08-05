@@ -4,7 +4,6 @@ import Slider from '@material-ui/core/Slider';
 function ProductDetails({characteristics}) {
 
   return characteristics.map((characteristic, i) => {
-
     return (
     <>
       <div key={i}>{characteristic[0]}</div>

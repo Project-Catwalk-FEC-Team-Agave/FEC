@@ -24,7 +24,7 @@ function ReviewsChart({ratings}) {
   });
 
   return (
-    <div id="chart">Bar Chart Not Rendering</div>
+    <div id="chart"></div>
   );
 }
 
