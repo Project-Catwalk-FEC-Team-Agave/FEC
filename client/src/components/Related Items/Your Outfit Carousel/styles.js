@@ -3,7 +3,6 @@ import { makeStyles } from '@material-ui/core/styles';
 export default makeStyles((theme) => ({
   mainContainer: {
     display: 'flex',
-    alignItems: 'center',
 		paddingTop: '50px'
   },
   root: {
@@ -11,7 +10,7 @@ export default makeStyles((theme) => ({
     height: 450,
     marginTop: '20px',
 		marginBottom: '20px',
-    marginRight: '1%',
+    marginRight: '45px',
     marginLeft: '10px',
     position: 'relative'
   },
@@ -32,6 +31,7 @@ export default makeStyles((theme) => ({
   icon: {
     width: '60px',
     height: '60px',
-    opacity: '50%'
+    opacity: '50%',
+    zIndex: 99
   }
 }));

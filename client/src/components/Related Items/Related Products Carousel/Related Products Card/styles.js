@@ -9,7 +9,7 @@ export default makeStyles((theme) => ({
 		marginBottom: '20px',
     marginRight: '10px',
     marginLeft: '10px',
-    position: 'relative',
+    position: 'relative'
   },
   media: {
     height: '60%'

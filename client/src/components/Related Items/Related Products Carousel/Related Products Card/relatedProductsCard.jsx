@@ -42,7 +42,7 @@ const RelatedProductsCard = ({ overviewProductInfo, changeProduct, photo, produc
             {product.name}
           </Typography>
           <Typography variant="caption" color="textSecondary" component="p">
-            {'$' + product.default_price.split('.')[0]}
+            &nbsp;{'$' + product.default_price.split('.')[0]}
           </Typography>
           <>
             {starCount}

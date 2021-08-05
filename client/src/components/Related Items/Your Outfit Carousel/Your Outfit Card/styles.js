@@ -7,17 +7,19 @@ export default makeStyles((theme) => ({
     height: 450,
     marginTop: '20px',
 		marginBottom: '20px',
-    marginRight: '1%',
-    marginLeft: '5%'
+    marginRight: '10px',
+    marginLeft: '10px',
+    position: 'relative'
   },
   media: {
     height: '60%'
   },
 	overlay: {
 		position: 'absolute',
-		top: '20px',
-		left: '500px',
-    width: '40px',
-    height: '40px'
+		top: '0%',
+		left: '80%',
+    width: '50px',
+    height: '50px',
+    zIndex: 99
   }
 }));

@@ -10,31 +10,31 @@ const YourOutfitCard = ({ photo, product, relatedProductStyleInfo, relatedProduc
   let starCount = stars(3.5);
 
   return (
-  <Card
-  className={classes.root}>
-      <CardMedia
-        className={classes.media}
-        image={photo.photo}
-      >
-        <IconButton style={{ color: 'black' }} aria-label="settings" className={classes.overlay}>
-          <HighlightOffIcon style={{ color: 'black' }} aria-label="delete item from Your Outfits"/>
-        </IconButton>
-      </CardMedia>
-      <CardContent>
-        <Typography variant="caption" color="textSecondary" component="p">
-          {product.category.toUpperCase()}
-        </Typography>
-        <Typography variant="h6" color="textSecondary" component="p">
-          {product.name}
-        </Typography>
-        <Typography variant="caption" color="textSecondary" component="p">
-          {'$' + product.default_price.split('.')[0]}
-        </Typography>
-        <>
-          {starCount}
-        </>
-      </CardContent>
-  </Card>
+    <Card
+      className={classes.root}>
+        <CardMedia
+          className={classes.media}
+          image={photo.photo}
+        >
+          <IconButton style={{ color: 'black' }} aria-label="settings" className={classes.overlay}>
+            <HighlightOffIcon style={{ color: 'black' }} aria-label="delete item from Your Outfits"/>
+          </IconButton>
+        </CardMedia>
+        <CardContent>
+          <Typography variant="caption" color="textSecondary" component="p">
+            {product.category.toUpperCase()}
+          </Typography>
+          <Typography variant="h6" color="textSecondary" component="p">
+            {product.name}
+          </Typography>
+          <Typography variant="caption" color="textSecondary" component="p">
+          &nbsp;{'$' + product.default_price.split('.')[0]}
+          </Typography>
+          <>
+            {starCount}
+          </>
+        </CardContent>
+    </Card>
   );
 }
 
