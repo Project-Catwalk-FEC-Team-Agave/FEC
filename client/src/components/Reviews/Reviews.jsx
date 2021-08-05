@@ -12,8 +12,12 @@ function Reviews(props) {
   const [metaData, changeMetaData] = useState({
     recommended: {true: 0, false: 0},
     characteristics: {},
-    ratings: {1: 0, 2: 0, 3: 0, 4: 0, 5: 0}
+    ratings: {1: 2, 2: 0, 3: 0, 4: 0, 5: 0}
     });
+
+  const totalReviews = Object.values(metaData.ratings).reduce((accumulator, rating) => {
+      return Number(accumulator) + Number(rating);
+  })
 
   const getMetaData = (id) => {
     let reqOptions = {
@@ -43,7 +47,7 @@ function Reviews(props) {
             <SummaryBreakdown metaData={metaData}/>
           </Grid>
           <Grid xs={6} item>
-            <ReviewsList id={id} metaData={metaData}/>
+            <ReviewsList id={id} metaData={metaData} totalReviews={totalReviews}/>
           </Grid>
         </Grid>
     </div>

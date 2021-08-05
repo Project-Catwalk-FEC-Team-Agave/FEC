@@ -10,6 +10,8 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
+    overflow: 'scroll',
+    pt: '25px'
   },
   paper: {
     backgroundColor: theme.palette.background.paper,
@@ -51,7 +53,6 @@ const AddReview = ({ id, metaData }) => {
         <Fade in={open}>
           <div className={classes.paper}>
             <AddReviewForm id={id} characteristics={metaData.characteristics}/>
-/>
           </div>
         </Fade>
       </Modal>

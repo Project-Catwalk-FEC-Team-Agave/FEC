@@ -8,7 +8,7 @@ import ReviewTextFields from './ReviewTextFields.jsx';
 import NameAndEmailFields from './NameAndEmailFields.jsx';
 import create from 'zustand';
 
-const AddReviewForm = ({ id, characteristics }) => {
+const AddReviewForm = ({ id, characteristics, name }) => {
 
   const [overallRating, changeOverallRating] = useState(0);
   const [recommendation, changeRecommendation] = useState(false);
@@ -55,7 +55,7 @@ const AddReviewForm = ({ id, characteristics }) => {
 
     return (
       <form id="submitReview">
-        <h1>Write Your Review About the PRODUCT NAME</h1>
+        <h1>Write Your Review About the {name}</h1>
         <div>Overall Rating*</div><Rating required name="simple-controlled"
           onChange={(event, newValue) => { changeOverallRating(newValue); }}/><br></br>
         <RecommendRadio changeRecommendation={changeRecommendation} />
