@@ -8,6 +8,6 @@ export default makeStyles((theme) => ({
   overlay: {
     position: 'absolute',
     top: '50%',
-		left: '100%'
+		left: '150%'
   }
 }));
