@@ -30,7 +30,7 @@ const RelatedProductsCard = ({ overviewProductInfo, changeProduct, photo, produc
         {photo ? (
           <CardMedia
           className={classes.media}
-          image={photo}/>
+          image={photo.photo}/>
         ) : (
           <CircularProgress/>
         )}
@@ -42,14 +42,13 @@ const RelatedProductsCard = ({ overviewProductInfo, changeProduct, photo, produc
             {product.name}
           </Typography>
           <Typography variant="caption" color="textSecondary" component="p">
-            {'$' + product.default_price.split('.')[0]}
+            &nbsp;{'$' + product.default_price.split('.')[0]}
           </Typography>
           <>
             {starCount}
           </>
         </CardContent>
     </Card>
-
     <IconButton
       onClick={() => {
         handleOpen();
@@ -92,25 +91,3 @@ const RelatedProductsCard = ({ overviewProductInfo, changeProduct, photo, produc
 }
 
 export default RelatedProductsCard;
-
-    // <div>
-    //   <Modal
-    //     aria-labelledby="transition-modal-title"
-    //     aria-describedby="transition-modal-description"
-    //     className={classes.modal}
-    //     open={open}
-    //     onClose={handleClose}
-    //     closeAfterTransition
-    //     BackdropComponent={Backdrop}
-    //     BackdropProps={{
-    //       timeout: 500,
-    //     }}
-    //   >
-    //     <Fade in={open}>
-    //       <div className={classes.paper}>
-    //         <h2 id="transition-modal-title">Transition modal</h2>
-    //         <p id="transition-modal-description">react-transition-group animates me.</p>
-    //       </div>
-    //     </Fade>
-    //   </Modal>
-    // </div>

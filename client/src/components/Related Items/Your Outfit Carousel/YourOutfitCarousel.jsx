@@ -6,21 +6,21 @@ import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 
 import { IconButton } from '@material-ui/core';
 import useStyles from './styles.js';
-import { Card, CardMedia} from '@material-ui/core';
+import { Card, CardMedia, Typography} from '@material-ui/core';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
+import { spacing } from '@material-ui/system';
 
 //***********NEXT STEPS*********
 
-//get photos to align with Your Outfit products!
 //save outfits to local storage!
 
 
-const YourOutfitCarousel = ({ overviewProductInfo, addOutfit, productInfo, photoObjs, relatedProductsIDs, reviewsData }) => {
+const YourOutfitCarousel = ({ overViewPhoto, overviewProductInfo, addOutfit, productInfo, photoObjs, relatedProductsIDs, reviewsData }) => {
 
   const classes = useStyles();
 
   const [outfits, addYourOutfit] = useState([]);
-  // const [hover, setHover]= useState(false);
+  const [hover, setHover]= useState(false);
 
   return (
     <Grid className={classes.mainContainer} container alignItems='stretch' spacing={4}>
@@ -38,8 +38,8 @@ const YourOutfitCarousel = ({ overviewProductInfo, addOutfit, productInfo, photo
                     addYourOutfit([...outfits, overviewProductInfo])
                   }
                 }}
-                // onMouseOver={()=>sethover(true)}
-                // onMouseOut={()=>sethover(false)}
+                onMouseOver={()=>setHover(true)}
+                onMouseOut={()=>setHover(false)}
                 style={{ color: 'black' }}
                 aria-label="settings"
                 className={classes.overlay}>
@@ -47,21 +47,24 @@ const YourOutfitCarousel = ({ overviewProductInfo, addOutfit, productInfo, photo
                   style={{ color: 'black' }}
                   aria-label="add item to Your Outfits"
                   className={classes.icon}>
-                    {/* {hover ? "Add To Your Outfits" : null} */}
                 </AddCircleIcon>
-                {/* {hover ? "Add To Your Outfits" : null} */}
               </IconButton>
+              <Typography variant="h6" color="textSecondary">
+                <div
+                  align='center'>
+                  {hover ? "Add to Your Outfit" : null}
+                </div>
+              </Typography>
             </CardMedia>
           </Card>
-            {outfits.map((product, i) => (
+            {outfits.slice(0, 3).map((product, i) => (
             <Grid key={i} xs={12} sm={6} item>
-              {/* {renderCards(product, i)} */}
               <YourOutfitCard
-              //fix photo here!!!!!!
-                photo={'https://images.unsplash.com/photo-1492447105260-2e947425b5cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80'}
+                outfits={outfits}
+                photo={overViewPhoto}
                 product={product}
-                reviewsData={reviewsData}>
-
+                reviewsData={reviewsData}
+                addYourOutfit={addYourOutfit}>
               </YourOutfitCard>
             </Grid>
             ))}
