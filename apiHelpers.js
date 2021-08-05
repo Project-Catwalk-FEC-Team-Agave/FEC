@@ -44,7 +44,7 @@ const getRelatedProducts = (primaryProductID) => {
 //     url: "https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/reviews?product_id=11001",
 //     method: "GET",
 //     headers: {
-//      "Authorization": "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"
+//      "Authorization": TOKEN
 //     }
 //   }
 // }
