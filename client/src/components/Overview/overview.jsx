@@ -7,6 +7,7 @@ import ProductInfo from './ProductInfo.jsx';
 import { usePoroductStore, useStylesStore } from './store';
 import Grid from '@material-ui/core/Grid';
 import Stars from '../Shared/stars.jsx';
+import TestGallery from './TestGallery.jsx';
 
 const Overview = (props) => {
   const name = usePoroductStore((state) => state.name);

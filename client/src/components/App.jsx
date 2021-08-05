@@ -1,5 +1,6 @@
 import React from 'react';
 import Overview from './Overview/overview.jsx';
+
 import QA from './questions/qa.jsx';
 import Related from './Related Items/RelatedProductsContainer.jsx';
 import stars from './Shared/stars.jsx';
@@ -16,8 +17,8 @@ class App extends React.Component {
       productId: '11001',
       overviewProductInfo: {},
       favorites: [],
-      productInfo: {}
-    }
+      productInfo: {},
+    };
 
     this.getReviews = this.getReviews.bind(this);
     this.getProductInfo = this.getProductInfo.bind(this);
@@ -37,6 +38,7 @@ class App extends React.Component {
     this.setState({
       productId: 11001,
       favorites: [],
+
       productInfo: sampleProductData
     })
 
@@ -75,17 +77,17 @@ class App extends React.Component {
 
     return (
       <>
-      <NavBar/>
+        <NavBar />
 
         <div>
+
           <Related changeProduct={this.changeProduct}  addOutfit={this.addOutfit} getProductInfo={this.getProductInfo} primaryProductID={this.state.productId} yourOutfits={this.state.favorites}/>
+
 
           <QA />
         </div>
       </>
-
-    )
-
+    );
   }
 }
 export default App;

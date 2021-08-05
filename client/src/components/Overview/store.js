@@ -23,12 +23,6 @@ export const usePoroductStore = create((set) => ({
     });
   },
   // id: data[0].id,
-  name: data[0],
-  slogan: 'Blend in to your crowd',
-  description:
-    'The So Fatigues will wake you up and fit you in. This high energy camo will have you blending in to even the wildest surroundings.',
-
-  default_price: '140.00',
 }));
 
 var config = {
@@ -55,18 +49,21 @@ export const useStylesStore = create((set) => ({
     set((state) => {
       let id = e.target.parentElement.id;
       let newStyle;
+      let price = 0;
       state.allStyles.map((style) => {
         if (style.style_id == id) {
           newStyle = style;
         }
       });
-      // console.log('NEW', newStyle.skus);
+
       return {
         currentStyleId: newStyle.style_id,
         currentStyle: newStyle,
         skus: newStyle.skus,
         photos: newStyle.photos,
-        name: newStyle.name,
+        currentStyleName: newStyle.name,
+        original: newStyle.original_price,
+        sale: newStyle.sale_price,
       };
     }),
 
@@ -78,7 +75,15 @@ export const useStylesStore = create((set) => ({
       }));
     });
   },
-
+  // MODAL
+  handleOpen: (e) =>
+    set((state) => {
+      console.log('target', e.target.id);
+      return { open: true, currentImage: e.target.id };
+    }),
+  handleClose: () => set((state) => ({ open: false })),
+  currentImage: data.results[0].photos[0].url,
+  open: false,
   allStyles: data.results,
   currentStyle: data.results[0],
   currentStyleId: data.results[0].style_id,
@@ -87,6 +92,8 @@ export const useStylesStore = create((set) => ({
   sizeSelected: '',
   skus: data.results[0].skus,
   photos: data.results[0].photos,
+  sale: data.results[0].sale_price,
+  original: data.results[0].original_price,
 
   // currentStyleId: 0,
   // product_id: '11001',
