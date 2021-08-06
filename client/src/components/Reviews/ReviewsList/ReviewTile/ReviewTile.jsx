@@ -10,10 +10,10 @@ function ReviewTile(props) {
 
   if (photos) {
     return (
-      <div style={{border: '2px black solid'}}>
+      <div style={{border: '4px #5975FF ridge'}}>
         <div>
-          <Rating name="read-only" value={rating} readOnly precision={0.25}/>
-          <em>{date}</em>
+          <Rating style={{paddingTop: '3px'}} name="read-only" value={rating} readOnly precision={0.25}/>
+          <em style={{paddingLeft: '5px'}}>{date.slice(0, 10)}</em>
         </div>
         <strong>{summary}</strong>
         <div>{body}</div>
