@@ -26,3 +26,8 @@ const ProductInfo = () => {
   );
 };
 export default ProductInfo;
+
+// import { usePoroductStore } from './store';
+// in your functional components
+// const id = usePoroductStore((state) => state.id);
+// const updateId = usePoroductStore((state) => state.updateId);
