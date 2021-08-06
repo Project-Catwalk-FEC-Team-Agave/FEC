@@ -5,10 +5,9 @@ export default makeStyles((theme) => ({
     maxWidth: 245,
     minWidth: 245,
     height: 450,
-    marginTop: '20px',
 		marginBottom: '20px',
     marginRight: '10px',
-    marginLeft: '10px',
+    marginLeft: '5%',
     position: 'relative'
   },
   media: {
@@ -16,8 +15,8 @@ export default makeStyles((theme) => ({
   },
 	overlay: {
 		position: 'relative',
-		top: '-105%',
-		left: '75%',
+		top: '-160%',
+		left: '60%',
     zIndex: '99'
   },
   icon: {

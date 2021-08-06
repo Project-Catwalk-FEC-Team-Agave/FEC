@@ -56,12 +56,12 @@ class App extends React.Component {
     return (
       <>
         <NavBar />
-        {/* <Overview/> */}
+        <Overview/>
         <div>
 
           <Related changeProduct={this.changeProduct} primaryProductID={this.state.productId} />
 
-          <QA />
+          <Reviews/>
 
         </div>
       </>

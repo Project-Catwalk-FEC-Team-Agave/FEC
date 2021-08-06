@@ -42,7 +42,7 @@ function Reviews(props) {
   return (
     <div>
 
-        <Grid container spacing={10} style={{display: 'flex', justifyContent: 'center'}}>
+        <Grid container spacing={10} style={{display: 'flex', paddingTop: '600px'}}>
           <Grid style={{paddingLeft: '5%'}} xs={3} item>
             <h3 style={{paddingTop: '2%'}}>Reviews and Ratings</h3>
             <SummaryBreakdown metaData={metaData}/>
