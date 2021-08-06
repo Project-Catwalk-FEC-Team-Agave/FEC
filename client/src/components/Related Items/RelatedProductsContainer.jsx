@@ -42,8 +42,10 @@ class RelatedProductsContainer extends React.Component {
       .catch((err) =>
         console.log('Error retrieving data in componentDidMount: ', err)
       );
+
     });
   }
+
 
   // componentDidUpdate(prevProps, prevState) {
   //   if (this.state.overViewID !== prevProps.primaryProductID) {

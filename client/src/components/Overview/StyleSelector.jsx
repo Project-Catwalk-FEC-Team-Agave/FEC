@@ -40,6 +40,10 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     '& > *': {
       margin: theme.spacing(1),
+      large: {
+        width: theme.spacing(20),
+        height: theme.spacing(20),
+      },
     },
   },
 }));
@@ -73,6 +77,7 @@ const StyleSelector = () => {
                 invisible={style.style_id !== currentStyleId}
               >
                 <Avatar
+                  className={classes.root.large}
                   key={i}
                   src={style.photos[0].url}
                   id={style.style_id}
