@@ -10,7 +10,37 @@ var configGeneral = {
     Authorization: TOKEN,
   },
 };
+var configReview = {
+  method: 'get',
+  url: `https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/reviews/meta?product_id=11001`,
+  headers: {
+    Authorization: TOKEN,
+  },
+};
+export const useReviewData = create((set) => ({
+  getReviewData: () => {
+    axios(configReview).then(({ data }) => {
+      set((state) => {
+        let average = (metaData) => {
+          let averageRating = Object.values(metaData.ratings).reduce(
+            (accumulator, rating) => {
+              return Number(accumulator) + Number(rating);
+            }
+          );
+        };
+        let result = average(data);
+        console.log('result', result);
+        return { average: result };
+      });
+    });
+  },
+}));
 export const usePoroductStore = create((set) => ({
+  updateId: (e) =>
+    set((state) => {
+      let newId = e.target.id;
+      return { id: newId };
+    }),
   getProductData: () => {
     axios(configGeneral).then(({ data }) => {
       console.log('data', data);
