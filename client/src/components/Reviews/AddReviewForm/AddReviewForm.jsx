@@ -56,7 +56,7 @@ const AddReviewForm = ({ id, characteristics, name }) => {
 
     return (
       <form id="submitReview">
-        <h1>Write Your Review</h1>
+        <h1 style={{color: '#5975FF'}}>Write Your Review</h1>
         <div>Overall Rating*</div><Rating required name="simple-controlled"
           onChange={(event, newValue) => { changeOverallRating(newValue); }}/><br></br>
         <RecommendRadio changeRecommendation={changeRecommendation} />

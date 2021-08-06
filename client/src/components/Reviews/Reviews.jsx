@@ -39,8 +39,8 @@ function Reviews({ id }) {
     }, []);
 
   return (
-    <div>
-        <h3 style={{paddingTop: '2%'}}>Reviews and Ratings</h3>
+    <div style={{marginLeft: '5%'}}>
+        <h3 style={{color: '#5975FF', paddingTop: '2%', paddingLeft: '2%'}}>Reviews and Ratings</h3>
         <Grid style={{paddingLeft: '5%', display: 'flex', justifyContent: 'space-around'}} container spacing={5}>
           <Grid  xs={6} item>
             <SummaryBreakdown metaData={metaData}/>

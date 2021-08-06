@@ -3,16 +3,17 @@ import c3 from 'c3';
 
 function ReviewsChart({ratings}) {
 
+  var ratingsArray = Object.values(ratings).slice(1, 6)
 
   var chart = c3.generate({
     bindto: "#chart",
     data: {
         columns: [
-            ['Ratings', ...Object.values(ratings)],
+            ['Ratings', ...ratingsArray],
         ],
         type: 'bar',
         colors: {
-          'Ratings': '#bdbdbd'
+          'Ratings': '#5975FF'
         }
     },
     legend: {

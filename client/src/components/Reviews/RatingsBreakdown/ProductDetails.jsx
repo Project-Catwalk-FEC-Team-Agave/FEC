@@ -7,7 +7,7 @@ function ProductDetails({characteristics}) {
     return (
     <>
       <div key={i}>{characteristic[0]}</div>
-      <Slider
+      <Slider style={{color: '#5975FF'}}
         value={Number(characteristic[1])}
         getAriaLabel={() => { return characteristic[1]}}
         valueLabelDisplay="on"
@@ -24,5 +24,3 @@ function ProductDetails({characteristics}) {
 }
 
 export default ProductDetails;
-
-// Currently just displaying as a text value --> HOW TO CREATE THE SCALE ELEMENT????

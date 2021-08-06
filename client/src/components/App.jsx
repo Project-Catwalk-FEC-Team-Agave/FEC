@@ -75,9 +75,8 @@ class App extends React.Component {
     return (
       <>
         <NavBar />
-        <Overview/>
         <div>
-
+        <Overview/>
           <Related
             changeProduct={this.changeProduct}
             addOutfit={this.addOutfit}
@@ -87,7 +86,6 @@ class App extends React.Component {
           />
           <Reviews id={this.state.productId}/>
           <QA />
-
         </div>
       </>
     );

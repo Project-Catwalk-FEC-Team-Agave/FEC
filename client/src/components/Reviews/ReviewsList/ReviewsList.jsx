@@ -49,8 +49,8 @@ function ReviewsList ({ id, metaData, totalReviews }) {
       {reviews.map((review, i) => {
         return <><ReviewTile review={review} key={i}/><br></br></>
       })}
-      <div>
-        <AddReview id={id} metaData={metaData}/><span style={{paddingLeft: 5, paddingRight: 5}}></span>
+      <div style={{border: 'solid #5975FF', padding: '3px', display: 'flex', justifyContent: 'space-between'}}>
+        <AddReview id={id} metaData={metaData}/><br></br><br></br><div></div>
         {toggleMoreReviews === true &&
           <MoreReviews style={{paddingLeft: "50px"}}
             requestParams={requestParams} setRequestParams={setRequestParams}/>
