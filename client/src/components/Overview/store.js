@@ -1,7 +1,7 @@
 import create from 'zustand';
 import { data } from './sampleStyleData';
 import axios from 'axios';
-const { TOKEN } = require('./config.js');
+const { TOKEN } = require('../../../../config.js');
 
 var configGeneral = {
   method: 'get',

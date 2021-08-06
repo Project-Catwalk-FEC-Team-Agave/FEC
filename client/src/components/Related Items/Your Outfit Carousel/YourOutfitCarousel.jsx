@@ -24,7 +24,7 @@ const YourOutfitCarousel = ({ overViewPhoto, overviewProductInfo, addOutfit, pro
 
   return (
     <Grid className={classes.mainContainer} container alignItems='stretch' spacing={4}>
-      <div className="carousel">
+      <div className="carouselErin">
         <div className="innerCarousel">
         <Card
             className={classes.root}>

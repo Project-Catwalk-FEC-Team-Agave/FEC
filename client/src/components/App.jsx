@@ -46,18 +46,19 @@ class App extends React.Component {
     return (
       <>
         <NavBar />
+
+        <Overview/>
+
         <div>
         <Overview/>
-          <Related
-            changeProduct={this.changeProduct}
-            addOutfit={this.addOutfit}
-            getProductInfo={this.getProductInfo}
-            primaryProductID={this.state.productId}
-            yourOutfits={this.state.favorites}
-          />
+          <Related changeProduct={this.changeProduct} primaryProductID={this.state.productId}/>
           <Reviews id={this.state.productId}/>
           <Related changeProduct={this.changeProduct} primaryProductID={this.state.productId} />
+
+          <Reviews/>
+
           <QA />
+
         </div>
       </>
     );

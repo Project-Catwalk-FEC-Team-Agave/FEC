@@ -4,14 +4,22 @@ import './styles.css';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import { IconButton, Grid } from '@material-ui/core';
 import useStyles from './styles.js';
+import { usePoroductStore } from '../../../components/Overview/store.js';
 
 const RelatedProductsCarousel = ({ overviewProductInfo, changeProduct, productInfo, photoObjs, relatedProductsIDs, reviewsData }) => {
 
 	const classes = useStyles();
 
+
+// in your functional components
+// const id = usePoroductStore((state) => state.id);
+// const updateId = usePoroductStore((state) => state.updateId);
+
+  const [products, setProducts] = useState([productInfo]);
+
   return (
 		<Grid className={classes.mainContainer} container alignItems='stretch' spacing={4}>
-			<div className="carousel">
+			<div className="carouselErin">
 				<div className="innerCarousel">
 						{productInfo.slice(0, 4).map((product, i) => (
 							<Grid key={i} xs={12} sm={6} item>

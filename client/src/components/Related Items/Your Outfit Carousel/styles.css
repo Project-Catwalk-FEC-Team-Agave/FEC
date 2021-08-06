@@ -1,9 +1,11 @@
-/* .carousel {
+.carouselErin {
   width: 90%;
 	height: 450px;
 	background-color: rgb(255, 255, 255);
 	margin-left: 5%;
 	margin-right: 5%;
+	padding-bottom: 50px;
+	padding-top: 100px;
 }
 
 .innerCarousel {
@@ -21,4 +23,4 @@
 	background-color: hsla(0, 0%, 100%, 0.65);
 	display: grid;
 	place-items: center;
-} */
+}

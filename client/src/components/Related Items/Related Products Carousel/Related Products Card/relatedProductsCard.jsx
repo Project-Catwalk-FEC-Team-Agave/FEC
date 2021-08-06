@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import useStyles from './styles.js';
 import { Card, CardHeader, CardMedia, CardContent, CardActions, CardActionArea, Typography, IconButton, Modal, Backdrop, Fade, CircularProgress } from '@material-ui/core';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
-import stars from '../../../Shared/stars.jsx';
+//import stars from '../../../Shared/stars.jsx';
 import ComparisonModal from '../Comparison Modal/comparisonModal.jsx';
 import Rating from '@material-ui/lab/Rating';
 

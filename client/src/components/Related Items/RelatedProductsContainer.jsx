@@ -4,6 +4,7 @@ import RelatedProductsCarousel from './Related Products Carousel/relatedProducts
 import YourOutfitCarousel from './Your Outfit Carousel/YourOutfitCarousel.jsx';
 import { TOKEN } from '../../../../config.js';
 import './styles.css';
+import { Typography } from '@material-ui/core';
 
 const auth = { headers: { Authorization: TOKEN } };
 
@@ -49,13 +50,13 @@ class RelatedProductsContainer extends React.Component {
   }
 
   //causes 429 error when run -- too many requests
-  componentDidUpdate(prevProps, prevState) {
-    console.log('PREV PROPS: ', prevProps);
-    console.log('PREV STATE: ', prevState);
-    console.log(prevState.overViewID === prevProps.primaryProductID);
+  // componentDidUpdate(prevProps, prevState) {
+  //   console.log('PREV PROPS: ', prevProps);
+  //   console.log('PREV STATE: ', prevState);
+  //   console.log(prevState.overViewID === prevProps.primaryProductID);
 
-    // if (prevState.overViewID !== prevProps.primaryProductID) {
-    // //   this.getProductInfo(prevState.overViewID);
+    //if (prevState.overViewID !== prevProps.primaryProductID) {
+      //this.getProductInfo(prevState.overViewID);
     //   return axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/products/${prevState.overViewID}/related`, auth)
     //   .then(({ data }) => {
     //     this.setState({
@@ -71,8 +72,8 @@ class RelatedProductsContainer extends React.Component {
     //       console.log('Error updating related products: ', err)
     //     );
     //   })
-    // }
-  }
+    //}
+  //}
 
   // componentWillReceiveProps({primaryProductID}) {
   //   // this.setState({...this.state,someProp})
@@ -110,8 +111,7 @@ class RelatedProductsContainer extends React.Component {
   }
 
   getProductInfo(productID) {
-    return axios
-      .get(
+    return axios.get(
         `https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/products/${productID}`,
         auth
       )
@@ -209,10 +209,9 @@ class RelatedProductsContainer extends React.Component {
 
   render() {
 
-    console.log('STATE: ', this.state);
-    console.log('PROPS: ', this.props);
+    // console.log('STATE: ', this.state);
+    // console.log('PROPS: ', this.props);
     const { changeProduct, primaryProductID } = this.props;
-
 
     const {
       productInfo,
@@ -223,6 +222,12 @@ class RelatedProductsContainer extends React.Component {
 
     return (
       <div className="related-products-container">
+        <div style={{marginTop: '250px', marginLeft: '5%'}}>
+        <Typography variant="h4" color="textSecondary" component="p">
+          Related Products
+        </Typography>
+        </div>
+
         <div>
           <RelatedProductsCarousel
           changeProduct={changeProduct}
