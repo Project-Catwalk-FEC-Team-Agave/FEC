@@ -5,6 +5,7 @@ import { Card, CardHeader, CardMedia, CardContent, CardActions, CardActionArea, 
 import StarBorderIcon from '@material-ui/icons/StarBorder';
 import stars from '../../../Shared/stars.jsx';
 import ComparisonModal from '../Comparison Modal/comparisonModal.jsx';
+import Rating from '@material-ui/lab/Rating';
 
 const RelatedProductsCard = ({ overviewProductInfo, changeProduct, photo, product, relatedProductStyleInfo, relatedProductsIDs, reviewsData }) => {
 
@@ -64,7 +65,7 @@ const RelatedProductsCard = ({ overviewProductInfo, changeProduct, photo, produc
             &nbsp;{'$' + product.default_price.split('.')[0]}
           </Typography>
           <>
-            {starCount}
+            <Rating name="read-only" value={reviewAverage()} readOnly precision={0.25}/>
           </>
         </CardContent>
     </Card>
