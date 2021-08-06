@@ -78,11 +78,11 @@ class App extends React.Component {
     return (
       <>
         <NavBar />
-        <Overview/>
+        {/* <Overview/> */}
         <div>
-          <Related changeProduct={this.changeProduct}  addOutfit={this.addOutfit} getProductInfo={this.getProductInfo} primaryProductID={this.state.productId} yourOutfits={this.state.favorites}/>
+          {/* <Related changeProduct={this.changeProduct}  addOutfit={this.addOutfit} getProductInfo={this.getProductInfo} primaryProductID={this.state.productId} yourOutfits={this.state.favorites}/> */}
           <Reviews/>
-          <QA />
+          {/* <QA /> */}
         </div>
       </>
     );

@@ -1,9 +1,8 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
-import AddReviewForm from '../AddReviewForm/AddReviewForm.jsx'
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -22,9 +21,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const AddReview = ({ id, metaData }) => {
+const AddReviewPhotos = ({ reviewPhotos, changeReviewPhotos }) => {
   const classes = useStyles();
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
 
   const handleOpen = () => {
     setOpen(true);
@@ -37,7 +36,7 @@ const AddReview = ({ id, metaData }) => {
   return (
     <div>
       <button type="button" onClick={handleOpen}>
-        Add a Review
+        Add Photos to your Review
       </button>
       <Modal
         aria-labelledby="transition-modal-title"
@@ -53,7 +52,20 @@ const AddReview = ({ id, metaData }) => {
       >
         <Fade in={open}>
           <div className={classes.paper}>
-            <AddReviewForm id={id} characteristics={metaData.characteristics}/>
+            <form id="addPhoto" height="10px">
+              <label htmlFor='addPhoto'>Add a Photo to Your Review</label><br></br>
+              <input id="photoUrl" type="text" name="photoUrl"></input>
+              <input type="submit" onClick={(event) => {
+                event.preventDefault();
+                console.log(reviewPhotos)
+                if (reviewPhotos.length < 5) {
+                  var photos = reviewPhotos;
+                  photos.push(document.getElementById('photoUrl').value);
+                  changeReviewPhotos(photos)
+                } else {
+                  alert('Already added maximum number of photos')
+                }}}></input>
+            </form>
           </div>
         </Fade>
       </Modal>
@@ -61,6 +73,4 @@ const AddReview = ({ id, metaData }) => {
   );
 }
 
-export default AddReview;
-
-//Needs to open modal window with all add reviews forms, submit button will be API call (not here)
+export default AddReviewPhotos;

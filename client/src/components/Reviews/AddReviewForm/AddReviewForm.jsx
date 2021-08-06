@@ -6,6 +6,7 @@ import RecommendRadio from './RecommendRadio.jsx';
 import CharacteristicsRadio from './CharacteristicsRadio.jsx';
 import ReviewTextFields from './ReviewTextFields.jsx';
 import NameAndEmailFields from './NameAndEmailFields.jsx';
+import AddReviewPhotos from './AddReviewPhotos.jsx';
 import create from 'zustand';
 
 const AddReviewForm = ({ id, characteristics, name }) => {
@@ -54,7 +55,7 @@ const AddReviewForm = ({ id, characteristics, name }) => {
   }
 
     return (
-      <form id="submitReview">
+      <form id="submitReview" height="10px">
         <h1>Write Your Review About the {name}</h1>
         <div>Overall Rating*</div><Rating required name="simple-controlled"
           onChange={(event, newValue) => { changeOverallRating(newValue); }}/><br></br>
@@ -63,7 +64,7 @@ const AddReviewForm = ({ id, characteristics, name }) => {
         <ReviewTextFields
           changeReviewSummary={changeReviewSummary}
           changeReviewBody={changeReviewBody}/>
-        {/* <AddReviewPhotos/> */}
+        <AddReviewPhotos changeReviewPhotos={changeReviewPhotos} reviewPhotos={reviewPhotos}/>
         <NameAndEmailFields
           changeReviewerEmail={changeReviewerEmail}
           changeReviewerName={changeReviewerName}/>
