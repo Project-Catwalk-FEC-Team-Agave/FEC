@@ -54,11 +54,7 @@ const ImageModal = () => {
             >
               {gallery.map((photo, i) => (
                 <div key={i}>
-                  <InnerImageZoom
-                    src={photo.url}
-                    zoomScale={2.5}
-                    sizes="60vh"
-                  />
+                  <InnerImageZoom src={photo.url} zoomScale={3} sizes="40vh" />
                 </div>
               ))}
             </Carousel>

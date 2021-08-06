@@ -5,7 +5,6 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a lo
 import { Carousel } from 'react-responsive-carousel';
 import ImageModal from './ImageModal.jsx';
 
-
 const ImageGallery = () => {
   const photos = useStylesStore((state) => state.photos);
   const handleOpen = useStylesStore((state) => state.handleOpen);
@@ -13,7 +12,7 @@ const ImageGallery = () => {
   const modelActive = useStylesStore((state) => state.open);
 
   return (
-    <div>
+    <div className="zoom-mouse">
       <Carousel transitionTime="1000">
         {photos.map((photo, i) => (
           <div key={i} onClick={handleOpen} id={i}>

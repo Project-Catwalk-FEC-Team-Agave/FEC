@@ -12,9 +12,9 @@ const ProductInfo = () => {
     <div>
       <h3 className="category">{category}</h3>
       <p className="name">{name}</p>
-      <div className="price">
+      <div className="price-container">
         {sale !== null ? (
-          <div>
+          <div className="price-container">
             <div className="sales-price">${sale}</div>
             <div className="on-sale">${price}</div>
           </div>
