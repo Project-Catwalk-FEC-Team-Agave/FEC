@@ -55,7 +55,7 @@ const AddReviewForm = ({ id, characteristics, name }) => {
   }
 
     return (
-      <form id="submitReview" height="10px">
+      <form id="submitReview">
         <h1>Write Your Review About the {name}</h1>
         <div>Overall Rating*</div><Rating required name="simple-controlled"
           onChange={(event, newValue) => { changeOverallRating(newValue); }}/><br></br>
@@ -64,7 +64,7 @@ const AddReviewForm = ({ id, characteristics, name }) => {
         <ReviewTextFields
           changeReviewSummary={changeReviewSummary}
           changeReviewBody={changeReviewBody}/>
-        <AddReviewPhotos changeReviewPhotos={changeReviewPhotos} reviewPhotos={reviewPhotos}/>
+        <AddReviewPhotos changeReviewPhotos={changeReviewPhotos} reviewPhotos={reviewPhotos}/><br></br>
         <NameAndEmailFields
           changeReviewerEmail={changeReviewerEmail}
           changeReviewerName={changeReviewerName}/>

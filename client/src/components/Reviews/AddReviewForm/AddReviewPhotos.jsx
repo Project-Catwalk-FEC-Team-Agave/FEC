@@ -51,18 +51,21 @@ const AddReviewPhotos = ({ reviewPhotos, changeReviewPhotos }) => {
         }}
       >
         <Fade in={open}>
-          <div className={classes.paper}>
+          <div className={classes.paper} id='submitPhotos'>
             <form id="addPhoto" height="10px">
               <label htmlFor='addPhoto'>Add a Photo to Your Review</label><br></br>
               <input id="photoUrl" type="text" name="photoUrl"></input>
               <input type="submit" onClick={(event) => {
                 event.preventDefault();
-                console.log(reviewPhotos)
                 if (reviewPhotos.length < 5) {
                   var photos = reviewPhotos;
                   photos.push(document.getElementById('photoUrl').value);
-                  changeReviewPhotos(photos)
-                } else {
+                  document.getElementById('submitPhotos').append(document.getElementById('photoUrl').value, document.createElement("br"))
+                  changeReviewPhotos(photos);
+                  document.getElementById('addPhoto').reset()
+                  alert(`Photo submitted. You can add up to ${5 - reviewPhotos.length} more photos`)
+                  console.log(reviewPhotos)
+                 } else {
                   alert('Already added maximum number of photos')
                 }}}></input>
             </form>
