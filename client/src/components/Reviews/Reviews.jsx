@@ -6,9 +6,8 @@ import Grid from '@material-ui/core/Grid';
 import axios from 'axios';
 import { TOKEN } from '../../../../config.js';
 
-function Reviews(props) {
+function Reviews({ id }) {
 
-  const id = 11005  ; //placeholder - change when everything tied together
   const [metaData, changeMetaData] = useState({
     recommended: {true: 0, false: 0},
     characteristics: {},
@@ -40,14 +39,13 @@ function Reviews(props) {
     }, []);
 
   return (
-    <div>
-
-        <Grid container spacing={10} style={{display: 'flex', justifyContent: 'center'}}>
-          <Grid style={{paddingLeft: '5%'}} xs={3} item>
-            <h3 style={{paddingTop: '2%'}}>Reviews and Ratings</h3>
+    <div style={{marginLeft: '5%'}}>
+        <h3 style={{color: '#5975FF', paddingTop: '2%', paddingLeft: '2%'}}>Reviews and Ratings</h3>
+        <Grid style={{paddingLeft: '5%', display: 'flex', justifyContent: 'space-around'}} container spacing={5}>
+          <Grid  xs={6} item>
             <SummaryBreakdown metaData={metaData}/>
           </Grid>
-          <Grid style={{padding: '5%'}}xs={3} item>
+          <Grid style={{padding: '5%'}}xs={6} item>
             <ReviewsList id={id} metaData={metaData} totalReviews={totalReviews}/>
           </Grid>
         </Grid>
