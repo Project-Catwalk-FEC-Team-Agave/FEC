@@ -1,13 +1,32 @@
 import React, { useState } from 'react';
 import useStyles from './styles.js';
+import axios from 'axios';
 import { Card, CardHeader, CardMedia, CardContent, CardActions, CardActionArea, Typography, IconButton, Modal, Backdrop, Fade, CircularProgress } from '@material-ui/core';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
 import stars from '../../../Shared/stars.jsx';
 import ComparisonModal from '../Comparison Modal/comparisonModal.jsx';
 
 const RelatedProductsCard = ({ overviewProductInfo, changeProduct, photo, product, relatedProductStyleInfo, relatedProductsIDs, reviewsData }) => {
+
+  console.log(reviewsData)
+
+  let reviewAverage = () => {
+    reviewsData = reviewsData || {results: [{rating: 2}, {rating: 5}, {rating: 4},
+    {rating: 4}, {rating: 2}]};
+
+    let sum = 0;
+
+    reviewsData.results.forEach(result => {
+      sum += result.rating;
+    })
+    return sum/(reviewsData.results.length);
+  }
+
+  let average = reviewAverage();
+  console.log('AVERAGE: ', average);
+
   const classes = useStyles();
-  let starCount = stars(3.5);
+  let starCount = stars(average);
 
   const [open, setOpen] = useState(false);
 
