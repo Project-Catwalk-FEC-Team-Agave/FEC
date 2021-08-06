@@ -1,14 +1,15 @@
 import React from 'react';
 import Overview from './Overview/overview.jsx';
 
-import QA from './questions/qa.jsx';
-import Related from './Related Items/RelatedProductsContainer.jsx';
-import stars from './Shared/stars.jsx';
-import sampleProductData from '../../../sample_data/sampleProductData.js';
-import NavBar from './NavBar.jsx';
-import Reviews from './Reviews/Reviews.jsx'
-import { TOKEN } from '../../../config.js';
-import axios from 'axios';
+// import QA from './questions/qa.jsx';
+// import Related from './Related Items/RelatedProductsContainer.jsx';
+// import stars from './Shared/stars.jsx';
+// import sampleProductData from '../../../sample_data/sampleProductData.js';
+// import NavBar from './NavBar.jsx';
+// import Reviews from './Reviews/Reviews.jsx'
+// import { TOKEN } from '../../../config.js';
+// import axios from 'axios';
+// zustand
 
 class App extends React.Component {
   constructor(props) {
@@ -29,19 +30,17 @@ class App extends React.Component {
 
   addOutfit(product) {
     this.setState({
-      favorites: [...this.state.favorites, product]
+      favorites: [...this.state.favorites, product],
     });
   }
 
   componentDidMount() {
-
     this.setState({
       productId: 11001,
       favorites: [],
 
-      productInfo: sampleProductData
-    })
-
+      productInfo: sampleProductData,
+    });
   }
 
   //need to find a way to re-render when overview state is changed!
@@ -74,15 +73,18 @@ class App extends React.Component {
   }
 
   render() {
-
     return (
       <>
         <NavBar />
 
         <div>
-
-          <Related changeProduct={this.changeProduct}  addOutfit={this.addOutfit} getProductInfo={this.getProductInfo} primaryProductID={this.state.productId} yourOutfits={this.state.favorites}/>
-
+          <Related
+            changeProduct={this.changeProduct}
+            addOutfit={this.addOutfit}
+            getProductInfo={this.getProductInfo}
+            primaryProductID={this.state.productId}
+            yourOutfits={this.state.favorites}
+          />
 
           <QA />
         </div>

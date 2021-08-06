@@ -6,6 +6,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
+import InnerImageZoom from 'react-inner-image-zoom';
+import 'react-inner-image-zoom/lib/InnerImageZoom/styles.css';
 // import { Carousel } from 'react-bootstrap';
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -13,12 +15,12 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  paper: {
-    backgroundColor: theme.palette.background.paper,
-    border: '2px solid #000',
-    boxShadow: theme.shadows[5],
-    padding: theme.spacing(2, 4, 3),
-  },
+  // paper: {
+  //   backgroundColor: theme.palette.background.paper,
+  //   border: '2px solid #000',
+  //   boxShadow: theme.shadows[5],
+  //   padding: theme.spacing(2, 4, 3),
+  // },
 }));
 
 const ImageModal = () => {
@@ -46,13 +48,13 @@ const ImageModal = () => {
         <Fade in={open}>
           <div className={classes.paper}>
             <Carousel
-              className="image-model-container"
+              className="image-modal-container"
               transitionTime="1000"
               showThumbs={false}
             >
               {gallery.map((photo, i) => (
                 <div key={i}>
-                  <img src={photo.url} />
+                  <InnerImageZoom src={photo.url} zoomScale={3} sizes="40vh" />
                 </div>
               ))}
             </Carousel>
