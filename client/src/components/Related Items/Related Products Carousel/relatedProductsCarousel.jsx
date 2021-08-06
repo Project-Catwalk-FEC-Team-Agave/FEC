@@ -19,7 +19,7 @@ const RelatedProductsCarousel = ({ overviewProductInfo, changeProduct, productIn
 								changeProduct={changeProduct}
 								photo={photoObjs[i]}
 								product={product}
-								reviewsData={reviewsData}
+								reviewsData={reviewsData[i]}
 								overviewProductInfo={overviewProductInfo}/>
 							</Grid>
 						))}

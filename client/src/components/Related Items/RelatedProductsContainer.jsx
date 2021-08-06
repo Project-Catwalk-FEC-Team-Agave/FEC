@@ -20,6 +20,8 @@ class RelatedProductsContainer extends React.Component {
       overViewID: 11001
     }
 
+    this.componentDidMount = this.componentDidMount.bind(this);
+    this.getProductInfo = this.getProductInfo.bind(this);
     //function binding goes here
   }
 
@@ -46,13 +48,51 @@ class RelatedProductsContainer extends React.Component {
     });
   }
 
+  //causes 429 error when run -- too many requests
+  componentDidUpdate(prevProps, prevState) {
+    console.log('PREV PROPS: ', prevProps);
+    console.log('PREV STATE: ', prevState);
+    console.log(prevState.overViewID === prevProps.primaryProductID);
 
-  // componentDidUpdate(prevProps, prevState) {
-  //   if (this.state.overViewID !== prevProps.primaryProductID) {
+    // if (prevState.overViewID !== prevProps.primaryProductID) {
+    // //   this.getProductInfo(prevState.overViewID);
+    //   return axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/products/${prevState.overViewID}/related`, auth)
+    //   .then(({ data }) => {
+    //     this.setState({
+    //       relatedProductsIDs: data
+    //     });
+
+    //     data.forEach(productID => {
+    //       this.getProductInfo(productID);
+    //       this.getPhotos(productID);
+    //       this.getRating(productID);
+    //     })
+    //     .catch((err) =>
+    //       console.log('Error updating related products: ', err)
+    //     );
+    //   })
+    // }
+  }
+
+  // componentWillReceiveProps({primaryProductID}) {
+  //   // this.setState({...this.state,someProp})
+  //   //this.getProductInfo(primaryProductID);
+
+  //   return axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/products/${primaryProductID}/related`, auth)
+  //   .then(({ data }) => {
   //     this.setState({
-  //       productId: this.state.productId
+  //       relatedProductsIDs: data
+  //     });
+
+  //     data.forEach(productID => {
+  //       this.getProductInfo(productID);
+  //       this.getPhotos(productID);
+  //       this.getRating(productID);
   //     })
-  //   }
+  //     .catch((err) =>
+  //       console.log('Error updating related products: ', err)
+  //     );
+  //   })
   // }
 
   getOverviewProductInfo(id) {
@@ -169,8 +209,9 @@ class RelatedProductsContainer extends React.Component {
 
   render() {
 
-    // console.log('STATE: ', this.state);
-    const { changeProduct, addOutfit, getProductInfo, primaryProductID } = this.props;
+    console.log('STATE: ', this.state);
+    console.log('PROPS: ', this.props);
+    const { changeProduct, primaryProductID } = this.props;
 
 
     const {
@@ -184,7 +225,6 @@ class RelatedProductsContainer extends React.Component {
       <div className="related-products-container">
         <div>
           <RelatedProductsCarousel
-
           changeProduct={changeProduct}
           productInfo={productInfo}
           relatedProductsIDs={relatedProductsIDs}
@@ -194,7 +234,6 @@ class RelatedProductsContainer extends React.Component {
         </div>
         <div>
           <YourOutfitCarousel
-          addOutfit={addOutfit}
           productInfo={productInfo}
           relatedProductsIDs={relatedProductsIDs}
           photoObjs={photoObjs}

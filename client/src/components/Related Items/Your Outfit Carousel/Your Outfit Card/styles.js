@@ -12,7 +12,7 @@ export default makeStyles((theme) => ({
     position: 'relative'
   },
   media: {
-    height: '60%'
+    height: '65%'
   },
 	overlay: {
 		position: 'absolute',
