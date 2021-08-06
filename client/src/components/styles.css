@@ -59,8 +59,10 @@
 
 /* IMAGE MODEL */
 
-.image-model-container {
+.image-modal-container {
   position: absolute;
   justify-content: center;
-  width: 70%;
+  width: 120%;
+  margin-top: -48%;
+  margin-left: -26%;
 }
