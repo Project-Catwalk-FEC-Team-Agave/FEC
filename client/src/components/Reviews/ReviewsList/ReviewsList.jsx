@@ -45,15 +45,17 @@ function ReviewsList ({ id, metaData, totalReviews }) {
 
   return (
     <div>
-      <SortReviews sort={sort} setRequestParams={setRequestParams}/>
+      <SortReviews sort={sort} setRequestParams={setRequestParams}/><br></br><br></br>
       {reviews.map((review, i) => {
-        return <ReviewTile review={review} key={i}/>
+        return <><ReviewTile review={review} key={i}/><br></br></>
       })}
-      <AddReview id={id} metaData={metaData}/>
-      {toggleMoreReviews === true &&
-        <MoreReviews
-          requestParams={requestParams} setRequestParams={setRequestParams}/>
-      }
+      <div>
+        <AddReview id={id} metaData={metaData}/><span style={{paddingLeft: 5, paddingRight: 5}}></span>
+        {toggleMoreReviews === true &&
+          <MoreReviews style={{paddingLeft: "50px"}}
+            requestParams={requestParams} setRequestParams={setRequestParams}/>
+        }
+      </div>
     </div>
     )
 }

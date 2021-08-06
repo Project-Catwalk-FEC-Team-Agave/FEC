@@ -8,16 +8,17 @@ import AddReviewForm from '../AddReviewForm/AddReviewForm.jsx'
 const useStyles = makeStyles((theme) => ({
   modal: {
     display: 'flex',
-    alignItems: 'center',
+    alignItems: 'flexEnd',
     justifyContent: 'center',
     overflow: 'scroll',
-    pt: '25px'
+    pt: '100%'
   },
   paper: {
     backgroundColor: theme.palette.background.paper,
     border: '2px solid #000',
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
+    overflow: 'scroll'
   },
 }));
 
@@ -34,7 +35,7 @@ const AddReview = ({ id, metaData }) => {
   };
 
   return (
-    <div>
+    <>
       <button type="button" onClick={handleOpen}>
         Add a Review
       </button>
@@ -56,7 +57,7 @@ const AddReview = ({ id, metaData }) => {
           </div>
         </Fade>
       </Modal>
-    </div>
+    </>
   );
 }
 

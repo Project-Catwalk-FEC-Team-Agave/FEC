@@ -9,6 +9,16 @@ import Reviews from './Reviews/Reviews.jsx'
 import { TOKEN } from '../../../config.js';
 import axios from 'axios';
 
+// import QA from './questions/qa.jsx';
+// import Related from './Related Items/RelatedProductsContainer.jsx';
+// import stars from './Shared/stars.jsx';
+// import sampleProductData from '../../../sample_data/sampleProductData.js';
+// import NavBar from './NavBar.jsx';
+// import Reviews from './Reviews/Reviews.jsx'
+// import { TOKEN } from '../../../config.js';
+// import axios from 'axios';
+// zustand
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -22,11 +32,9 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-
     this.setState({
       productId: 11001
     })
-
   }
 
   //need to find a way to re-render when overview state is changed!
@@ -40,22 +48,21 @@ class App extends React.Component {
 
   changeProduct(id) {
     this.setState({
-      productId: id,
+      productId: id
     });
   }
 
   render() {
-
     return (
       <>
         <NavBar />
-
+        {/* <Overview/> */}
         <div>
 
           <Related changeProduct={this.changeProduct} primaryProductID={this.state.productId} />
 
-
           <QA />
+
         </div>
       </>
     );

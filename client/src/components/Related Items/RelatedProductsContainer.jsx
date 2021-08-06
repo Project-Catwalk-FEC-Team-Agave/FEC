@@ -44,6 +44,7 @@ class RelatedProductsContainer extends React.Component {
       .catch((err) =>
         console.log('Error retrieving data in componentDidMount: ', err)
       );
+
     });
   }
 
