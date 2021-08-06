@@ -4,10 +4,21 @@ import { Card, CardHeader, CardMedia, CardContent, CardActions, CardActionArea, 
 import StarBorderIcon from '@material-ui/icons/StarBorder';
 import stars from '../../../Shared/stars.jsx';
 import ComparisonModal from '../Comparison Modal/comparisonModal.jsx';
+import Rating from '@material-ui/lab/Rating';
 
 const RelatedProductsCard = ({ overviewProductInfo, changeProduct, photo, product, relatedProductStyleInfo, relatedProductsIDs, reviewsData }) => {
+
+  let reviewAverage = () => {
+    reviewsData = reviewsData || {results: [{rating: 2}, {rating: 5}, {rating: 4},
+    {rating: 4}, {rating: 2}]};
+    let sum = 0;
+    reviewsData.results.forEach(result => {
+      sum += result.rating;
+    })
+    return sum/(reviewsData.results.length);
+  }
+
   const classes = useStyles();
-  let starCount = stars(3.5);
 
   const [open, setOpen] = useState(false);
 
@@ -45,7 +56,7 @@ const RelatedProductsCard = ({ overviewProductInfo, changeProduct, photo, produc
             &nbsp;{'$' + product.default_price.split('.')[0]}
           </Typography>
           <>
-            {starCount}
+            <Rating name="read-only" value={reviewAverage()} readOnly precision={0.25}/>
           </>
         </CardContent>
     </Card>

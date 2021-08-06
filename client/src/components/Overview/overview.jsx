@@ -4,10 +4,10 @@ import AddToCart from './AddToCart.jsx';
 import StyleSelector from './StyleSelector.jsx';
 import ImageGallery from './ImageGallery.jsx';
 import ProductInfo from './ProductInfo.jsx';
-import { usePoroductStore, useStylesStore } from './store';
+import { usePoroductStore, useStylesStore, useReviewData } from './store';
 import Grid from '@material-ui/core/Grid';
-import Stars from '../Shared/stars.jsx';
 import TestGallery from './TestGallery.jsx';
+import Rating from '@material-ui/lab/Rating';
 
 const Overview = (props) => {
   const name = usePoroductStore((state) => state.name);
@@ -17,12 +17,20 @@ const Overview = (props) => {
   const getData = useStylesStore((state) => state.getData);
   const fetchStyle = useStylesStore((state) => state.fetchCurrentStyle);
   const getProductData = usePoroductStore((state) => state.getProductData);
+  const averageReview = useReviewData((state) => state.avergae);
+  const getReviewData = useReviewData((state) => state.getReviewData);
+  console.log('review', averageReview);
+
   useEffect(() => {
     getData();
   }, []);
   useEffect(() => {
     getProductData();
   }, []);
+  useEffect(() => {
+    getReviewData();
+  }, []);
+
   return (
     <div className="overview-container">
       <Grid container spacing={3}>
@@ -31,7 +39,7 @@ const Overview = (props) => {
         </Grid>
         <Grid item xs={5}>
           <div className="product-container">
-            <Stars />
+            <Rating name="read-only" value={4.5} readOnly precision={0.25} />
             <ProductInfo />
             <StyleSelector />
             <AddToCart />

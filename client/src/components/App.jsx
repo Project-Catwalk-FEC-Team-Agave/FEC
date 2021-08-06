@@ -9,37 +9,22 @@ import Reviews from './Reviews/Reviews.jsx'
 import { TOKEN } from '../../../config.js';
 import axios from 'axios';
 
-
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       productId: '11001',
       overviewProductInfo: {},
-      favorites: [],
-      productInfo: {},
     };
 
-    this.getReviews = this.getReviews.bind(this);
-    this.getProductInfo = this.getProductInfo.bind(this);
-    this.getStyles = this.getStyles.bind(this);
     this.changeProduct = this.changeProduct.bind(this);
-    this.addOutfit = this.addOutfit.bind(this);
-  }
-
-  addOutfit(product) {
-    this.setState({
-      favorites: [...this.state.favorites, product],
-    });
+    this.componentDidMount = this.componentDidMount.bind(this);
   }
 
   componentDidMount() {
     this.setState({
-      productId: 11001,
-      favorites: [],
-
-      productInfo: sampleProductData,
-    });
+      productId: 11001
+    })
   }
 
   //need to find a way to re-render when overview state is changed!
@@ -53,22 +38,8 @@ class App extends React.Component {
 
   changeProduct(id) {
     this.setState({
-      productId: id,
+      productId: id
     });
-  }
-
-  getProductInfo(id) {
-    // api call
-  }
-
-  //this has the url links
-  getStyles(id) {
-    //api call to GET /products/:product_id/styles
-  }
-
-  // method to get review for a product
-  getReviews(productId) {
-    // api call
   }
 
   render() {
@@ -85,6 +56,7 @@ class App extends React.Component {
             yourOutfits={this.state.favorites}
           />
           <Reviews id={this.state.productId}/>
+          <Related changeProduct={this.changeProduct} primaryProductID={this.state.productId} />
           <QA />
         </div>
       </>

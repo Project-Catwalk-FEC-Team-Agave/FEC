@@ -4,10 +4,20 @@ import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 import useStyles from './styles.js';
 import { Card, CardHeader, CardMedia, CardContent, CardActions, CardActionArea, Typography, IconButton } from '@material-ui/core';
 import stars from '../../../Shared/stars.jsx';
+import Rating from '@material-ui/lab/Rating';
 
 const YourOutfitCard = ({ addYourOutfit, outfits, photo, product, relatedProductStyleInfo, relatedProductsIDs, reviewsData }) => {
   const classes = useStyles();
-  let starCount = stars(3.5);
+
+  let reviewAverage = () => {
+    reviewsData = reviewsData || {results: [{rating: 2}, {rating: 5}, {rating: 4},
+    {rating: 4}, {rating: 2}]};
+    let sum = 0;
+    reviewsData.results.forEach(result => {
+      sum += result.rating;
+    })
+    return sum/(reviewsData.results.length);
+  }
 
   return (
     <Card
@@ -37,7 +47,7 @@ const YourOutfitCard = ({ addYourOutfit, outfits, photo, product, relatedProduct
           &nbsp;{'$' + product.default_price.split('.')[0]}
           </Typography>
           <>
-            {starCount}
+            <Rating name="read-only" value={reviewAverage()} readOnly precision={0.25}/>
           </>
         </CardContent>
     </Card>
