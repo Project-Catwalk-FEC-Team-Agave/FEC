@@ -63,7 +63,7 @@ const YourOutfitCarousel = ({ overViewPhoto, overviewProductInfo, addOutfit, pro
                 outfits={outfits}
                 photo={overViewPhoto}
                 product={product}
-                reviewsData={reviewsData}
+                reviewsData={reviewsData[i]}
                 addYourOutfit={addYourOutfit}>
               </YourOutfitCard>
             </Grid>

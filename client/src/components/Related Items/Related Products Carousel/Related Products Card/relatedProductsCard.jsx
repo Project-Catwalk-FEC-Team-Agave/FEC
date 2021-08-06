@@ -23,11 +23,7 @@ const RelatedProductsCard = ({ overviewProductInfo, changeProduct, photo, produc
     return sum/(reviewsData.results.length);
   }
 
-  let average = reviewAverage();
-  console.log('AVERAGE: ', average);
-
   const classes = useStyles();
-  let starCount = stars(average);
 
   const [open, setOpen] = useState(false);
 
