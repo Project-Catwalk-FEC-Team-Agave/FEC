@@ -35,7 +35,7 @@ const AddReview = ({ id, metaData }) => {
   };
 
   return (
-    <div>
+    <>
       <button type="button" onClick={handleOpen}>
         Add a Review
       </button>
@@ -57,7 +57,7 @@ const AddReview = ({ id, metaData }) => {
           </div>
         </Fade>
       </Modal>
-    </div>
+    </>
   );
 }
 

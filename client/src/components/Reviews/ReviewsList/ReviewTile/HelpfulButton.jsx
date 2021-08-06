@@ -32,8 +32,9 @@ function HelpfulButton({review_id, helpful}) {
   }
 
   return(
-    <div>Was this review helpful?
-      <button onClick={markHelpful}>Yes</button>{helpful}
+    <div style={{paddingRight: '5'}}>Was this review helpful?
+      <span style={{paddingLeft: 5, paddingRight: 5}}></span>
+      <button  onClick={markHelpful}>Yes</button>   {helpful}<span style={{paddingLeft: 5, paddingRight: 5}}></span>
       <button onClick={markUnhelpful}>No</button>
     </div>
 

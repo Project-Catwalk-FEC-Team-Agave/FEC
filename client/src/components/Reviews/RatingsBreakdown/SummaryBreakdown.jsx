@@ -24,10 +24,10 @@ function SummaryBreakdown({ metaData }) {
 
   return (
     <div>
-      {average}<Rating name="read-only" value={3} readOnly precision={0.25}/>
+      <Rating name="read-only" value={3} readOnly precision={0.25}/>
       <br></br>
-      <ReviewsChart ratings={ratings}/>
-        {Math.round((recommended.true) / (Number(recommended.true) + Number(recommended.false)) * 100)}% of Buyers Recommend this Product
+      <ReviewsChart ratings={ratings}/><br></br>
+        <strong>{Math.round((recommended.true) / (Number(recommended.true) + Number(recommended.false)) * 100)}%</strong> of Buyers Recommend this Product
         <br></br>
         <br></br>
       <ProductDetails characteristics={characteristicRatings}/>
