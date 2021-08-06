@@ -1,15 +1,14 @@
 import React from 'react';
 import Overview from './Overview/overview.jsx';
+import QA from './questions/qa.jsx';
+import Related from './Related Items/RelatedProductsContainer.jsx';
+import stars from './Shared/stars.jsx';
+import sampleProductData from '../../../sample_data/sampleProductData.js';
+import NavBar from './NavBar.jsx';
+import Reviews from './Reviews/Reviews.jsx'
+import { TOKEN } from '../../../config.js';
+import axios from 'axios';
 
-// import QA from './questions/qa.jsx';
-// import Related from './Related Items/RelatedProductsContainer.jsx';
-// import stars from './Shared/stars.jsx';
-// import sampleProductData from '../../../sample_data/sampleProductData.js';
-// import NavBar from './NavBar.jsx';
-// import Reviews from './Reviews/Reviews.jsx'
-// import { TOKEN } from '../../../config.js';
-// import axios from 'axios';
-// zustand
 
 class App extends React.Component {
   constructor(props) {
@@ -76,7 +75,7 @@ class App extends React.Component {
     return (
       <>
         <NavBar />
-        {/* <Overview/> */}
+        <Overview/>
         <div>
 
           <Related
@@ -86,7 +85,7 @@ class App extends React.Component {
             primaryProductID={this.state.productId}
             yourOutfits={this.state.favorites}
           />
-
+          <Reviews id={this.state.productId}/>
           <QA />
 
         </div>
