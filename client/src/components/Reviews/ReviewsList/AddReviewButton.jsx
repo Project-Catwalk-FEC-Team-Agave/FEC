@@ -11,7 +11,6 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     justifyContent: 'center',
     overflow: 'scroll',
-    pt: '25px'
   },
   paper: {
     backgroundColor: theme.palette.background.paper,
