@@ -30,13 +30,13 @@ class App extends React.Component {
   }
 
   //need to find a way to re-render when overview state is changed!
-  componentDidUpdate(prevProps, prevState) {
-    if (this.state.productId !== prevState.productId) {
-      this.setState({
-        productId: this.state.productId
-      })
-    }
-  }
+  // componentDidUpdate(prevProps, prevState) {
+  //   if (this.state.productId !== prevState.productId) {
+  //     this.setState({
+  //       productId: this.state.productId
+  //     })
+  //   }
+  // }
 
   changeProduct(id) {
     this.setState({
