@@ -22,3 +22,11 @@
 	display: grid;
 	place-items: center;
 }
+
+.rec-item-wrapper {
+	height: 460px;
+}
+
+.rec-carousel {
+	height: 700px;
+}

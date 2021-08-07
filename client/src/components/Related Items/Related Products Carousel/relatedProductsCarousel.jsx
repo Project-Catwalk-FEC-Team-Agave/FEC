@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { Fragment, useState } from 'react';
 import RelatedProductsCard from './Related Products Card/relatedProductsCard.jsx';
 import './styles.css';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import { IconButton, Grid } from '@material-ui/core';
 import useStyles from './styles.js';
-import { usePoroductStore } from '../../../components/Overview/store.js';
+//import { usePoroductStore } from '../../../components/Overview/store.js';
+import Carousel from 'react-elastic-carousel';
 
 const RelatedProductsCarousel = ({ overviewProductInfo, changeProduct, productInfo, photoObjs, relatedProductsIDs, reviewsData }) => {
 
@@ -18,27 +19,20 @@ const RelatedProductsCarousel = ({ overviewProductInfo, changeProduct, productIn
   const [products, setProducts] = useState([productInfo]);
 
   return (
-		<Grid className={classes.mainContainer} container alignItems='stretch' spacing={4}>
-			<div className="carouselErin">
-				<div className="innerCarousel">
-						{productInfo.slice(0, 4).map((product, i) => (
-							<Grid key={i} xs={12} sm={6} item>
-							<RelatedProductsCard
-								changeProduct={changeProduct}
-								photo={photoObjs[i]}
-								product={product}
-								reviewsData={reviewsData[i]}
-								overviewProductInfo={overviewProductInfo}/>
-							</Grid>
-						))}
-					<div className="carouselRight">
-					<IconButton style={{ color: 'black' }} aria-label="settings" className={classes.overlay}>
-						<ArrowForwardIosIcon style={{ color: 'black' }} aria-label="show next item in related products list"/>
-					</IconButton>
-					</div>
-				</div>
-			</div>
-		</Grid>
+	  <div className="carouselErin">
+			<Carousel itemsToShow={2} style={{height: '800px', paddingBottom: '100px'}}>
+				{productInfo.map((product, i) => (
+					<Fragment>
+						<RelatedProductsCard
+							changeProduct={changeProduct}
+							photo={photoObjs[i]}
+							product={product}
+							reviewsData={reviewsData[i]}
+							overviewProductInfo={overviewProductInfo}/>
+					</Fragment>
+				))}
+			</Carousel>
+		</div>
   );
 }
 
