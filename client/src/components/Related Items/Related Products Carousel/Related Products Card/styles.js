@@ -12,16 +12,17 @@ export default makeStyles((theme) => ({
     height: '65%'
   },
 	overlay: {
-		position: 'absolute',
+		position: 'relative',
 		top: '0%',
-		left: '80%',
+		left: '0%',
     width: '50px',
     height: '50px',
-    zIndex: 99
+    zIndex: 1200
   },
   icon: {
     width: '30px',
-    height: '30px'
+    height: '30px',
+    zIndex: 1200
   },
   modal: {
     display: 'flex',
