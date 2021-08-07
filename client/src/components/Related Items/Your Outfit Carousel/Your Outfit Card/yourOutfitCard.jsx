@@ -3,7 +3,6 @@ import AddIcon from '@material-ui/icons/Add';
 import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 import useStyles from './styles.js';
 import { Card, CardHeader, CardMedia, CardContent, CardActions, CardActionArea, Typography, IconButton } from '@material-ui/core';
-import stars from '../../../Shared/stars.jsx';
 import Rating from '@material-ui/lab/Rating';
 
 const YourOutfitCard = ({ addYourOutfit, outfits, photo, product, relatedProductStyleInfo, relatedProductsIDs, reviewsData }) => {
