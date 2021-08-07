@@ -4,4 +4,15 @@
 	background-color: rgb(255, 255, 255);
 	margin-left: 5%;
 	margin-right: 5%;
+	z-index: 50;
+}
+
+.rec-item-wrapper {
+	height: 480px;
+	z-index: 50;
+}
+
+.rec-carousel {
+	height: 700px;
+	z-index: 50;
 }

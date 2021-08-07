@@ -14,7 +14,7 @@ export default makeStyles((theme) => ({
 	overlay: {
 		position: 'relative',
 		top: '0%',
-		left: '0%',
+		left: '-15%',
     width: '50px',
     height: '50px',
     zIndex: 1200
