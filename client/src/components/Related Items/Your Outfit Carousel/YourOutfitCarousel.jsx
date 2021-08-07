@@ -1,26 +1,38 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import YourOutfitCard from './Your Outfit Card/yourOutfitCard.jsx';
 import './styles.css';
 import Grid from '@material-ui/core/Grid';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
-
-import { IconButton } from '@material-ui/core';
 import useStyles from './styles.js';
-import { Card, CardMedia, Typography} from '@material-ui/core';
+import { Card, CardMedia, Typography, IconButton } from '@material-ui/core';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
 import { spacing } from '@material-ui/system';
-
-//***********NEXT STEPS*********
-
-//save outfits to local storage!
-
 
 const YourOutfitCarousel = ({ overViewPhoto, overviewProductInfo, addOutfit, productInfo, photoObjs, relatedProductsIDs, reviewsData }) => {
 
   const classes = useStyles();
 
-  const [outfits, addYourOutfit] = useState([]);
   const [hover, setHover]= useState(false);
+
+  const useStickyState = (defaultValue, key) => {
+    key++;
+    const [outfits, addYourOutfit] = useState(() => {
+      const stickyValue = window.localStorage.getItem(key);
+      return stickyValue !== null
+        ? JSON.parse(stickyValue)
+        : defaultValue;
+    });
+    useEffect(() => {
+      window.localStorage.setItem(key, JSON.stringify(outfits));
+    }, [key, outfits]);
+    return [outfits, addYourOutfit];
+  }
+
+  let keyVal = 0;
+
+  const [outfits, addYourOutfit] = useStickyState([], keyVal);
+
+  console.log(keyVal);
 
   return (
     <Grid className={classes.mainContainer} container alignItems='stretch' spacing={4}>

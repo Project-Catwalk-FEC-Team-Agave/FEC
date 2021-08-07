@@ -8,7 +8,7 @@ export default makeStyles((theme) => ({
   root: {
     minWidth: 245,
     height: 450,
-    // marginTop: '20px',
+    marginTop: '20px',
 		marginBottom: '20px',
     marginRight: '7.5%',
     marginLeft: '13px',
