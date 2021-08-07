@@ -223,7 +223,7 @@ class RelatedProductsContainer extends React.Component {
     return (
       <div className="related-products-container">
         <div style={{marginTop: '200px', marginLeft: '5%'}}>
-        <Typography variant="h4" color="textSecondary" component="p">
+        <Typography variant="h4" style={{color: '#5975FF'}} component="p">
           Related Products
         </Typography>
         </div>
