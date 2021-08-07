@@ -6,18 +6,18 @@ export default makeStyles((theme) => ({
     minWidth: 245,
     height: 450,
 		marginBottom: '20px',
-    marginRight: '10px',
-    marginLeft: '5%',
     position: 'relative'
   },
   media: {
     height: '65%'
   },
 	overlay: {
-		position: 'relative',
-		top: '-160%',
-		left: '60%',
-    zIndex: '99'
+		position: 'absolute',
+		top: '0%',
+		left: '80%',
+    width: '50px',
+    height: '50px',
+    zIndex: 99
   },
   icon: {
     width: '30px',

@@ -1,12 +1,9 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import YourOutfitCard from './Your Outfit Card/yourOutfitCard.jsx';
 import './styles.css';
-import Grid from '@material-ui/core/Grid';
-import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import useStyles from './styles.js';
 import { Card, CardMedia, Typography, IconButton } from '@material-ui/core';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
-import { spacing } from '@material-ui/system';
 import Carousel from 'react-elastic-carousel';
 
 const YourOutfitCarousel = ({ overViewPhoto, overviewProductInfo, addOutfit, productInfo, photoObjs, relatedProductsIDs, reviewsData }) => {
@@ -37,7 +34,7 @@ const YourOutfitCarousel = ({ overViewPhoto, overviewProductInfo, addOutfit, pro
 
   return (
     <div className="carouselErin">
-      <Carousel itemsToShow={2} style={{height: '800px'}}>
+      <Carousel itemsToShow={4} style={{height: '800px'}}>
         <Card
           className={classes.root}>
           <CardMedia

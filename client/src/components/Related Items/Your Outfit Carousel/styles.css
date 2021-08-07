@@ -4,23 +4,4 @@
 	background-color: rgb(255, 255, 255);
 	margin-left: 5%;
 	margin-right: 5%;
-	padding-bottom: 50px;
-	padding-top: 100px;
-}
-
-.innerCarousel {
-  height: 100%;
-	width: 100%;
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-	display: flex;
-}
-
-.innerCarousel .carouselRight {
-	flex: 5%;
-	height: 100%;
-	background-color: hsla(0, 0%, 100%, 0.65);
-	display: grid;
-	place-items: center;
 }

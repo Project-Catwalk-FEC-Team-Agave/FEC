@@ -1,17 +1,11 @@
 import { makeStyles } from '@material-ui/core/styles';
 
 export default makeStyles((theme) => ({
-  mainContainer: {
-    display: 'flex',
-		paddingTop: '50px'
-  },
   root: {
     minWidth: 245,
     height: 450,
     marginTop: '20px',
 		marginBottom: '20px',
-    marginRight: '7.5%',
-    marginLeft: '13px',
     position: 'relative'
   },
   media: {
@@ -22,11 +16,6 @@ export default makeStyles((theme) => ({
 		position: 'relative',
 		top: '40%',
 		left: '35%'
-  },
-  arrow: {
-    position: 'absolute',
-    top: '50%',
-		left: '150%'
   },
   icon: {
     width: '60px',

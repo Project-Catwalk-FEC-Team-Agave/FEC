@@ -20,7 +20,7 @@ const RelatedProductsCarousel = ({ overviewProductInfo, changeProduct, productIn
 
   return (
 	  <div className="carouselErin">
-			<Carousel itemsToShow={2} style={{height: '800px', paddingBottom: '100px'}}>
+			<Carousel itemsToShow={4} style={{height: '800px', paddingBottom: '100px'}}>
 				{productInfo.map((product, i) => (
 					<Fragment>
 						<RelatedProductsCard

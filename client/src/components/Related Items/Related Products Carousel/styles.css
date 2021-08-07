@@ -6,23 +6,6 @@
 	margin-right: 5%;
 }
 
-.innerCarousel {
-  height: 100%;
-	width: 100%;
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-	display: flex;
-}
-
-.innerCarousel .carouselRight {
-	flex: 5%;
-	height: 100%;
-	background-color: hsla(0, 0%, 100%, 0.65);
-	display: grid;
-	place-items: center;
-}
-
 .rec-item-wrapper {
 	height: 460px;
 }
