@@ -6,8 +6,6 @@ export default makeStyles((theme) => ({
     minWidth: 245,
     height: 450,
 		marginBottom: '20px',
-    marginRight: '10px',
-    marginLeft: '5%',
     position: 'relative'
   },
   media: {
@@ -15,13 +13,16 @@ export default makeStyles((theme) => ({
   },
 	overlay: {
 		position: 'relative',
-		top: '-160%',
-		left: '60%',
-    zIndex: '99'
+		top: '0%',
+		left: '-15%',
+    width: '50px',
+    height: '50px',
+    zIndex: 1200
   },
   icon: {
     width: '30px',
-    height: '30px'
+    height: '30px',
+    zIndex: 1200
   },
   modal: {
     display: 'flex',

@@ -13,7 +13,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      productId: '11001',
+      productId: '11007',
       overviewProductInfo: {},
     };
 
@@ -23,7 +23,7 @@ class App extends React.Component {
 
   componentDidMount() {
     this.setState({
-      productId: 11001
+      productId: 11007
     })
   }
 

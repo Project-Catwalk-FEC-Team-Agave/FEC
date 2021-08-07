@@ -7,8 +7,6 @@ export default makeStyles((theme) => ({
     height: 450,
     marginTop: '20px',
 		marginBottom: '20px',
-    marginRight: '10px',
-    marginLeft: '5px',
     position: 'relative'
   },
   media: {
