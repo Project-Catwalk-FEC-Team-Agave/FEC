@@ -8,11 +8,6 @@ import { Card, CardMedia, Typography, IconButton } from '@material-ui/core';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
 import { spacing } from '@material-ui/system';
 
-//***********NEXT STEPS*********
-
-//save outfits to local storage!
-
-
 const YourOutfitCarousel = ({ overViewPhoto, overviewProductInfo, addOutfit, productInfo, photoObjs, relatedProductsIDs, reviewsData }) => {
 
   const classes = useStyles();
